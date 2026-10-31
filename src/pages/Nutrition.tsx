@@ -1,4 +1,7 @@
 import { useState } from "react";
+import { useSearchParams } from "react-router-dom";
+import ProgramNutrition from "../components/ProgramNutrition";
+import { programDefinitions } from "../lib/programs";
 import { Plus, Trash2, Droplets, SlidersHorizontal } from "lucide-react";
 import { Button } from "../components/ui/button";
 import {
@@ -22,6 +25,9 @@ import { mealSchema, targetSchema } from "../lib/validation";
 import { foodSuggestions } from "../lib/catalog";
 import type { Targets } from "../lib/types";
 export default function Nutrition() {
+  const [params] = useSearchParams();
+  const [showSource, setShowSource] = useState(!!params.get("program"));
+  const [sourceId, setSourceId] = useState(params.get("program") || "shred");
   const meals = useRows("meal_entries"),
     targets = useRows("nutrition_targets"),
     waters = useRows("water_entries");
@@ -63,6 +69,9 @@ export default function Nutrition() {
         description="A little more awareness. A more sustainable routine."
       >
         <div className="actions">
+          <Button variant="outline" onClick={() => setShowSource(!showSource)}>
+            Program calculations
+          </Button>
           <Button
             variant="outline"
             onClick={() => setShowTargets(!showTargets)}
@@ -89,6 +98,38 @@ export default function Nutrition() {
           <span>Values from your logged entries</span>
         </div>
         {error && <Notice error>{error}</Notice>}
+        {showSource && (
+          <section className="nutrition-source-library">
+            <Field label="Source nutrition program">
+              <select
+                value={sourceId}
+                onChange={(e) => setSourceId(e.target.value)}
+              >
+                {programDefinitions.map((p) => (
+                  <option key={p.id} value={p.id}>
+                    {p.title}
+                  </option>
+                ))}
+              </select>
+            </Field>
+            <ProgramNutrition
+              key={sourceId}
+              program={
+                programDefinitions.find((p) => p.id === sourceId) ||
+                programDefinitions[2]
+              }
+            />
+          </section>
+        )}
+        {target?.source && (
+          <Notice>
+            Targets from {target.source.fileName} · {target.source.mode}
+            {target.source.exampleDay
+              ? ` · example day ${target.source.exampleDay}`
+              : ""}
+            . You can edit or replace these targets.
+          </Notice>
+        )}
         {showTargets && (
           <TargetForm target={target} onClose={() => setShowTargets(false)} />
         )}
@@ -108,7 +149,7 @@ export default function Nutrition() {
             </div>
             <p>
               {target
-                ? `of ${round(target.calories)} kcal personal target`
+                ? `of ${target.calories.toLocaleString(undefined, { maximumFractionDigits: 2 })} kcal personal target`
                 : "Set a personal calorie target when you’re ready."}
             </p>
             <div className="progress-track">
@@ -137,7 +178,13 @@ export default function Nutrition() {
                   </span>
                   <strong>
                     {round(total[macro])}
-                    <small> g{target ? ` / ${target[macro]}` : ""}</small>
+                    <small>
+                      {" "}
+                      g
+                      {target
+                        ? ` / ${target[macro].toLocaleString(undefined, { maximumFractionDigits: 2 })}`
+                        : ""}
+                    </small>
                   </strong>
                 </div>
                 <div className="progress-track">

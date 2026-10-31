@@ -22,11 +22,46 @@ export interface Profile {
   timezone: string;
   quality: "auto" | "static";
 }
+export interface SourceSegment {
+  label: string;
+  target: string;
+  reps: number | null;
+  unit: "reps" | "seconds";
+  multiplier: number;
+}
+export interface SourceSet {
+  text: string;
+  warmup: boolean;
+  segments: SourceSegment[];
+}
+export interface SourcePrescription {
+  programId: string;
+  programTitle: string;
+  phaseId: string;
+  phaseTitle: string;
+  workoutId: string;
+  fileName: string;
+  page: number;
+  name: string;
+  restMin: number | null;
+  restMax: number | null;
+  rows: SourceSet[];
+  notes: string[];
+  workoutNotes: string[];
+}
+export interface LoggedSegment {
+  label: string;
+  reps: number;
+  weight: number;
+  unit: "reps" | "seconds";
+  multiplier: number;
+}
 export interface Prescription {
   exercise_id: string;
   sets: number;
   reps: number;
   rest: number;
+  source?: SourcePrescription;
 }
 export interface Template {
   id: string;
@@ -57,6 +92,7 @@ export interface SetLog {
   weight: number;
   rpe: number;
   completed: boolean;
+  segments?: LoggedSegment[];
 }
 export interface Attendance {
   id: string;
@@ -101,6 +137,15 @@ export interface Targets {
   carbs: number;
   fat: number;
   water_ml: number;
+  source?: {
+    programId: string;
+    mode: string;
+    fileName: string;
+    pages: number[];
+    weightLb?: number;
+    carbReduction?: number;
+    exampleDay?: number;
+  } | null;
 }
 export interface Measurement {
   id: string;
@@ -155,4 +200,5 @@ export interface Exercise {
   instructions: string[];
   mistakes: string;
   alternative: string;
+  prescription?: SourcePrescription;
 }

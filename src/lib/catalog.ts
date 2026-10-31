@@ -1,4 +1,5 @@
 import type { Exercise } from "./types";
+import { sourceExercises } from "./programs";
 export const muscleGroups = [
   {
     name: "Chest",
@@ -262,7 +263,9 @@ export const exercises: Exercise[] = raw.map((e) => ({
   rest: 90,
   difficulty: e.id === "bench" || e.id === "rdl" ? "Intermediate" : "Beginner",
 }));
-export const findExercise = (id: string) => exercises.find((e) => e.id === id)!;
+export const findExercise = (id: string) =>
+  (exercises.find((e) => e.id === id) ||
+    sourceExercises.find((e) => e.id === id))!;
 export const splits = [
   "Full Body",
   "Upper/Lower",

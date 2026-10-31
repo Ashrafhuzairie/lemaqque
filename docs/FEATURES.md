@@ -2,7 +2,10 @@
 
 ## Implemented MVP capabilities
 
-- Dark responsive brand system, local fonts, keyboard controls, reduced motion and mobile navigation.
+- Vibrant championship-inspired black/crimson/gold brand system, local Barlow Condensed/Manrope fonts, keyboard controls, reduced motion and mobile navigation.
+- All three supplied PDF programs: 20 source-linked templates, 105 exercise blocks, 471 printed sets; idempotent single/phase/all import; exact per-set rows, example pounds and rest ranges.
+- Composite actual-set logging for supersets, partial/drop segments and ladders, with timed flexes excluded from volume.
+- Exact source shred macro equations, adjusted/re-feed arithmetic, source meal portions, rounded examples and 30-day example table. No fabricated recipe macros or auto-entered example records.
 - Email sign-up/sign-in/password recovery UI with Supabase client integration; cloud flows require reachable and configured Auth.
 - Device-local workspace explicitly labeled, persisted in IndexedDB, separate from cloud accounts.
 - Editable adult profile: goals, height/weight, experience, equipment, preferred days, duration, restrictions, timezone and static-display preference.
@@ -36,7 +39,7 @@
 - Weekly attendance view, historical streak algorithms and monthly narrative summaries.
 - Strength progression charts, measurement charts beyond weight, progress-photo upload/comparison UI or body-fat estimates.
 - Full validated anatomy/animation experience, hover tooltips, left/right node selection, rep counter or authored skeletal assets.
-- Source-reviewed Olympia-inspired collections at each level. Generic original programs are labeled as such.
+- Independent professional validation or endorsement of the uploaded athlete programs. Supplied sources are transcribed and attributed; they are not claimed as an official affiliation or individualized prescription.
 - Protected admin interface and editorial approval workflow; catalog writes are reserved for server-controlled admin app_metadata roles.
 - AI integration, subscriptions/billing, cloud offline-write synchronization, local-to-cloud import, production analytics/monitoring.
 

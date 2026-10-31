@@ -23,7 +23,23 @@ export function nutritionTotals(meals: Meal[]) {
   );
 }
 export const volume = (logs: SetLog[]) =>
-  logs.filter((s) => s.completed).reduce((n, s) => n + s.reps * s.weight, 0);
+  logs
+    .filter((s) => s.completed)
+    .reduce(
+      (n, s) =>
+        n +
+        (s.segments?.length
+          ? s.segments.reduce(
+              (sum, part) =>
+                sum +
+                (part.unit === "reps"
+                  ? part.reps * part.weight * part.multiplier
+                  : 0),
+              0,
+            )
+          : s.reps * s.weight),
+      0,
+    );
 export function attendanceRate(
   days: { day: string; status: string }[],
   attendance: Attendance[],

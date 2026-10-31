@@ -40,8 +40,15 @@ import {
   useProfile,
 } from "../lib/store";
 import { exercises, findExercise, splits } from "../lib/catalog";
+import { sourceExercises, restLabel } from "../lib/programs";
+import SourcePrescription from "../components/SourcePrescription";
+import SourceSetRow from "../components/SourceSetRow";
 import { elapsed, formatTime, localDay, volume } from "../lib/fitness";
-import { templateSchema, setSchema } from "../lib/validation";
+import {
+  templateSchema,
+  setSchema,
+  sourceSetLogSchema,
+} from "../lib/validation";
 import type { Prescription, Session, Template } from "../lib/types";
 export function Workouts() {
   const query = useRows("workout_templates"),
@@ -129,9 +136,26 @@ export function Workouts() {
                 <div className="workout-details">
                   <h2>{t.name}</h2>
                   <p>
-                    {t.exercises.length} exercises <span>·</span>{" "}
-                    {t.exercises.reduce((a, e) => a + e.sets, 0)} sets
+                    {t.exercises.length}{" "}
+                    {t.exercises.some((e) => e.source)
+                      ? "source blocks"
+                      : "exercises"}{" "}
+                    <span>·</span> {t.exercises.reduce((a, e) => a + e.sets, 0)}{" "}
+                    sets
                   </p>
+                  {t.exercises[0]?.source && (
+                    <Link
+                      className="source-template-link"
+                      to={
+                        "/app/programs?program=" +
+                        t.exercises[0].source.programId
+                      }
+                    >
+                      {t.exercises[0].source.programTitle} ·{" "}
+                      {t.exercises[0].source.phaseTitle}
+                      <ArrowRight size={13} />
+                    </Link>
+                  )}
                   <div className="muscle-tags">
                     {[
                       ...new Set(
@@ -273,7 +297,7 @@ export function Builder() {
     <>
       <PageHead
         title={edit ? "Refine your routine." : "Build with intention."}
-        description="Choose your movements. Set your pace. Make a plan you’ll return to."
+        description="Custom movements are editable. Imported source blocks keep every prescribed set; reordering or removing them adapts your personal copy."
       />
       <DataGate queries={[query]}>
         <form onSubmit={submit} className="builder-grid">
@@ -293,6 +317,9 @@ export function Builder() {
                   value={split}
                   onChange={(e) => setSplit(e.target.value)}
                 >
+                  {!splits.includes(split) && (
+                    <option value={split}>{split}</option>
+                  )}
                   {splits.map((s) => (
                     <option key={s}>{s}</option>
                   ))}
@@ -351,41 +378,45 @@ export function Builder() {
                       </button>
                     </div>
                   </div>
-                  <div className="prescription-fields">
-                    <Field label="Sets">
-                      <input
-                        type="number"
-                        min={1}
-                        max={10}
-                        value={p.sets}
-                        onChange={(e) =>
-                          change(i, "sets", Number(e.target.value))
-                        }
-                      />
-                    </Field>
-                    <Field label="Target reps">
-                      <input
-                        type="number"
-                        min={1}
-                        max={100}
-                        value={p.reps}
-                        onChange={(e) =>
-                          change(i, "reps", Number(e.target.value))
-                        }
-                      />
-                    </Field>
-                    <Field label="Rest · sec">
-                      <input
-                        type="number"
-                        min={15}
-                        max={600}
-                        value={p.rest}
-                        onChange={(e) =>
-                          change(i, "rest", Number(e.target.value))
-                        }
-                      />
-                    </Field>
-                  </div>
+                  {p.source ? (
+                    <SourcePrescription source={p.source} compact />
+                  ) : (
+                    <div className="prescription-fields">
+                      <Field label="Sets">
+                        <input
+                          type="number"
+                          min={1}
+                          max={10}
+                          value={p.sets}
+                          onChange={(e) =>
+                            change(i, "sets", Number(e.target.value))
+                          }
+                        />
+                      </Field>
+                      <Field label="Target reps">
+                        <input
+                          type="number"
+                          min={1}
+                          max={100}
+                          value={p.reps}
+                          onChange={(e) =>
+                            change(i, "reps", Number(e.target.value))
+                          }
+                        />
+                      </Field>
+                      <Field label="Rest · sec">
+                        <input
+                          type="number"
+                          min={15}
+                          max={600}
+                          value={p.rest}
+                          onChange={(e) =>
+                            change(i, "rest", Number(e.target.value))
+                          }
+                        />
+                      </Field>
+                    </div>
+                  )}
                 </div>
               ))}
             </div>
@@ -405,7 +436,7 @@ export function Builder() {
               />
             </Field>
             <div className="exercise-picker">
-              {exercises
+              {[...exercises, ...sourceExercises]
                 .filter((e) =>
                   (e.name + " " + e.muscle + " " + e.equipment)
                     .toLowerCase()
@@ -424,6 +455,7 @@ export function Builder() {
                           sets: e.sets,
                           reps: e.reps,
                           rest: e.rest,
+                          ...(e.prescription ? { source: e.prescription } : {}),
                         },
                       ])
                     }
@@ -606,7 +638,9 @@ export function ActiveWorkout() {
                           {s.set_number}
                         </span>
                         <strong>
-                          {s.reps} × {s.weight} kg
+                          {s.segments?.length
+                            ? `${s.segments.filter((p) => p.unit === "reps").reduce((n, p) => n + p.reps * p.multiplier, 0)} reps · ${round(volume([s]))} kg volume`
+                            : `${s.reps} × ${s.weight} kg`}
                         </strong>
                       </div>
                     ))}
@@ -684,9 +718,9 @@ export function ActiveWorkout() {
                           <span className="tag">{exercise.muscle}</span>
                           <h2>{exercise.name}</h2>
                           <p>
-                            {currentPrescription?.sets || 3} sets ·{" "}
-                            {currentPrescription?.reps || 10} target reps ·{" "}
-                            {currentPrescription?.rest || 90}s rest
+                            {currentPrescription?.source
+                              ? `${currentPrescription.source.rows.length} source sets · ${restLabel(currentPrescription.source)}`
+                              : `${currentPrescription?.sets || 3} sets · ${currentPrescription?.reps || 10} target reps · ${currentPrescription?.rest || 90}s rest`}
                           </p>
                         </div>
                         <Button asChild variant="ghost">
@@ -709,73 +743,151 @@ export function ActiveWorkout() {
                           individualized technique guidance.
                         </p>
                       </details>
-                      <div className="set-labels">
-                        <span>SET</span>
-                        <span>REPS</span>
-                        <span>KG</span>
-                        <span>RPE</span>
-                        <span>DONE</span>
-                      </div>
-                      {Array.from(
-                        { length: currentPrescription?.sets || 3 },
-                        (_, i) => {
-                          const log = sessionLogs.find(
-                            (l) =>
-                              l.exercise_id === exerciseId &&
-                              l.set_number === i + 1,
-                          );
-                          const previous = logs.data
-                            ?.filter(
-                              (l) =>
-                                l.exercise_id === exerciseId &&
-                                l.session_id !== id &&
-                                l.completed,
-                            )
-                            .at(-1);
-                          return (
-                            <SetRow
-                              key={exerciseId + i + (log?.id || "")}
-                              number={i + 1}
-                              defaultReps={currentPrescription?.reps || 10}
-                              log={log}
-                              previous={
-                                previous
-                                  ? `${previous.reps} × ${previous.weight} kg`
-                                  : undefined
-                              }
-                              disabled={
-                                !!session.paused_at || saveLog.isPending
-                              }
-                              onSave={async (values) => {
-                                try {
-                                  setError("");
-                                  const parsed = setSchema.parse(values);
-                                  await saveLog.mutateAsync({
-                                    ...identity(userId!),
-                                    id: log?.id || crypto.randomUUID(),
-                                    session_id: id!,
-                                    exercise_id: exerciseId,
-                                    set_number: i + 1,
-                                    ...parsed,
-                                    completed: !log?.completed,
-                                  });
-                                  if (!log?.completed) {
-                                    const until =
-                                      Date.now() +
-                                      (currentPrescription?.rest || 90) * 1000;
-                                    setRestUntil(until);
-                                    localStorage.setItem(
-                                      "lmq:rest:" + id,
-                                      String(until),
-                                    );
+                      {currentPrescription?.source ? (
+                        <div className="source-active-plan">
+                          <SourcePrescription
+                            source={currentPrescription.source}
+                            compact
+                          />
+                          {currentPrescription.source.rows.map(
+                            (sourceSet, i) => {
+                              const log = sessionLogs.find(
+                                (l) =>
+                                  l.exercise_id === exerciseId &&
+                                  l.set_number === i + 1,
+                              );
+                              return (
+                                <SourceSetRow
+                                  key={
+                                    exerciseId + "-" + i + "-" + (log?.id || "")
                                   }
-                                } catch (e) {
-                                  setError((e as Error).message);
-                                }
-                              }}
-                            />
-                          );
-                        },
+                                  number={i + 1}
+                                  source={sourceSet}
+                                  log={log}
+                                  disabled={
+                                    !!session.paused_at || saveLog.isPending
+                                  }
+                                  onSave={async (value) => {
+                                    try {
+                                      setError("");
+                                      const parsed =
+                                        sourceSetLogSchema.parse(value);
+                                      await saveLog.mutateAsync({
+                                        ...identity(userId!),
+                                        id: log?.id || crypto.randomUUID(),
+                                        session_id: id!,
+                                        exercise_id: exerciseId,
+                                        set_number: i + 1,
+                                        reps: 0,
+                                        weight: 0,
+                                        rpe: parsed.rpe,
+                                        segments: parsed.segments,
+                                        completed: !log?.completed,
+                                      });
+                                      const seconds =
+                                        currentPrescription.source?.restMin;
+                                      if (!log?.completed && seconds) {
+                                        const until =
+                                          Date.now() + seconds * 1000;
+                                        setRestUntil(until);
+                                        localStorage.setItem(
+                                          "lmq:rest:" + id,
+                                          String(until),
+                                        );
+                                      }
+                                    } catch (e) {
+                                      setError((e as Error).message);
+                                    }
+                                  }}
+                                />
+                              );
+                            },
+                          )}
+                          {currentPrescription.source.restMin !==
+                            currentPrescription.source.restMax &&
+                            currentPrescription.source.restMin !== null && (
+                              <p className="fine-print">
+                                The source specifies{" "}
+                                {currentPrescription.source.restMin}–
+                                {currentPrescription.source.restMax} seconds.
+                                The countdown starts at the lower end; the full
+                                source range remains visible.
+                              </p>
+                            )}
+                        </div>
+                      ) : (
+                        <>
+                          {" "}
+                          <div className="set-labels">
+                            <span>SET</span>
+                            <span>REPS</span>
+                            <span>KG</span>
+                            <span>RPE</span>
+                            <span>DONE</span>
+                          </div>
+                          {Array.from(
+                            { length: currentPrescription?.sets || 3 },
+                            (_, i) => {
+                              const log = sessionLogs.find(
+                                (l) =>
+                                  l.exercise_id === exerciseId &&
+                                  l.set_number === i + 1,
+                              );
+                              const previous = logs.data
+                                ?.filter(
+                                  (l) =>
+                                    l.exercise_id === exerciseId &&
+                                    l.session_id !== id &&
+                                    l.completed,
+                                )
+                                .at(-1);
+                              return (
+                                <SetRow
+                                  key={exerciseId + i + (log?.id || "")}
+                                  number={i + 1}
+                                  defaultReps={currentPrescription?.reps || 10}
+                                  log={log}
+                                  previous={
+                                    previous
+                                      ? `${previous.reps} × ${previous.weight} kg`
+                                      : undefined
+                                  }
+                                  disabled={
+                                    !!session.paused_at || saveLog.isPending
+                                  }
+                                  onSave={async (values) => {
+                                    try {
+                                      setError("");
+                                      const parsed = setSchema.parse(values);
+                                      await saveLog.mutateAsync({
+                                        ...identity(userId!),
+                                        id: log?.id || crypto.randomUUID(),
+                                        session_id: id!,
+                                        exercise_id: exerciseId,
+                                        set_number: i + 1,
+                                        ...parsed,
+                                        completed: !log?.completed,
+                                      });
+                                      if (!log?.completed) {
+                                        const until =
+                                          Date.now() +
+                                          (currentPrescription?.rest || 90) *
+                                            1000;
+                                        setRestUntil(until);
+                                        localStorage.setItem(
+                                          "lmq:rest:" + id,
+                                          String(until),
+                                        );
+                                      }
+                                    } catch (e) {
+                                      setError((e as Error).message);
+                                    }
+                                  }}
+                                />
+                              );
+                            },
+                          )}
+                        </>
                       )}
                       {restUntil > now && (
                         <div className="rest-timer" role="status">

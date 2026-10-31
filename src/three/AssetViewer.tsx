@@ -65,7 +65,7 @@ function Model({
           if ("emissive" in m)
             (m as THREE.MeshStandardMaterial).emissive.set(
               asset.region_map[region]?.includes(o.name)
-                ? "#3c6630"
+                ? "#8b1f35"
                 : "#000000",
             );
       }

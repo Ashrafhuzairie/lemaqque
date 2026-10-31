@@ -25,7 +25,7 @@ function Sculpture({
       <mesh rotation={[0, 0, Math.PI / 7]}>
         <torusKnotGeometry args={[1.35, 0.29, 180, 24, 2, 3]} />
         <meshPhysicalMaterial
-          color="#b4bfad"
+          color="#c6c9d6"
           roughness={0.32}
           metalness={0.76}
           clearcoat={0.6}
@@ -34,14 +34,14 @@ function Sculpture({
       <mesh rotation={[Math.PI / 2, 0.3, 0]}>
         <torusGeometry args={[2.18, 0.012, 8, 120]} />
         <meshStandardMaterial
-          color="#a6e083"
+          color="#ff4d57"
           roughness={0.4}
           metalness={0.25}
         />
       </mesh>
       <mesh rotation={[0.6, 0, Math.PI / 5]}>
         <torusGeometry args={[2.45, 0.009, 8, 120]} />
-        <meshStandardMaterial color="#c5ad7a" roughness={0.5} metalness={0.4} />
+        <meshStandardMaterial color="#ffcf5c" roughness={0.5} metalness={0.4} />
       </mesh>
     </group>
   );
@@ -116,17 +116,17 @@ export default function PerformanceScene() {
           <directionalLight
             position={[4, 5, 3]}
             intensity={4}
-            color="#f3ede1"
+            color="#f6f7fb"
           />
           <directionalLight
             position={[-4, -1, 1]}
             intensity={3}
-            color="#a6e083"
+            color="#ff4d57"
           />
           <spotLight
             position={[2, -4, 2]}
             intensity={22}
-            color="#c5ad7a"
+            color="#ffcf5c"
             angle={0.6}
           />
           <Sculpture reduced={reduced} scroll={scroll} />

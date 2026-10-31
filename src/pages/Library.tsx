@@ -2,16 +2,19 @@ import { lazy, Suspense, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { useSearchParams, Link } from "react-router-dom";
 import { ArrowRight, Box, Search, SlidersHorizontal } from "lucide-react";
-import { exercises, muscleGroups } from "../lib/catalog";
+import { exercises, muscleGroups, findExercise } from "../lib/catalog";
 import { useStore, useProfile } from "../lib/store";
 import { Button } from "../components/ui/button";
 import { PageHead, Field, Notice, DataGate } from "../components/common";
+import SourcePrescription from "../components/SourcePrescription";
 const AssetViewer = lazy(() => import("../three/AssetViewer"));
 export function Library() {
   const [params, setParams] = useSearchParams();
   const [search, setSearch] = useState(""),
     [muscle, setMuscle] = useState("All");
-  const selected = exercises.find((e) => e.id === params.get("exercise"));
+  const selected = params.get("exercise")
+    ? findExercise(params.get("exercise")!)
+    : undefined;
   const { repo, local } = useStore();
   const { profile } = useProfile();
   const assets = useQuery({
@@ -78,32 +81,39 @@ export function Library() {
               3D catalog unavailable. Written instructions remain available.
             </Notice>
           )}
-          <div className="instruction-grid">
-            <div>
-              <h3>Movement checkpoints</h3>
-              <ol>
-                {selected.instructions.map((s) => (
-                  <li key={s}>{s}</li>
-                ))}
-              </ol>
-            </div>
-            <div>
-              <h3>Keep in mind</h3>
-              <p>{selected.mistakes}</p>
-              <h3>Starting guidance</h3>
-              <p>
-                {selected.sets} sets · {selected.reps}{" "}
-                {selected.id === "plank" ? "seconds" : "reps"} · {selected.rest}{" "}
-                sec rest. Choose a load that leaves comfortable repetitions in
-                reserve.
-              </p>
-              <h3>Alternative to explore</h3>
-              <p>
-                {selected.alternative}. Substitutions may train different
-                muscles; assess suitability.
-              </p>
-            </div>
-          </div>
+          {selected.prescription ? (
+            <SourcePrescription source={selected.prescription} />
+          ) : (
+            <>
+              {" "}
+              <div className="instruction-grid">
+                <div>
+                  <h3>Movement checkpoints</h3>
+                  <ol>
+                    {selected.instructions.map((s) => (
+                      <li key={s}>{s}</li>
+                    ))}
+                  </ol>
+                </div>
+                <div>
+                  <h3>Keep in mind</h3>
+                  <p>{selected.mistakes}</p>
+                  <h3>Starting guidance</h3>
+                  <p>
+                    {selected.sets} sets · {selected.reps}{" "}
+                    {selected.id === "plank" ? "seconds" : "reps"} ·{" "}
+                    {selected.rest} sec rest. Choose a load that leaves
+                    comfortable repetitions in reserve.
+                  </p>
+                  <h3>Alternative to explore</h3>
+                  <p>
+                    {selected.alternative}. Substitutions may train different
+                    muscles; assess suitability.
+                  </p>
+                </div>
+              </div>
+            </>
+          )}
           <Notice>
             General education, not individualized technique clearance. Stop if a
             movement causes pain; ask a qualified coach when unsure.

@@ -193,33 +193,33 @@ export default function Progress() {
               >
                 <ResponsiveContainer width="100%" height="100%">
                   <AreaChart data={data}>
-                    <CartesianGrid vertical={false} stroke="#354138" />
+                    <CartesianGrid vertical={false} stroke="#343742" />
                     <XAxis
                       dataKey="day"
-                      tick={{ fill: "#b1bdb4", fontSize: 11 }}
+                      tick={{ fill: "#b8becf", fontSize: 11 }}
                       tickFormatter={(v) => v.slice(5)}
                       axisLine={false}
                     />
                     <YAxis
                       domain={["dataMin - 2", "dataMax + 2"]}
-                      tick={{ fill: "#b1bdb4", fontSize: 11 }}
+                      tick={{ fill: "#b8becf", fontSize: 11 }}
                       axisLine={false}
                       unit="kg"
                     />
                     <Tooltip
                       contentStyle={{
-                        background: "#242d29",
+                        background: "#20232e",
                         border: "none",
                         borderRadius: 12,
-                        color: "#f3ede1",
+                        color: "#f6f7fb",
                       }}
                     />
                     <Area
                       dataKey="weight"
                       name="Weight · kg"
                       type="monotone"
-                      stroke="#a6e083"
-                      fill="#a6e083"
+                      stroke="#ff4d57"
+                      fill="#ff4d57"
                       fillOpacity={0.1}
                       strokeWidth={2}
                       isAnimationActive={false}

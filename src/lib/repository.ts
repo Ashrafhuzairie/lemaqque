@@ -9,6 +9,7 @@ import type {
   SetLog,
   Attendance,
   Scheduled,
+  Template,
 } from "./types";
 const url = import.meta.env.VITE_SUPABASE_URL,
   key = import.meta.env.VITE_SUPABASE_ANON_KEY;
@@ -72,6 +73,31 @@ export function repository(local: boolean, userId: string) {
         if (error) throw Error(error.message);
       }
       return value;
+    },
+    async importTemplates(templates: Template[]) {
+      if (templates.some((t) => t.user_id !== userId))
+        throw Error("Owner mismatch.");
+      let added = 0;
+      if (local)
+        await update((state) => {
+          const existing = (state.workout_templates || []) as Template[];
+          const ids = new Set(existing.map((t) => t.id));
+          const newRows = templates.filter((t) => !ids.has(t.id));
+          added = newRows.length;
+          state.workout_templates = [...existing, ...newRows];
+        });
+      else {
+        const { data, error } = await client().rpc("import_source_templates", {
+          templates,
+        });
+        if (error)
+          throw Error(
+            error.message +
+              " If this is a schema error, apply the program-prescription migration.",
+          );
+        added = Number(data);
+      }
+      return added;
     },
     async remove(table: TableName, id: string) {
       if (local)

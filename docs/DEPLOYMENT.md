@@ -6,7 +6,9 @@
    - `supabase/migrations/202611010001_core.sql`
    - `supabase/migrations/202611010002_storage.sql`
    - `supabase/migrations/202611010003_catalog.sql`
-2. These are initial migrations, not repeatable SQL snippets. Do not rerun a migration already applied. The migration defines all catalog and user tables, RLS and a transactional `finish_workout` function. No nutrition values or third-party 3D assets are seeded.
+   - `supabase/migrations/202611020001_source_prescriptions.sql`
+   - `supabase/migrations/202611020002_source_catalog.sql`
+2. These are initial migrations, not repeatable SQL snippets. Do not rerun a migration already applied. The migrations define catalog/user tables, RLS, transactional workout completion and source-template import. The final two migrations add 105 source exercise blocks, composite actual logs and nutrition-target provenance. No diary entries, personal targets or third-party 3D assets are seeded. If the original migrations are already applied, run only the two new program migrations.
 3. Configure Auth Site URL and redirect URLs for the deployed origin, `/app` and `/auth?mode=recovery`. Enable email confirmation and configure production SMTP. Google OAuth is not wired to the UI yet; do not claim it is available.
 4. Deploy account deletion:
    ```sh

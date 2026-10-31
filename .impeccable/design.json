@@ -1,385 +1,505 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-31T17:35:28.987158+00:00",
+  "generatedAt": "2026-10-31T19:43:39.404485+00:00",
   "title": "Design System: LÉMAQQUE",
   "extensions": {
     "colorMeta": {
-      "obsidian": {
+      "matte-black": {
         "role": "neutral",
-        "displayName": "Obsidian",
+        "displayName": "Matte Black",
         "tonalRamp": [
-          "oklch(15.00% 0.0033 173.15)",
-          "oklch(26.43% 0.0058 173.15)",
-          "oklch(37.86% 0.0083 173.15)",
-          "oklch(49.29% 0.0098 173.15)",
-          "oklch(60.71% 0.0098 173.15)",
-          "oklch(72.14% 0.0091 173.15)",
-          "oklch(83.57% 0.0054 173.15)",
-          "oklch(95.00% 0.0016 173.15)"
+          "oklch(15.00% 0.0028 267.98)",
+          "oklch(26.43% 0.0056 267.98)",
+          "oklch(37.86% 0.0089 267.98)",
+          "oklch(49.29% 0.0111 267.98)",
+          "oklch(60.71% 0.0111 267.98)",
+          "oklch(72.14% 0.0095 267.98)",
+          "oklch(83.57% 0.0056 267.98)",
+          "oklch(95.00% 0.0017 267.98)"
         ]
       },
-      "charcoal": {
-        "role": "neutral",
-        "displayName": "Charcoal — brand commitment",
-        "tonalRamp": [
-          "oklch(15.00% 0.0048 166.64)",
-          "oklch(26.43% 0.0085 166.64)",
-          "oklch(37.86% 0.0122 166.64)",
-          "oklch(49.29% 0.0144 166.64)",
-          "oklch(60.71% 0.0144 166.64)",
-          "oklch(72.14% 0.0134 166.64)",
-          "oklch(83.57% 0.0079 166.64)",
-          "oklch(95.00% 0.0024 166.64)"
-        ]
-      },
-      "active-lime": {
+      "competition-crimson": {
         "role": "primary",
-        "displayName": "Active Lime",
+        "displayName": "Competition Crimson",
         "tonalRamp": [
-          "oklch(15.00% 0.0454 134.54)",
-          "oklch(26.43% 0.0800 134.54)",
-          "oklch(37.86% 0.1146 134.54)",
-          "oklch(49.29% 0.1363 134.54)",
-          "oklch(60.71% 0.1363 134.54)",
-          "oklch(72.14% 0.1265 134.54)",
-          "oklch(83.57% 0.0746 134.54)",
-          "oklch(95.00% 0.0227 134.54)"
+          "oklch(15.00% 0.0450 22.06)",
+          "oklch(26.43% 0.0900 22.06)",
+          "oklch(37.86% 0.1440 22.06)",
+          "oklch(49.29% 0.1800 22.06)",
+          "oklch(60.71% 0.1800 22.06)",
+          "oklch(72.14% 0.1530 22.06)",
+          "oklch(83.57% 0.0900 22.06)",
+          "oklch(95.00% 0.0270 22.06)"
         ]
       },
-      "champagne": {
+      "crimson-hover": {
+        "role": "primary",
+        "displayName": "Crimson Hover",
+        "tonalRamp": [
+          "oklch(15.00% 0.0427 19.32)",
+          "oklch(26.43% 0.0854 19.32)",
+          "oklch(37.86% 0.1367 19.32)",
+          "oklch(49.29% 0.1709 19.32)",
+          "oklch(60.71% 0.1709 19.32)",
+          "oklch(72.14% 0.1452 19.32)",
+          "oklch(83.57% 0.0854 19.32)",
+          "oklch(95.00% 0.0256 19.32)"
+        ]
+      },
+      "spotlight-gold": {
         "role": "secondary",
-        "displayName": "Champagne",
+        "displayName": "Spotlight Gold",
         "tonalRamp": [
-          "oklch(15.00% 0.0244 85.49)",
-          "oklch(26.43% 0.0430 85.49)",
-          "oklch(37.86% 0.0615 85.49)",
-          "oklch(49.29% 0.0731 85.49)",
-          "oklch(60.71% 0.0731 85.49)",
-          "oklch(72.14% 0.0679 85.49)",
-          "oklch(83.57% 0.0401 85.49)",
-          "oklch(95.00% 0.0122 85.49)"
+          "oklch(15.00% 0.0354 86.29)",
+          "oklch(26.43% 0.0708 86.29)",
+          "oklch(37.86% 0.1133 86.29)",
+          "oklch(49.29% 0.1416 86.29)",
+          "oklch(60.71% 0.1416 86.29)",
+          "oklch(72.14% 0.1204 86.29)",
+          "oklch(83.57% 0.0708 86.29)",
+          "oklch(95.00% 0.0212 86.29)"
         ]
       },
-      "ivory": {
-        "role": "neutral",
-        "displayName": "Ivory",
+      "cobalt": {
+        "role": "tertiary",
+        "displayName": "Cobalt",
         "tonalRamp": [
-          "oklch(15.00% 0.0057 84.59)",
-          "oklch(26.43% 0.0101 84.59)",
-          "oklch(37.86% 0.0145 84.59)",
-          "oklch(49.29% 0.0172 84.59)",
-          "oklch(60.71% 0.0172 84.59)",
-          "oklch(72.14% 0.0160 84.59)",
-          "oklch(83.57% 0.0094 84.59)",
-          "oklch(95.00% 0.0029 84.59)"
+          "oklch(15.00% 0.0350 261.96)",
+          "oklch(26.43% 0.0700 261.96)",
+          "oklch(37.86% 0.1120 261.96)",
+          "oklch(49.29% 0.1400 261.96)",
+          "oklch(60.71% 0.1400 261.96)",
+          "oklch(72.14% 0.1190 261.96)",
+          "oklch(83.57% 0.0700 261.96)",
+          "oklch(95.00% 0.0210 261.96)"
+        ]
+      },
+      "off-white": {
+        "role": "neutral",
+        "displayName": "Off White",
+        "tonalRamp": [
+          "oklch(15.00% 0.0014 274.97)",
+          "oklch(26.43% 0.0027 274.97)",
+          "oklch(37.86% 0.0043 274.97)",
+          "oklch(49.29% 0.0054 274.97)",
+          "oklch(60.71% 0.0054 274.97)",
+          "oklch(72.14% 0.0046 274.97)",
+          "oklch(83.57% 0.0027 274.97)",
+          "oklch(95.00% 0.0008 274.97)"
         ]
       },
       "surface": {
         "role": "neutral",
-        "displayName": "Green-black Surface",
+        "displayName": "Surface",
         "tonalRamp": [
-          "oklch(15.00% 0.0046 163.59)",
-          "oklch(26.43% 0.0081 163.59)",
-          "oklch(37.86% 0.0116 163.59)",
-          "oklch(49.29% 0.0137 163.59)",
-          "oklch(60.71% 0.0137 163.59)",
-          "oklch(72.14% 0.0128 163.59)",
-          "oklch(83.57% 0.0075 163.59)",
-          "oklch(95.00% 0.0023 163.59)"
+          "oklch(15.00% 0.0046 270.42)",
+          "oklch(26.43% 0.0092 270.42)",
+          "oklch(37.86% 0.0147 270.42)",
+          "oklch(49.29% 0.0184 270.42)",
+          "oklch(60.71% 0.0184 270.42)",
+          "oklch(72.14% 0.0156 270.42)",
+          "oklch(83.57% 0.0092 270.42)",
+          "oklch(95.00% 0.0028 270.42)"
         ]
       },
       "panel": {
         "role": "neutral",
-        "displayName": "Green-black Panel",
+        "displayName": "Panel",
         "tonalRamp": [
-          "oklch(15.00% 0.0056 155.93)",
-          "oklch(26.43% 0.0099 155.93)",
-          "oklch(37.86% 0.0141 155.93)",
-          "oklch(49.29% 0.0168 155.93)",
-          "oklch(60.71% 0.0168 155.93)",
-          "oklch(72.14% 0.0156 155.93)",
-          "oklch(83.57% 0.0092 155.93)",
-          "oklch(95.00% 0.0028 155.93)"
+          "oklch(15.00% 0.0053 272.93)",
+          "oklch(26.43% 0.0106 272.93)",
+          "oklch(37.86% 0.0169 272.93)",
+          "oklch(49.29% 0.0212 272.93)",
+          "oklch(60.71% 0.0212 272.93)",
+          "oklch(72.14% 0.0180 272.93)",
+          "oklch(83.57% 0.0106 272.93)",
+          "oklch(95.00% 0.0032 272.93)"
         ]
       },
-      "sage-muted": {
+      "steel-muted": {
         "role": "neutral",
-        "displayName": "Muted Sage",
+        "displayName": "Steel Muted",
         "tonalRamp": [
-          "oklch(15.00% 0.0061 153.48)",
-          "oklch(26.43% 0.0107 153.48)",
-          "oklch(37.86% 0.0154 153.48)",
-          "oklch(49.29% 0.0183 153.48)",
-          "oklch(60.71% 0.0183 153.48)",
-          "oklch(72.14% 0.0170 153.48)",
-          "oklch(83.57% 0.0100 153.48)",
-          "oklch(95.00% 0.0030 153.48)"
+          "oklch(15.00% 0.0062 270.28)",
+          "oklch(26.43% 0.0124 270.28)",
+          "oklch(37.86% 0.0199 270.28)",
+          "oklch(49.29% 0.0248 270.28)",
+          "oklch(60.71% 0.0248 270.28)",
+          "oklch(72.14% 0.0211 270.28)",
+          "oklch(83.57% 0.0124 270.28)",
+          "oklch(95.00% 0.0037 270.28)"
         ]
       },
-      "sage-border": {
+      "steel-border": {
         "role": "neutral",
-        "displayName": "Sage Separator",
+        "displayName": "Steel Border",
         "tonalRamp": [
-          "oklch(15.00% 0.0076 154.89)",
-          "oklch(26.43% 0.0135 154.89)",
-          "oklch(37.86% 0.0193 154.89)",
-          "oklch(49.29% 0.0229 154.89)",
-          "oklch(60.71% 0.0229 154.89)",
-          "oklch(72.14% 0.0213 154.89)",
-          "oklch(83.57% 0.0126 154.89)",
-          "oklch(95.00% 0.0038 154.89)"
+          "oklch(15.00% 0.0073 268.82)",
+          "oklch(26.43% 0.0145 268.82)",
+          "oklch(37.86% 0.0233 268.82)",
+          "oklch(49.29% 0.0291 268.82)",
+          "oklch(60.71% 0.0291 268.82)",
+          "oklch(72.14% 0.0247 268.82)",
+          "oklch(83.57% 0.0145 268.82)",
+          "oklch(95.00% 0.0044 268.82)"
+        ]
+      },
+      "rail-background": {
+        "role": "neutral",
+        "displayName": "Rail Background",
+        "tonalRamp": [
+          "oklch(15.00% 0.0047 270.25)",
+          "oklch(26.43% 0.0094 270.25)",
+          "oklch(37.86% 0.0151 270.25)",
+          "oklch(49.29% 0.0189 270.25)",
+          "oklch(60.71% 0.0189 270.25)",
+          "oklch(72.14% 0.0161 270.25)",
+          "oklch(83.57% 0.0094 270.25)",
+          "oklch(95.00% 0.0028 270.25)"
         ]
       },
       "field-background": {
         "role": "neutral",
-        "displayName": "Deep Field",
+        "displayName": "Field Background",
         "tonalRamp": [
-          "oklch(15.00% 0.0051 157.43)",
-          "oklch(26.43% 0.0090 157.43)",
-          "oklch(37.86% 0.0129 157.43)",
-          "oklch(49.29% 0.0153 157.43)",
-          "oklch(60.71% 0.0153 157.43)",
-          "oklch(72.14% 0.0142 157.43)",
-          "oklch(83.57% 0.0084 157.43)",
-          "oklch(95.00% 0.0025 157.43)"
+          "oklch(15.00% 0.0025 276.52)",
+          "oklch(26.43% 0.0050 276.52)",
+          "oklch(37.86% 0.0081 276.52)",
+          "oklch(49.29% 0.0101 276.52)",
+          "oklch(60.71% 0.0101 276.52)",
+          "oklch(72.14% 0.0086 276.52)",
+          "oklch(83.57% 0.0050 276.52)",
+          "oklch(95.00% 0.0015 276.52)"
         ]
       },
       "field-border": {
         "role": "neutral",
-        "displayName": "Field Stroke",
+        "displayName": "Field Border",
         "tonalRamp": [
-          "oklch(15.00% 0.0084 151.54)",
-          "oklch(26.43% 0.0149 151.54)",
-          "oklch(37.86% 0.0213 151.54)",
-          "oklch(49.29% 0.0253 151.54)",
-          "oklch(60.71% 0.0253 151.54)",
-          "oklch(72.14% 0.0235 151.54)",
-          "oklch(83.57% 0.0139 151.54)",
-          "oklch(95.00% 0.0042 151.54)"
+          "oklch(15.00% 0.0061 272.68)",
+          "oklch(26.43% 0.0122 272.68)",
+          "oklch(37.86% 0.0195 272.68)",
+          "oklch(49.29% 0.0243 272.68)",
+          "oklch(60.71% 0.0243 272.68)",
+          "oklch(72.14% 0.0207 272.68)",
+          "oklch(83.57% 0.0122 272.68)",
+          "oklch(95.00% 0.0037 272.68)"
         ]
       },
       "action-ink": {
         "role": "neutral",
         "displayName": "Action Ink",
         "tonalRamp": [
-          "oklch(15.00% 0.0106 142.81)",
-          "oklch(26.43% 0.0187 142.81)",
-          "oklch(37.86% 0.0267 142.81)",
-          "oklch(49.29% 0.0318 142.81)",
-          "oklch(60.71% 0.0318 142.81)",
-          "oklch(72.14% 0.0295 142.81)",
-          "oklch(83.57% 0.0174 142.81)",
-          "oklch(95.00% 0.0053 142.81)"
-        ]
-      },
-      "lime-hover": {
-        "role": "primary",
-        "displayName": "Lime Hover",
-        "tonalRamp": [
-          "oklch(15.00% 0.0407 134.76)",
-          "oklch(26.43% 0.0717 134.76)",
-          "oklch(37.86% 0.1028 134.76)",
-          "oklch(49.29% 0.1221 134.76)",
-          "oklch(60.71% 0.1221 134.76)",
-          "oklch(72.14% 0.1134 134.76)",
-          "oklch(83.57% 0.0669 134.76)",
-          "oklch(95.00% 0.0204 134.76)"
+          "oklch(15.00% 0.0068 3.29)",
+          "oklch(26.43% 0.0137 3.29)",
+          "oklch(37.86% 0.0219 3.29)",
+          "oklch(49.29% 0.0274 3.29)",
+          "oklch(60.71% 0.0274 3.29)",
+          "oklch(72.14% 0.0233 3.29)",
+          "oklch(83.57% 0.0137 3.29)",
+          "oklch(95.00% 0.0041 3.29)"
         ]
       },
       "outline-border": {
         "role": "neutral",
-        "displayName": "Outline Stroke",
+        "displayName": "Outline Border",
         "tonalRamp": [
-          "oklch(15.00% 0.0113 140.42)",
-          "oklch(26.43% 0.0199 140.42)",
-          "oklch(37.86% 0.0285 140.42)",
-          "oklch(49.29% 0.0339 140.42)",
-          "oklch(60.71% 0.0339 140.42)",
-          "oklch(72.14% 0.0315 140.42)",
-          "oklch(83.57% 0.0186 140.42)",
-          "oklch(95.00% 0.0056 140.42)"
+          "oklch(15.00% 0.0075 275.26)",
+          "oklch(26.43% 0.0150 275.26)",
+          "oklch(37.86% 0.0241 275.26)",
+          "oklch(49.29% 0.0301 275.26)",
+          "oklch(60.71% 0.0301 275.26)",
+          "oklch(72.14% 0.0256 275.26)",
+          "oklch(83.57% 0.0150 275.26)",
+          "oklch(95.00% 0.0045 275.26)"
         ]
       },
       "outline-text": {
         "role": "neutral",
         "displayName": "Outline Text",
         "tonalRamp": [
-          "oklch(15.00% 0.0067 128.70)",
-          "oklch(26.43% 0.0118 128.70)",
-          "oklch(37.86% 0.0169 128.70)",
-          "oklch(49.29% 0.0201 128.70)",
-          "oklch(60.71% 0.0201 128.70)",
-          "oklch(72.14% 0.0186 128.70)",
-          "oklch(83.57% 0.0110 128.70)",
-          "oklch(95.00% 0.0033 128.70)"
+          "oklch(15.00% 0.0028 274.88)",
+          "oklch(26.43% 0.0055 274.88)",
+          "oklch(37.86% 0.0088 274.88)",
+          "oklch(49.29% 0.0111 274.88)",
+          "oklch(60.71% 0.0111 274.88)",
+          "oklch(72.14% 0.0094 274.88)",
+          "oklch(83.57% 0.0055 274.88)",
+          "oklch(95.00% 0.0017 274.88)"
         ]
       },
       "outline-hover": {
         "role": "neutral",
         "displayName": "Outline Hover",
         "tonalRamp": [
-          "oklch(15.00% 0.0100 143.01)",
-          "oklch(26.43% 0.0176 143.01)",
-          "oklch(37.86% 0.0252 143.01)",
-          "oklch(49.29% 0.0299 143.01)",
-          "oklch(60.71% 0.0299 143.01)",
-          "oklch(72.14% 0.0278 143.01)",
-          "oklch(83.57% 0.0164 143.01)",
-          "oklch(95.00% 0.0050 143.01)"
+          "oklch(15.00% 0.0046 276.34)",
+          "oklch(26.43% 0.0091 276.34)",
+          "oklch(37.86% 0.0146 276.34)",
+          "oklch(49.29% 0.0183 276.34)",
+          "oklch(60.71% 0.0183 276.34)",
+          "oklch(72.14% 0.0155 276.34)",
+          "oklch(83.57% 0.0091 276.34)",
+          "oklch(95.00% 0.0027 276.34)"
         ]
       },
       "ghost-text": {
         "role": "neutral",
         "displayName": "Ghost Text",
         "tonalRamp": [
-          "oklch(15.00% 0.0067 143.02)",
-          "oklch(26.43% 0.0119 143.02)",
-          "oklch(37.86% 0.0170 143.02)",
-          "oklch(49.29% 0.0202 143.02)",
-          "oklch(60.71% 0.0202 143.02)",
-          "oklch(72.14% 0.0188 143.02)",
-          "oklch(83.57% 0.0111 143.02)",
-          "oklch(95.00% 0.0034 143.02)"
+          "oklch(15.00% 0.0046 275.60)",
+          "oklch(26.43% 0.0092 275.60)",
+          "oklch(37.86% 0.0147 275.60)",
+          "oklch(49.29% 0.0183 275.60)",
+          "oklch(60.71% 0.0183 275.60)",
+          "oklch(72.14% 0.0156 275.60)",
+          "oklch(83.57% 0.0092 275.60)",
+          "oklch(95.00% 0.0027 275.60)"
         ]
       },
       "ghost-hover": {
         "role": "neutral",
         "displayName": "Ghost Hover",
         "tonalRamp": [
-          "oklch(15.00% 0.0077 147.48)",
-          "oklch(26.43% 0.0135 147.48)",
-          "oklch(37.86% 0.0194 147.48)",
-          "oklch(49.29% 0.0230 147.48)",
-          "oklch(60.71% 0.0230 147.48)",
-          "oklch(72.14% 0.0214 147.48)",
-          "oklch(83.57% 0.0126 147.48)",
-          "oklch(95.00% 0.0038 147.48)"
+          "oklch(15.00% 0.0041 275.46)",
+          "oklch(26.43% 0.0083 275.46)",
+          "oklch(37.86% 0.0133 275.46)",
+          "oklch(49.29% 0.0166 275.46)",
+          "oklch(60.71% 0.0166 275.46)",
+          "oklch(72.14% 0.0141 275.46)",
+          "oklch(83.57% 0.0083 275.46)",
+          "oklch(95.00% 0.0025 275.46)"
         ]
       },
       "danger-background": {
-        "role": "secondary",
-        "displayName": "Destructive Brown",
+        "role": "neutral",
+        "displayName": "Danger Background",
         "tonalRamp": [
-          "oklch(15.00% 0.0259 29.57)",
-          "oklch(26.43% 0.0456 29.57)",
-          "oklch(37.86% 0.0654 29.57)",
-          "oklch(49.29% 0.0777 29.57)",
-          "oklch(60.71% 0.0777 29.57)",
-          "oklch(72.14% 0.0721 29.57)",
-          "oklch(83.57% 0.0425 29.57)",
-          "oklch(95.00% 0.0129 29.57)"
+          "oklch(15.00% 0.0408 17.88)",
+          "oklch(26.43% 0.0816 17.88)",
+          "oklch(37.86% 0.1306 17.88)",
+          "oklch(49.29% 0.1632 17.88)",
+          "oklch(60.71% 0.1632 17.88)",
+          "oklch(72.14% 0.1387 17.88)",
+          "oklch(83.57% 0.0816 17.88)",
+          "oklch(95.00% 0.0245 17.88)"
         ]
       },
       "danger-text": {
-        "role": "secondary",
-        "displayName": "Destructive Ivory",
+        "role": "neutral",
+        "displayName": "Danger Text",
         "tonalRamp": [
-          "oklch(15.00% 0.0065 50.16)",
-          "oklch(26.43% 0.0114 50.16)",
-          "oklch(37.86% 0.0164 50.16)",
-          "oklch(49.29% 0.0195 50.16)",
-          "oklch(60.71% 0.0195 50.16)",
-          "oklch(72.14% 0.0181 50.16)",
-          "oklch(83.57% 0.0107 50.16)",
-          "oklch(95.00% 0.0032 50.16)"
+          "oklch(15.00% 0.0041 12.78)",
+          "oklch(26.43% 0.0081 12.78)",
+          "oklch(37.86% 0.0130 12.78)",
+          "oklch(49.29% 0.0163 12.78)",
+          "oklch(60.71% 0.0163 12.78)",
+          "oklch(72.14% 0.0138 12.78)",
+          "oklch(83.57% 0.0081 12.78)",
+          "oklch(95.00% 0.0024 12.78)"
         ]
       },
       "tag-background": {
         "role": "neutral",
-        "displayName": "Metadata Green",
+        "displayName": "Tag Background",
         "tonalRamp": [
-          "oklch(15.00% 0.0112 146.35)",
-          "oklch(26.43% 0.0197 146.35)",
-          "oklch(37.86% 0.0283 146.35)",
-          "oklch(49.29% 0.0336 146.35)",
-          "oklch(60.71% 0.0336 146.35)",
-          "oklch(72.14% 0.0312 146.35)",
-          "oklch(83.57% 0.0184 146.35)",
-          "oklch(95.00% 0.0056 146.35)"
+          "oklch(15.00% 0.0122 357.18)",
+          "oklch(26.43% 0.0244 357.18)",
+          "oklch(37.86% 0.0391 357.18)",
+          "oklch(49.29% 0.0489 357.18)",
+          "oklch(60.71% 0.0489 357.18)",
+          "oklch(72.14% 0.0415 357.18)",
+          "oklch(83.57% 0.0244 357.18)",
+          "oklch(95.00% 0.0073 357.18)"
         ]
       },
       "tag-text": {
         "role": "neutral",
-        "displayName": "Metadata Sage",
+        "displayName": "Tag Text",
         "tonalRamp": [
-          "oklch(15.00% 0.0134 135.94)",
-          "oklch(26.43% 0.0236 135.94)",
-          "oklch(37.86% 0.0339 135.94)",
-          "oklch(49.29% 0.0402 135.94)",
-          "oklch(60.71% 0.0402 135.94)",
-          "oklch(72.14% 0.0374 135.94)",
-          "oklch(83.57% 0.0220 135.94)",
-          "oklch(95.00% 0.0067 135.94)"
+          "oklch(15.00% 0.0201 12.16)",
+          "oklch(26.43% 0.0402 12.16)",
+          "oklch(37.86% 0.0643 12.16)",
+          "oklch(49.29% 0.0803 12.16)",
+          "oklch(60.71% 0.0803 12.16)",
+          "oklch(72.14% 0.0683 12.16)",
+          "oklch(83.57% 0.0402 12.16)",
+          "oklch(95.00% 0.0120 12.16)"
+        ]
+      },
+      "source-surface": {
+        "role": "neutral",
+        "displayName": "Source Surface",
+        "tonalRamp": [
+          "oklch(15.00% 0.0050 271.73)",
+          "oklch(26.43% 0.0100 271.73)",
+          "oklch(37.86% 0.0160 271.73)",
+          "oklch(49.29% 0.0200 271.73)",
+          "oklch(60.71% 0.0200 271.73)",
+          "oklch(72.14% 0.0170 271.73)",
+          "oklch(83.57% 0.0100 271.73)",
+          "oklch(95.00% 0.0030 271.73)"
+        ]
+      },
+      "movement-surface": {
+        "role": "neutral",
+        "displayName": "Movement Surface",
+        "tonalRamp": [
+          "oklch(15.00% 0.0050 271.67)",
+          "oklch(26.43% 0.0101 271.67)",
+          "oklch(37.86% 0.0161 271.67)",
+          "oklch(49.29% 0.0202 271.67)",
+          "oklch(60.71% 0.0202 271.67)",
+          "oklch(72.14% 0.0172 271.67)",
+          "oklch(83.57% 0.0101 271.67)",
+          "oklch(95.00% 0.0030 271.67)"
+        ]
+      },
+      "set-surface": {
+        "role": "neutral",
+        "displayName": "Set Surface",
+        "tonalRamp": [
+          "oklch(15.00% 0.0068 272.01)",
+          "oklch(26.43% 0.0136 272.01)",
+          "oklch(37.86% 0.0217 272.01)",
+          "oklch(49.29% 0.0272 272.01)",
+          "oklch(60.71% 0.0272 272.01)",
+          "oklch(72.14% 0.0231 272.01)",
+          "oklch(83.57% 0.0136 272.01)",
+          "oklch(95.00% 0.0041 272.01)"
+        ]
+      },
+      "program-crimson": {
+        "role": "neutral",
+        "displayName": "Program Crimson",
+        "tonalRamp": [
+          "oklch(15.00% 0.0136 354.06)",
+          "oklch(26.43% 0.0273 354.06)",
+          "oklch(37.86% 0.0436 354.06)",
+          "oklch(49.29% 0.0545 354.06)",
+          "oklch(60.71% 0.0545 354.06)",
+          "oklch(72.14% 0.0464 354.06)",
+          "oklch(83.57% 0.0273 354.06)",
+          "oklch(95.00% 0.0082 354.06)"
+        ]
+      },
+      "program-gold": {
+        "role": "neutral",
+        "displayName": "Program Gold",
+        "tonalRamp": [
+          "oklch(15.00% 0.0078 76.34)",
+          "oklch(26.43% 0.0157 76.34)",
+          "oklch(37.86% 0.0251 76.34)",
+          "oklch(49.29% 0.0313 76.34)",
+          "oklch(60.71% 0.0313 76.34)",
+          "oklch(72.14% 0.0266 76.34)",
+          "oklch(83.57% 0.0157 76.34)",
+          "oklch(95.00% 0.0047 76.34)"
+        ]
+      },
+      "program-cobalt": {
+        "role": "neutral",
+        "displayName": "Program Cobalt",
+        "tonalRamp": [
+          "oklch(15.00% 0.0129 257.91)",
+          "oklch(26.43% 0.0258 257.91)",
+          "oklch(37.86% 0.0413 257.91)",
+          "oklch(49.29% 0.0516 257.91)",
+          "oklch(60.71% 0.0516 257.91)",
+          "oklch(72.14% 0.0439 257.91)",
+          "oklch(83.57% 0.0258 257.91)",
+          "oklch(95.00% 0.0077 257.91)"
         ]
       }
     },
     "typographyMeta": {
       "display": {
-        "displayName": "Space Grotesk Display",
-        "purpose": "Expressive public landing headline; responsive sizing is scoped to that surface."
+        "displayName": "Display",
+        "purpose": "Landing headline, uppercase; mobile uses the documented fluid variant."
       },
       "headline": {
-        "displayName": "Page Headline",
-        "purpose": "Primary task heading with route-specific responsive adjustments."
+        "displayName": "Headline",
+        "purpose": "General page headings."
+      },
+      "head-section": {
+        "displayName": "Head Section",
+        "purpose": "Shared section headings."
       },
       "title": {
-        "displayName": "Section Title",
-        "purpose": "Sections and recurring content groups."
+        "displayName": "Title",
+        "purpose": "Tertiary headings with route-specific display variants."
       },
       "body": {
-        "displayName": "Manrope Body",
-        "purpose": "Readable supporting prose, with a 72ch maximum general measure."
+        "displayName": "Body",
+        "purpose": "Functional prose and readable explanations."
       },
       "label": {
-        "displayName": "Control Label",
-        "purpose": "Compact shared actions; form labels have a medium-weight variant."
+        "displayName": "Label",
+        "purpose": "Shared button labels; fields use a lighter variant."
       }
     },
     "shadows": [
       {
-        "name": "training-art-bands",
-        "value": "inset 9px 12px 18px #182c1a, 7px 12px 20px #1a2d1c",
-        "purpose": "Localized dashboard artwork depth only; ordinary panels have no box shadow."
+        "name": "primary-action",
+        "value": "0 6px 22px #ff4d571a",
+        "purpose": "A restrained crimson lift on the primary button."
+      },
+      {
+        "name": "training-artwork",
+        "value": "inset 9px 12px 18px #280c16, 7px 12px 20px #200b13",
+        "purpose": "Localized shading on the dashboard loop illustration; not a card token."
       }
     ],
     "motion": [
       {
-        "name": "button-response",
+        "name": "button-state",
         "value": "background 0.2s, transform 0.2s",
-        "purpose": "Shared button hover response, with a 1px upward shift."
+        "purpose": "Shared action hover; translates upward 1px."
       },
       {
-        "name": "drawer-slide",
+        "name": "program-state",
+        "value": "background 0.2s, border-color 0.2s",
+        "purpose": "Program-choice hover and selection."
+      },
+      {
+        "name": "drawer",
         "value": "transform 0.25s",
-        "purpose": "Mobile drawer entry and exit."
+        "purpose": "Mobile rail entry and exit."
       },
       {
-        "name": "progress-response",
+        "name": "progress",
         "value": "width 0.3s",
         "purpose": "Progress fill updates."
       },
       {
         "name": "reduced-motion",
-        "value": "animation-duration: 0.01ms; transition-duration: 0.01ms; scroll-behavior: auto",
-        "purpose": "Global CSS motion preference; WebGL also switches to demand rendering and removes ambient time-based rotation."
+        "value": "0.01ms",
+        "purpose": "CSS transition and animation duration under prefers-reduced-motion; auto scroll behavior."
       }
     ],
     "breakpoints": [
       {
-        "name": "mobile-drawer",
-        "value": "700px"
+        "name": "wide-hero-min",
+        "value": "1650px"
       },
       {
-        "name": "single-column-task-groups",
-        "value": "900px"
-      },
-      {
-        "name": "compact-desktop",
+        "name": "compact-desktop-max",
         "value": "1200px"
       },
       {
-        "name": "wide-landing",
-        "value": "1650px"
+        "name": "program-compact-max",
+        "value": "1100px"
+      },
+      {
+        "name": "dashboard-stack-max",
+        "value": "900px"
+      },
+      {
+        "name": "program-stack-max",
+        "value": "800px"
+      },
+      {
+        "name": "mobile-max",
+        "value": "700px"
       }
     ]
   },
@@ -388,100 +508,102 @@
       "name": "Primary Button",
       "kind": "button",
       "refersTo": "button-primary",
-      "description": "Shared primary action variant; preserves the implemented hover, focus, and disabled styles.",
-      "html": "<button class=\"ds-button-primary\">Save workout<svg width=\"17\" height=\"17\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><path d=\"M7 17 17 7M7 7h10v10\"/></svg></button>",
-      "css": ".ds-button-primary {display:inline-flex;align-items:center;justify-content:center;gap:12px;padding:13px 20px;border-radius:8px;min-height:44px;font-family:\"Manrope Variable\",sans-serif;font-size:12px;font-weight:700;letter-spacing:.015em;white-space:nowrap;cursor:pointer;transition:background .2s,transform .2s;background:var(--lime,#a6e083);color:#172416;border:0;} .ds-button-primary:hover {background:#b8ed9a;transform:translateY(-1px);} .ds-button-primary:focus-visible {outline:2px solid var(--lime,#a6e083);outline-offset:4px;} .ds-button-primary:disabled {opacity:.45;cursor:not-allowed;} @media(prefers-reduced-motion:reduce) {.ds-button-primary {transition-duration:.01ms;}}"
+      "description": "Shared primary action with visible focus and reduced-motion support.",
+      "html": "<button class=\"ds-btn ds-btn-primary\">Save workout</button>",
+      "css": ".ds-btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:44px;padding:13px 20px;border-radius:8px;border:0;font-family:\"Manrope Variable\",sans-serif;font-size:12px;font-weight:800;letter-spacing:.015em;cursor:pointer;transition:background .2s,transform .2s}.ds-btn:hover{transform:translateY(-1px)}.ds-btn:focus-visible{outline:2px solid var(--accent,#ff4d57);outline-offset:4px}.ds-btn:active{transform:translateY(0)}.ds-btn:disabled{opacity:.45;cursor:not-allowed}@media(prefers-reduced-motion:reduce){.ds-btn{transition-duration:.01ms}}.ds-btn-primary{background:var(--accent,#ff4d57);color:#18090d;box-shadow:0 6px 22px #ff4d571a}.ds-btn-primary:hover{background:#ff737a;color:#18090d}"
     },
     {
       "name": "Outline Button",
       "kind": "button",
       "refersTo": "button-outline",
-      "description": "Shared outline action variant; preserves the implemented hover, focus, and disabled styles.",
-      "html": "<button class=\"ds-button-outline\">Check in for today</button>",
-      "css": ".ds-button-outline {display:inline-flex;align-items:center;justify-content:center;gap:12px;padding:13px 20px;border-radius:8px;min-height:44px;font-family:\"Manrope Variable\",sans-serif;font-size:12px;font-weight:700;letter-spacing:.015em;white-space:nowrap;cursor:pointer;transition:background .2s,transform .2s;background:transparent;color:#e4ebdd;border:1px solid #52614f;} .ds-button-outline:hover {background:#2b382a;transform:translateY(-1px);} .ds-button-outline:focus-visible {outline:2px solid var(--lime,#a6e083);outline-offset:4px;} .ds-button-outline:disabled {opacity:.45;cursor:not-allowed;} @media(prefers-reduced-motion:reduce) {.ds-button-outline {transition-duration:.01ms;}}"
+      "description": "Shared outline action with visible focus and reduced-motion support.",
+      "html": "<button class=\"ds-btn ds-btn-outline\">Save workout</button>",
+      "css": ".ds-btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:44px;padding:13px 20px;border-radius:8px;border:0;font-family:\"Manrope Variable\",sans-serif;font-size:12px;font-weight:800;letter-spacing:.015em;cursor:pointer;transition:background .2s,transform .2s}.ds-btn:hover{transform:translateY(-1px)}.ds-btn:focus-visible{outline:2px solid var(--accent,#ff4d57);outline-offset:4px}.ds-btn:active{transform:translateY(0)}.ds-btn:disabled{opacity:.45;cursor:not-allowed}@media(prefers-reduced-motion:reduce){.ds-btn{transition-duration:.01ms}}.ds-btn-outline{background:transparent;color:#dfe1e9;border:1px solid #4d5163}.ds-btn-outline:hover{background:#2b2d37}"
     },
     {
       "name": "Ghost Button",
       "kind": "button",
       "refersTo": "button-ghost",
-      "description": "Shared ghost action variant; preserves the implemented hover, focus, and disabled styles.",
-      "html": "<button class=\"ds-button-ghost\">Cancel</button>",
-      "css": ".ds-button-ghost {display:inline-flex;align-items:center;justify-content:center;gap:12px;padding:13px 20px;border-radius:8px;min-height:44px;font-family:\"Manrope Variable\",sans-serif;font-size:12px;font-weight:700;letter-spacing:.015em;white-space:nowrap;cursor:pointer;transition:background .2s,transform .2s;background:transparent;color:#c9d4c8;border:0;} .ds-button-ghost:hover {background:#2a352b;transform:translateY(-1px);} .ds-button-ghost:focus-visible {outline:2px solid var(--lime,#a6e083);outline-offset:4px;} .ds-button-ghost:disabled {opacity:.45;cursor:not-allowed;} @media(prefers-reduced-motion:reduce) {.ds-button-ghost {transition-duration:.01ms;}}"
+      "description": "Shared ghost action with visible focus and reduced-motion support.",
+      "html": "<button class=\"ds-btn ds-btn-ghost\">Save workout</button>",
+      "css": ".ds-btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:44px;padding:13px 20px;border-radius:8px;border:0;font-family:\"Manrope Variable\",sans-serif;font-size:12px;font-weight:800;letter-spacing:.015em;cursor:pointer;transition:background .2s,transform .2s}.ds-btn:hover{transform:translateY(-1px)}.ds-btn:focus-visible{outline:2px solid var(--accent,#ff4d57);outline-offset:4px}.ds-btn:active{transform:translateY(0)}.ds-btn:disabled{opacity:.45;cursor:not-allowed}@media(prefers-reduced-motion:reduce){.ds-btn{transition-duration:.01ms}}.ds-btn-ghost{background:transparent;color:#c6c9d6}.ds-btn-ghost:hover{background:#2a2c35}"
     },
     {
-      "name": "Destructive Button",
+      "name": "Danger Button",
       "kind": "button",
       "refersTo": "button-danger",
-      "description": "Shared danger action variant; preserves the implemented hover, focus, and disabled styles.",
-      "html": "<button class=\"ds-button-danger\">Delete record</button>",
-      "css": ".ds-button-danger {display:inline-flex;align-items:center;justify-content:center;gap:12px;padding:13px 20px;border-radius:8px;min-height:44px;font-family:\"Manrope Variable\",sans-serif;font-size:12px;font-weight:700;letter-spacing:.015em;white-space:nowrap;cursor:pointer;transition:background .2s,transform .2s;background:#713b33;color:#fff0e8;border:0;} .ds-button-danger:hover {background:#713b33;transform:translateY(-1px);} .ds-button-danger:focus-visible {outline:2px solid var(--lime,#a6e083);outline-offset:4px;} .ds-button-danger:disabled {opacity:.45;cursor:not-allowed;} @media(prefers-reduced-motion:reduce) {.ds-button-danger {transition-duration:.01ms;}}"
+      "description": "Shared danger action with visible focus and reduced-motion support.",
+      "html": "<button class=\"ds-btn ds-btn-danger\">Delete record</button>",
+      "css": ".ds-btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:44px;padding:13px 20px;border-radius:8px;border:0;font-family:\"Manrope Variable\",sans-serif;font-size:12px;font-weight:800;letter-spacing:.015em;cursor:pointer;transition:background .2s,transform .2s}.ds-btn:hover{transform:translateY(-1px)}.ds-btn:focus-visible{outline:2px solid var(--accent,#ff4d57);outline-offset:4px}.ds-btn:active{transform:translateY(0)}.ds-btn:disabled{opacity:.45;cursor:not-allowed}@media(prefers-reduced-motion:reduce){.ds-btn{transition-duration:.01ms}}.ds-btn-danger{background:#a8283b;color:#fff0f1}"
     },
     {
-      "name": "Labeled Numeric Field",
+      "name": "Number Field",
       "kind": "input",
       "refersTo": "field",
-      "description": "Deep inset field with a visible sage stroke and close lime focus ring.",
-      "html": "<label class=\"ds-field\"><span>Body weight (kg)</span><input type=\"number\" placeholder=\"Enter measurement\" step=\"0.1\"/><small>Use a consistent time of day.</small></label>",
-      "css": ".ds-field {display:flex;flex-direction:column;gap:8px;max-width:340px;font-family:\"Manrope Variable\",sans-serif;font-size:12px;font-weight:500;color:#e5ebdf;} .ds-field input {width:100%;min-width:0;background:#141c17;border:1px solid #425045;color:#f3ede1;border-radius:8px;padding:11px 13px;min-height:44px;caret-color:var(--lime,#a6e083);font-family:\"Manrope Variable\",sans-serif;font-size:13px;font-variant-numeric:tabular-nums;} .ds-field input::placeholder {color:#a4b0a5;} .ds-field input:focus,.ds-field input:focus-visible {outline:2px solid var(--lime,#a6e083);outline-offset:1px;} .ds-field small {font-size:11px;font-weight:400;line-height:1.6;color:var(--muted,#b1bdb4);}"
+      "description": "A labelled load input with tabular figures.",
+      "html": "<label class=\"ds-field\">Load (kg)<input type=\"number\" value=\"20\" min=\"0\" step=\"0.5\"></label>",
+      "css": ".ds-field{display:flex;flex-direction:column;gap:8px;color:#e1e2e9;font-family:\"Manrope Variable\",sans-serif;font-size:12px;font-weight:500}.ds-field input{min-width:0;min-height:44px;background:#15161b;border:1px solid #404452;border-radius:8px;color:#f6f7fb;padding:11px 13px;font:13px \"Manrope Variable\",sans-serif;font-variant-numeric:tabular-nums;caret-color:var(--accent,#ff4d57)}.ds-field input:focus{outline:2px solid var(--accent,#ff4d57);outline-offset:1px}"
     },
     {
-      "name": "Workspace Navigation",
+      "name": "Active Navigation",
       "kind": "nav",
       "refersTo": "navigation-active",
-      "description": "Quiet resting rows and an unmistakable active route. Full application navigation supplies drawer focus management.",
-      "html": "<nav class=\"ds-nav\" aria-label=\"Workspace sample\"><a class=\"ds-nav-active\" href=\"#overview\" aria-current=\"page\"><svg width=\"19\" height=\"19\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><rect x=\"3\" y=\"3\" width=\"7\" height=\"9\" rx=\"1\"/><rect x=\"14\" y=\"3\" width=\"7\" height=\"5\" rx=\"1\"/><rect x=\"14\" y=\"12\" width=\"7\" height=\"9\" rx=\"1\"/><rect x=\"3\" y=\"16\" width=\"7\" height=\"5\" rx=\"1\"/></svg>Overview<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><path d=\"m9 18 6-6-6-6\"/></svg></a><a href=\"#workouts\"><svg width=\"19\" height=\"19\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><rect x=\"3\" y=\"3\" width=\"7\" height=\"9\" rx=\"1\"/><rect x=\"14\" y=\"3\" width=\"7\" height=\"5\" rx=\"1\"/><rect x=\"14\" y=\"12\" width=\"7\" height=\"9\" rx=\"1\"/><rect x=\"3\" y=\"16\" width=\"7\" height=\"5\" rx=\"1\"/></svg>My workouts<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><path d=\"m9 18 6-6-6-6\"/></svg></a></nav>",
-      "css": ".ds-nav {display:flex;flex-direction:column;gap:5px;width:220px;padding:18px;background:#18201b;font-family:\"Manrope Variable\",sans-serif;} .ds-nav a {display:flex;align-items:center;gap:13px;padding:13px 12px;min-height:45px;font-size:11px;color:#b6c1b4;border-radius:8px;text-decoration:none;} .ds-nav a>svg:last-child {margin-left:auto;opacity:0;} .ds-nav a:hover {background:#263227;color:#e4eddb;} .ds-nav a.ds-nav-active {background:var(--lime,#a6e083);color:#172416;font-weight:700;} .ds-nav a.ds-nav-active>svg:last-child {opacity:1;} .ds-nav a:focus-visible {outline:2px solid var(--lime,#a6e083);outline-offset:4px;}"
+      "description": "The current workspace route has a crimson fill and trailing chevron.",
+      "html": "<nav class=\"ds-nav\" aria-label=\"Workspace\"><a href=\"#programs\" aria-current=\"page\">Training programs<svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><path d=\"m9 5 7 7-7 7\"/></svg></a></nav>",
+      "css": ".ds-nav{padding:12px;background:#11141d}.ds-nav a{display:flex;align-items:center;gap:13px;min-height:45px;padding:13px 12px;border-radius:8px;text-decoration:none;background:var(--accent,#ff4d57);color:#18090d;font:700 12px \"Manrope Variable\",sans-serif}.ds-nav svg{margin-left:auto}.ds-nav a:hover{background:#272931;color:#dfe1e9}.ds-nav a:focus-visible{outline:2px solid var(--accent,#ff4d57);outline-offset:4px}"
     },
     {
       "name": "Metadata Tag",
       "kind": "chip",
       "refersTo": "tag",
-      "description": "Noninteractive, compact metadata treatment.",
-      "html": "<span class=\"ds-tag\">Beginner friendly</span>",
-      "css": ".ds-tag {display:inline-flex;align-items:center;color:#c6d8be;background:#29392a;border-radius:5px;padding:6px 9px;font-family:\"Manrope Variable\",sans-serif;font-size:10px;letter-spacing:.06em;line-height:1.3;}"
+      "description": "Informational metadata rather than an implicit button.",
+      "html": "<span class=\"ds-tag\">SOURCE PROGRAM</span>",
+      "css": ".ds-tag{display:inline-flex;align-items:center;background:#3e202b;color:#ffbac1;border-radius:5px;padding:6px 9px;font:10px/1.3 \"Manrope Variable\",sans-serif;letter-spacing:.06em}"
     },
     {
-      "name": "Surface Card",
+      "name": "Shared Panel",
       "kind": "card",
       "refersTo": "card",
-      "description": "Flat, roomy shared container; tonal depth without a card shadow.",
-      "html": "<section class=\"ds-card\"><h2>Your week</h2><p>Your records make the bigger picture. Start with one useful entry.</p></section>",
-      "css": ".ds-card {max-width:420px;background:var(--surface,#1b231f);color:#f3ede1;border-radius:var(--radius,16px);padding:28px;} .ds-card h2 {margin:0 0 12px;font-family:\"Space Grotesk Variable\",sans-serif;font-size:1.4rem;font-weight:500;line-height:1.3;letter-spacing:-.035em;} .ds-card p {margin:0 0 20px;max-width:72ch;font-family:\"Manrope Variable\",sans-serif;font-size:14px;line-height:1.8;color:var(--muted,#b1bdb4);} @media(max-width:1200px) {.ds-card {padding:24px;}} @media(max-width:700px) {.ds-card {padding:23px 20px;}}"
+      "description": "Flat tonal container with an honest empty state.",
+      "html": "<section class=\"ds-card\"><h2>Your training history</h2><p>No completed sessions yet. Your next workout starts your history.</p></section>",
+      "css": ".ds-card{background:var(--surface,#161922);color:#f6f7fb;border-radius:var(--radius,16px);padding:28px}.ds-card h2{margin:0 0 12px;font:700 1.9rem/1.3 \"Barlow Condensed\",sans-serif;letter-spacing:.005em;text-transform:uppercase}.ds-card p{margin:0;color:var(--muted,#b8becf);font:14px/1.8 \"Manrope Variable\",sans-serif;max-width:72ch}"
     },
     {
-      "name": "Actionable Empty State",
-      "kind": "custom",
-      "description": "An honest invitation to create the first record, with no fabricated activity.",
-      "html": "<section class=\"ds-empty\"><span class=\"ds-empty-mark\"><svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><path d=\"M12 5v14M5 12h14\"/></svg></span><h3>No measurements yet</h3><p>Add your first measurement to start seeing your progress.</p><a href=\"#measurement\" class=\"ds-empty-action\">Log a measurement<svg width=\"17\" height=\"17\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><path d=\"M7 17 17 7M7 7h10v10\"/></svg></a></section>",
-      "css": ".ds-empty {max-width:440px;text-align:center;padding:42px 20px;background:var(--surface,#1b231f);border-radius:var(--radius,16px);color:#f3ede1;} .ds-empty-mark {display:inline-flex;justify-content:center;align-items:center;background:#2c382c;color:#a6c795;width:45px;height:45px;border-radius:50%;margin-bottom:17px;} .ds-empty h3 {margin:0;font-family:\"Space Grotesk Variable\",sans-serif;font-size:18px;font-weight:500;letter-spacing:-.035em;} .ds-empty p {max-width:42ch;margin:8px auto 20px;color:var(--muted,#b1bdb4);font-family:\"Manrope Variable\",sans-serif;font-size:14px;line-height:1.8;} .ds-empty-action {display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:44px;padding:13px 20px;background:var(--lime,#a6e083);color:#172416;border-radius:8px;font-family:\"Manrope Variable\",sans-serif;font-size:12px;font-weight:700;letter-spacing:.015em;text-decoration:none;transition:background .2s,transform .2s;} .ds-empty-action:hover {background:#b8ed9a;transform:translateY(-1px);} .ds-empty-action:focus-visible {outline:2px solid var(--lime,#a6e083);outline-offset:4px;} @media(prefers-reduced-motion:reduce) {.ds-empty-action {transition-duration:.01ms;}}"
+      "name": "Program Choice",
+      "kind": "button",
+      "refersTo": "program-choice",
+      "description": "A source-program selector with an explicit pressed state.",
+      "html": "<button class=\"ds-program\" aria-pressed=\"true\"><strong>Bulk with Buendia</strong><span>5-day rotating split · 5 templates</span></button>",
+      "css": ".ds-program{position:relative;text-align:left;min-height:170px;padding:24px;background:#191c26;color:#f6f7fb;border:1px solid #363b4d;border-radius:14px;display:flex;flex-direction:column;align-items:flex-start;gap:15px;cursor:pointer;transition:background .2s,border-color .2s}.ds-program strong{font:700 28px/1 \"Barlow Condensed\",sans-serif;text-transform:uppercase;max-width:14ch}.ds-program span{font:10px \"Manrope Variable\",sans-serif;color:#bdc4d8}.ds-program[aria-pressed=\"true\"]{background:#3a1825;border-color:var(--accent,#ff4d57)}.ds-program:hover{background:#292330}.ds-program:focus-visible{outline:2px solid var(--accent,#ff4d57);outline-offset:4px}@media(prefers-reduced-motion:reduce){.ds-program{transition-duration:.01ms}}"
     },
     {
-      "name": "Responsive Metrics Group",
+      "name": "Expandable Source Set",
       "kind": "custom",
-      "description": "Three desktop metrics become a legible vertical group on mobile. The sample is an authentic empty state.",
-      "html": "<section class=\"ds-metrics\"><div class=\"ds-metric\"><span>Daily energy</span><strong>0 <small>kcal</small></strong><p>No meals logged yet</p></div><div class=\"ds-metric\"><span>Training volume</span><strong>0 <small>kg</small></strong><p>Across your completed workouts</p></div><div class=\"ds-metric\"><span>Body weight</span><strong>—</strong><p>No measurement yet</p></div></section>",
-      "css": ".ds-metrics {display:grid;grid-template-columns:repeat(3,1fr);margin:26px 0;background:var(--surface,#1b231f);border-radius:var(--radius,16px);padding:25px 0;color:#f3ede1;font-family:\"Manrope Variable\",sans-serif;} .ds-metric {padding:0 25px;border-right:1px solid #344033;min-width:0;} .ds-metric:last-child {border:0;} .ds-metric>span {font-size:10px;color:#bdcab4;} .ds-metric>strong {display:block;font-family:\"Space Grotesk Variable\",sans-serif;font-size:30px;font-weight:400;margin-top:17px;font-variant-numeric:tabular-nums;} .ds-metric small {font-family:\"Manrope Variable\",sans-serif;font-size:12px;color:var(--muted,#b1bdb4);} .ds-metric p {font-size:9px;line-height:1.8;margin:6px 0 19px;color:var(--muted,#b1bdb4);} @media(max-width:700px) {.ds-metrics {grid-template-columns:1fr;padding:0 22px;margin:20px 0;} .ds-metric {padding:22px 0;border-right:0;border-bottom:1px solid #344033;} .ds-metric>span,.ds-metric p {font-size:12px;} .ds-metric>strong {font-size:32px;margin-top:12px;} .ds-metric small {font-size:13px;} .ds-metric p {line-height:1.7;margin:6px 0 16px;}}"
+      "refersTo": "source-set",
+      "description": "Source prescription and actual load stay distinct in an expandable set.",
+      "html": "<details class=\"ds-set\"><summary><strong>Set 1</strong><span>15 reps · warm-up</span></summary><label>Actual load (kg)<input type=\"number\" min=\"0\" step=\"0.5\" placeholder=\"kg\"></label></details>",
+      "css": ".ds-set{background:#1e2230;color:#f6f7fb;margin:15px 0;padding:19px 16px;border-radius:10px;font-family:\"Manrope Variable\",sans-serif}.ds-set summary{cursor:pointer;font-size:12px;line-height:1.8}.ds-set summary strong{color:var(--gold,#ffcf5c);font-size:14px;margin-right:15px}.ds-set summary:focus-visible,.ds-set input:focus-visible{outline:2px solid var(--accent,#ff4d57);outline-offset:4px}.ds-set label{display:flex;flex-direction:column;gap:8px;color:#c4cce0;font-size:10px;margin-top:20px}.ds-set input{min-height:40px;max-width:130px;border:1px solid #404452;background:#15161b;color:#f6f7fb;border-radius:8px;padding:9px;font:12px \"Manrope Variable\",sans-serif;font-variant-numeric:tabular-nums}"
     }
   ],
   "narrative": {
-    "northStar": "Daily Performance, Precisely Crafted",
-    "overview": "LÉMAQQUE pairs a luxury athletic identity with the calm of a useful daily companion. Deep green-black surfaces, warm ivory type, active lime, and restrained champagne details establish the material character. The supplied brand direction is authoritative; this document captures its first implementation rather than introducing a new identity.\n\nExpression scales with the task. The public landing uses oversized typography and an original metallic abstract performance sculpture. Tracking screens use a stable navigation rail, spacious groups of practical controls, readable records, and honest empty states. Motion supports orientation and optional exploration; full tracking works without WebGL.",
+    "northStar": "The Championship Training Floor",
+    "overview": "LÉMAQQUE brings the energy of a bodybuilding competition stage into a practical daily training companion. Matte black, competition crimson, spotlight gold, cool steel, and off-white establish a vibrant, assertive athletic identity. Condensed uppercase headlines deliver the competition character; readable forms and source-linked records keep that energy useful.\n\nThe user-requested Mr Olympia-inspired direction replaces the earlier sage, lime, champagne, and Space Grotesk system. LÉMAQQUE and the LMQ monogram remain the identity. This is an original visual interpretation: no official Olympia or athlete logos, photography, or endorsement claims.\n\nExpression scales with the task. Public storytelling uses large type and an original metallic abstract sculpture. Daily tracking uses a stable rail, clear controls, flat layered surfaces, and honest data states. Full tracking remains usable without WebGL.",
     "keyCharacteristics": [
-      "Dark, warm, athletic, and precise.",
-      "Rounded flat surfaces with thin sage separators.",
-      "Confident display type paired with quiet functional text.",
-      "Lime actions and active states, champagne editorial accents.",
-      "Authentic data, useful empty states, optional dimensional imagery."
+      "Matte black with vivid crimson actions and gold emphasis.",
+      "Heavy condensed display type paired with readable Manrope.",
+      "Flat cool surfaces, thin steel separators, and rounded controls.",
+      "Crimson, gold, and cobalt distinguish source-program families.",
+      "Source-linked prescriptions, real records, and explicit empty states."
     ],
     "rules": [
       {
-        "name": "The Active Lime Rule",
-        "body": "Use lime to identify action, selection, progress, or deliberate headline emphasis; do not turn every container into an accent surface.",
+        "name": "The Action and Spotlight Rule",
+        "body": "Use crimson for primary action, selection, progress, and keyboard focus. Use gold for editorial emphasis, source/rest cues, and selected section text. Keep both legible against their actual background.",
         "section": "colors"
       },
       {
         "name": "The Two Voices Rule",
-        "body": "Use Space Grotesk for headings and prominent values, and Manrope for controls, labels, records, and explanatory text.",
+        "body": "Use Barlow Condensed for headings and prominent values, and Manrope for controls, records, and explanations. Keep essential prescriptions readable at their implemented body sizes.",
         "section": "typography"
       },
       {
@@ -490,24 +612,24 @@
         "section": "layout"
       },
       {
-        "name": "The Quiet Surface Rule",
-        "body": "Keep ordinary cards shadow-free; use tonal contrast and spacing to establish their hierarchy.",
+        "name": "The Flat Surface Rule",
+        "body": "Keep ordinary cards shadow-free. Reserve the small crimson lift for the primary action and dimensional shading for artwork.",
         "section": "elevation"
       }
     ],
     "dos": [
-      "**Do** preserve the supplied obsidian, charcoal, lime, champagne, and ivory identity.",
-      "**Do** use the shared font pairing, rounded controls, flat panels, and visible lime keyboard focus.",
-      "**Do** keep daily tasks spacious and predictable across the desktop rail and mobile drawer.",
-      "**Do** use real data, useful empty states, and text explanations for errors or unavailable assets.",
-      "**Do** respect reduced motion and preserve full tracking without WebGL."
+      "Do use the matte-black, competition-crimson, spotlight-gold, cobalt, and off-white system with the retained LÉMAQQUE identity.",
+      "Do use Barlow Condensed at the bundled heading weights and Manrope for functional reading.",
+      "Do preserve visible crimson focus, readable source tables, and usable mobile logging controls.",
+      "Do use real records, traceable prescriptions, explicit calculator inputs, and useful empty states.",
+      "Do respect reduced motion and preserve full tracking without WebGL."
     ],
     "donts": [
-      "**Don't** introduce luminous neon, ornamental card shadows, or competing accent palettes.",
-      "**Don't** use the public hero's oversized composition as the default layout for tracking screens.",
-      "**Don't** invent statistics, transformation claims, nutrition values, or athlete endorsements for visual polish.",
-      "**Don't** treat an abstract sculpture or an unvalidated animation as authoritative technique.",
-      "**Don't** hide essential actions or instructions in the smallest decorative caption sizes."
+      "Don't restore the retired sage/lime palette or Space Grotesk heading system.",
+      "Don't use official Olympia or athlete logos, photos, or implied endorsements.",
+      "Don't fill the interface with invented performance statistics, transformation claims, or nutrition values.",
+      "Don't turn a decorative sculpture or unavailable/unvalidated motion asset into exercise instruction.",
+      "Don't apply hero-scale typography or artwork to every tracking panel."
     ]
   }
 }
