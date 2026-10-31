@@ -1,0 +1,274 @@
+import { lazy, Suspense, useState } from "react";
+import { useQuery } from "@tanstack/react-query";
+import { useSearchParams, Link } from "react-router-dom";
+import { ArrowRight, Box, Search, SlidersHorizontal } from "lucide-react";
+import { exercises, muscleGroups } from "../lib/catalog";
+import { useStore, useProfile } from "../lib/store";
+import { Button } from "../components/ui/button";
+import { PageHead, Field, Notice, DataGate } from "../components/common";
+const AssetViewer = lazy(() => import("../three/AssetViewer"));
+export function Library() {
+  const [params, setParams] = useSearchParams();
+  const [search, setSearch] = useState(""),
+    [muscle, setMuscle] = useState("All");
+  const selected = exercises.find((e) => e.id === params.get("exercise"));
+  const { repo, local } = useStore();
+  const { profile } = useProfile();
+  const assets = useQuery({
+    queryKey: ["assets", local],
+    queryFn: () => repo.assets(),
+  });
+  const animation = assets.data?.animations.find(
+    (a) => a.exercise_id === selected?.id && a.reviewed_by && a.reviewed_at,
+  );
+  const model = assets.data?.models.find((m) => m.id === animation?.model_id);
+  return (
+    <>
+      <PageHead
+        title="Move with understanding."
+        description="Find the movement. Learn the cues. Make each rep intentional."
+      />
+      {selected ? (
+        <section className="panel exercise-detail">
+          <Button variant="ghost" onClick={() => setParams({})}>
+            ← All exercises
+          </Button>
+          <div className="exercise-detail-head">
+            <div>
+              <span className="tag">
+                {selected.muscle} · {selected.difficulty}
+              </span>
+              <h2>{selected.name}</h2>
+              <p>
+                {selected.equipment} · Secondary:{" "}
+                {selected.secondary.join(", ") || "None listed"}
+              </p>
+            </div>
+            <Button asChild>
+              <Link to="/app/builder">
+                Add to a workout <ArrowRight size={16} />
+              </Link>
+            </Button>
+          </div>
+          {model && animation && profile?.quality !== "static" ? (
+            <Suspense fallback={<p>Loading reviewed demonstration…</p>}>
+              <AssetViewer
+                asset={model}
+                animation={animation}
+                region={selected.muscle}
+                onSelect={() => {}}
+              />
+            </Suspense>
+          ) : (
+            <div className="asset-unavailable">
+              <Box size={34} strokeWidth={1} />
+              <h3>
+                {profile?.quality === "static"
+                  ? "Static display selected."
+                  : "No validated 3D demonstration available."}
+              </h3>
+              <p>
+                Use the written cues below. We only publish licensed animations
+                after a technique review.
+              </p>
+            </div>
+          )}
+          {assets.error && (
+            <Notice error>
+              3D catalog unavailable. Written instructions remain available.
+            </Notice>
+          )}
+          <div className="instruction-grid">
+            <div>
+              <h3>Movement checkpoints</h3>
+              <ol>
+                {selected.instructions.map((s) => (
+                  <li key={s}>{s}</li>
+                ))}
+              </ol>
+            </div>
+            <div>
+              <h3>Keep in mind</h3>
+              <p>{selected.mistakes}</p>
+              <h3>Starting guidance</h3>
+              <p>
+                {selected.sets} sets · {selected.reps}{" "}
+                {selected.id === "plank" ? "seconds" : "reps"} · {selected.rest}{" "}
+                sec rest. Choose a load that leaves comfortable repetitions in
+                reserve.
+              </p>
+              <h3>Alternative to explore</h3>
+              <p>
+                {selected.alternative}. Substitutions may train different
+                muscles; assess suitability.
+              </p>
+            </div>
+          </div>
+          <Notice>
+            General education, not individualized technique clearance. Stop if a
+            movement causes pain; ask a qualified coach when unsure.
+          </Notice>
+        </section>
+      ) : (
+        <>
+          <div className="library-toolbar">
+            <Field label="Search movements">
+              <div className="search-field">
+                <Search size={18} />
+                <input
+                  value={search}
+                  onChange={(e) => setSearch(e.target.value)}
+                  placeholder="Search exercise or equipment…"
+                />
+              </div>
+            </Field>
+            <Field label="Muscle group">
+              <select
+                value={muscle}
+                onChange={(e) => setMuscle(e.target.value)}
+              >
+                <option>All</option>
+                {muscleGroups.map((m) => (
+                  <option key={m.name}>{m.name}</option>
+                ))}
+              </select>
+            </Field>
+          </div>
+          <div className="exercise-library">
+            {exercises
+              .filter(
+                (e) =>
+                  (muscle === "All" || e.muscle === muscle) &&
+                  (e.name + " " + e.equipment)
+                    .toLowerCase()
+                    .includes(search.toLowerCase()),
+              )
+              .map((e) => (
+                <Link
+                  key={e.id}
+                  to={"?exercise=" + e.id}
+                  className="library-row"
+                >
+                  <div className="movement-icon">
+                    <SlidersHorizontal size={24} strokeWidth={1} />
+                  </div>
+                  <div>
+                    <h2>{e.name}</h2>
+                    <p>
+                      {e.muscle} · {e.equipment}
+                    </p>
+                  </div>
+                  <span className="tag">{e.difficulty}</span>
+                  <ArrowRight size={18} />
+                </Link>
+              ))}
+          </div>
+          <p className="fine-print">
+            Written guidance is available for all movements. Reviewed 3D assets
+            will appear as they are approved; no generated motion is presented
+            as exercise instruction.
+          </p>
+        </>
+      )}
+    </>
+  );
+}
+export function Muscles() {
+  const [search, setSearch] = useState(""),
+    [selected, setSelected] = useState("Chest");
+  const { repo, local } = useStore();
+  const { profile } = useProfile();
+  const assets = useQuery({
+    queryKey: ["assets", local],
+    queryFn: () => repo.assets(),
+  });
+  const model = assets.data?.models.find(
+    (m) => Object.keys(m.region_map).length >= 11,
+  );
+  return (
+    <>
+      <PageHead
+        title="Know what you’re training."
+        description="Explore muscle function and find movements for your next session."
+      />
+      <div className="muscle-layout">
+        <section className="panel muscle-stage">
+          {model && profile?.quality !== "static" ? (
+            <Suspense fallback={<p>Loading anatomy…</p>}>
+              <AssetViewer
+                asset={model}
+                region={selected}
+                onSelect={setSelected}
+              />
+            </Suspense>
+          ) : (
+            <div className="anatomy-empty">
+              <Box size={52} strokeWidth={0.8} />
+              <h2>Accurate anatomy comes first.</h2>
+              <p>
+                A licensed, reviewed anatomy model has not been added yet.
+                Explore all 11 muscle groups using the accessible directory
+                alongside.
+              </p>
+              <span className="tag">NO PLACEHOLDER HUMAN MODEL</span>
+            </div>
+          )}
+          {assets.error && (
+            <Notice error>
+              The anatomy catalog could not be loaded. The muscle directory
+              remains available.
+            </Notice>
+          )}
+        </section>
+        <section className="panel">
+          <Field label="Search muscle groups">
+            <input
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              placeholder="e.g. quadriceps"
+            />
+          </Field>
+          <div className="muscle-buttons">
+            {muscleGroups
+              .filter((m) =>
+                m.name.toLowerCase().includes(search.toLowerCase()),
+              )
+              .map((m) => (
+                <button
+                  key={m.name}
+                  aria-pressed={selected === m.name}
+                  onClick={() => setSelected(m.name)}
+                >
+                  {m.name}
+                </button>
+              ))}
+          </div>
+          <div className="muscle-info">
+            <h2>{selected}</h2>
+            <p>{muscleGroups.find((m) => m.name === selected)?.function}</p>
+            <h3>Movements to explore</h3>
+            {exercises
+              .filter(
+                (e) => e.muscle === selected || e.secondary.includes(selected),
+              )
+              .map((e) => (
+                <Link key={e.id} to={"/app/library?exercise=" + e.id}>
+                  {e.name}
+                  <small>
+                    {e.equipment} · {e.difficulty}
+                  </small>
+                  <ArrowRight size={16} />
+                </Link>
+              ))}
+          </div>
+          <Button asChild variant="outline">
+            <Link to="/app/builder">
+              Build a workout
+              <ArrowRight size={16} />
+            </Link>
+          </Button>
+        </section>
+      </div>
+    </>
+  );
+}

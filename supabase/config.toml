@@ -1,0 +1,15 @@
+project_id = "lemaqque"
+[api]
+enabled = true
+port = 54321
+schemas = ["public", "graphql_public"]
+[db]
+port = 54322
+major_version = 17
+[auth]
+enabled = true
+site_url = "http://localhost:5173"
+additional_redirect_urls = ["http://localhost:5173/auth?mode=recovery", "http://localhost:5173/app"]
+[functions.delete-account]
+verify_jwt = false
+# Function explicitly calls auth.getUser(token); supports current publishable-key sessions.
