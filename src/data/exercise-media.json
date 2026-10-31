@@ -1,0 +1,2902 @@
+{
+  "references": {
+    "bench": {
+      "title": "Barbell Bench Press - Medium Grip",
+      "images": [
+        {
+          "src": "/exercise-images/bench-1.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Barbell Bench Press - Medium Grip, reference position 1",
+          "label": "Position 1"
+        },
+        {
+          "src": "/exercise-images/bench-2.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Barbell Bench Press - Medium Grip, reference position 2",
+          "label": "Position 2"
+        }
+      ],
+      "source": {
+        "name": "Free Exercise DB",
+        "url": "https://github.com/yuhonas/free-exercise-db/tree/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Barbell_Bench_Press_-_Medium_Grip",
+        "license": "Unlicense",
+        "revision": "f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5"
+      },
+      "drawing": {
+        "src": "/exercise-images/pdf-9-6.webp",
+        "width": 1000,
+        "height": 865,
+        "alt": "Barbell Bench Press - Medium Grip drawing from Building a Legendary Chest, PDF page 9",
+        "label": "PDF drawing",
+        "page": 9,
+        "source": "Building-a-Legendary-Chest.pdf"
+      }
+    },
+    "incline": {
+      "title": "Incline Dumbbell Press",
+      "images": [
+        {
+          "src": "/exercise-images/incline-1.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Incline Dumbbell Press, reference position 1",
+          "label": "Position 1"
+        },
+        {
+          "src": "/exercise-images/incline-2.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Incline Dumbbell Press, reference position 2",
+          "label": "Position 2"
+        }
+      ],
+      "source": {
+        "name": "Free Exercise DB",
+        "url": "https://github.com/yuhonas/free-exercise-db/tree/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Incline_Dumbbell_Press",
+        "license": "Unlicense",
+        "revision": "f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5"
+      },
+      "drawing": {
+        "src": "/exercise-images/pdf-10-3.webp",
+        "width": 762,
+        "height": 1000,
+        "alt": "Incline Dumbbell Press drawing from Building a Legendary Chest, PDF page 10",
+        "label": "PDF drawing",
+        "page": 10,
+        "source": "Building-a-Legendary-Chest.pdf"
+      }
+    },
+    "cable-mid": {
+      "title": "Shoulder-height cable fly",
+      "images": [],
+      "drawing": {
+        "src": "/exercise-images/pdf-24-11.webp",
+        "width": 852,
+        "height": 924,
+        "alt": "Shoulder-height cable fly drawing from Building a Legendary Chest, PDF page 24",
+        "label": "PDF drawing",
+        "page": 24,
+        "source": "Building-a-Legendary-Chest.pdf"
+      }
+    },
+    "cable-low": {
+      "title": "Low Cable Crossover",
+      "images": [
+        {
+          "src": "/exercise-images/cable-low-1.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Low Cable Crossover, reference position 1",
+          "label": "Position 1"
+        },
+        {
+          "src": "/exercise-images/cable-low-2.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Low Cable Crossover, reference position 2",
+          "label": "Position 2"
+        }
+      ],
+      "source": {
+        "name": "Free Exercise DB",
+        "url": "https://github.com/yuhonas/free-exercise-db/tree/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Low_Cable_Crossover",
+        "license": "Unlicense",
+        "revision": "f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5"
+      },
+      "drawing": {
+        "src": "/exercise-images/pdf-22-11.webp",
+        "width": 744,
+        "height": 693,
+        "alt": "Low Cable Crossover drawing from Building a Legendary Chest, PDF page 22",
+        "label": "PDF drawing",
+        "page": 22,
+        "source": "Building-a-Legendary-Chest.pdf"
+      }
+    },
+    "cable-high": {
+      "title": "Cable Crossover",
+      "images": [
+        {
+          "src": "/exercise-images/cable-high-1.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Cable Crossover, reference position 1",
+          "label": "Position 1"
+        },
+        {
+          "src": "/exercise-images/cable-high-2.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Cable Crossover, reference position 2",
+          "label": "Position 2"
+        }
+      ],
+      "source": {
+        "name": "Free Exercise DB",
+        "url": "https://github.com/yuhonas/free-exercise-db/tree/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Cable_Crossover",
+        "license": "Unlicense",
+        "revision": "f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5"
+      },
+      "drawing": {
+        "src": "/exercise-images/pdf-11-7.webp",
+        "width": 896,
+        "height": 1000,
+        "alt": "Cable Crossover drawing from Building a Legendary Chest, PDF page 11",
+        "label": "PDF drawing",
+        "page": 11,
+        "source": "Building-a-Legendary-Chest.pdf"
+      }
+    },
+    "incline-close": {
+      "title": "Close-grip incline dumbbell press",
+      "images": [],
+      "drawing": {
+        "src": "/exercise-images/pdf-12-9.webp",
+        "width": 944,
+        "height": 1000,
+        "alt": "Close-grip incline dumbbell press drawing from Building a Legendary Chest, PDF page 12",
+        "label": "PDF drawing",
+        "page": 12,
+        "source": "Building-a-Legendary-Chest.pdf"
+      }
+    },
+    "incline-close-2": {
+      "title": "Close-grip incline dumbbell press",
+      "images": [],
+      "drawing": {
+        "src": "/exercise-images/pdf-16-8.webp",
+        "width": 704,
+        "height": 720,
+        "alt": "Close-grip incline dumbbell press drawing from Building a Legendary Chest, PDF page 16",
+        "label": "PDF drawing",
+        "page": 16,
+        "source": "Building-a-Legendary-Chest.pdf"
+      }
+    },
+    "incline-fly": {
+      "title": "Incline Dumbbell Flyes",
+      "images": [
+        {
+          "src": "/exercise-images/incline-fly-1.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Incline Dumbbell Flyes, reference position 1",
+          "label": "Position 1"
+        },
+        {
+          "src": "/exercise-images/incline-fly-2.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Incline Dumbbell Flyes, reference position 2",
+          "label": "Position 2"
+        }
+      ],
+      "source": {
+        "name": "Free Exercise DB",
+        "url": "https://github.com/yuhonas/free-exercise-db/tree/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Incline_Dumbbell_Flyes",
+        "license": "Unlicense",
+        "revision": "f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5"
+      },
+      "drawing": {
+        "src": "/exercise-images/pdf-16-7.webp",
+        "width": 772,
+        "height": 744,
+        "alt": "Incline Dumbbell Flyes drawing from Building a Legendary Chest, PDF page 16",
+        "label": "PDF drawing",
+        "page": 16,
+        "source": "Building-a-Legendary-Chest.pdf"
+      }
+    },
+    "cable-press": {
+      "title": "Cable Chest Press",
+      "images": [
+        {
+          "src": "/exercise-images/cable-press-1.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Cable Chest Press, reference position 1",
+          "label": "Position 1"
+        },
+        {
+          "src": "/exercise-images/cable-press-2.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Cable Chest Press, reference position 2",
+          "label": "Position 2"
+        }
+      ],
+      "source": {
+        "name": "Free Exercise DB",
+        "url": "https://github.com/yuhonas/free-exercise-db/tree/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Cable_Chest_Press",
+        "license": "Unlicense",
+        "revision": "f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5"
+      },
+      "drawing": {
+        "src": "/exercise-images/pdf-17-9.webp",
+        "width": 736,
+        "height": 869,
+        "alt": "Cable Chest Press drawing from Building a Legendary Chest, PDF page 17",
+        "label": "PDF drawing",
+        "page": 17,
+        "source": "Building-a-Legendary-Chest.pdf"
+      }
+    },
+    "cable-fly-2": {
+      "title": "Cable chest fly",
+      "images": [],
+      "drawing": {
+        "src": "/exercise-images/pdf-17-10.webp",
+        "width": 776,
+        "height": 834,
+        "alt": "Cable chest fly drawing from Building a Legendary Chest, PDF page 17",
+        "label": "PDF drawing",
+        "page": 17,
+        "source": "Building-a-Legendary-Chest.pdf"
+      }
+    },
+    "hammer-press": {
+      "title": "Lever incline chest press",
+      "images": [
+        {
+          "src": "/exercise-images/hammer-press-1.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Lever incline chest press, reference position 1",
+          "label": "Position 1"
+        },
+        {
+          "src": "/exercise-images/hammer-press-2.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Lever incline chest press, reference position 2",
+          "label": "Position 2"
+        }
+      ],
+      "source": {
+        "name": "Free Exercise DB",
+        "url": "https://github.com/yuhonas/free-exercise-db/tree/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Leverage_Incline_Chest_Press",
+        "license": "Unlicense",
+        "revision": "f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5"
+      },
+      "drawing": {
+        "src": "/exercise-images/pdf-18-8.webp",
+        "width": 876,
+        "height": 1000,
+        "alt": "Lever incline chest press drawing from Building a Legendary Chest, PDF page 18",
+        "label": "PDF drawing",
+        "page": 18,
+        "source": "Building-a-Legendary-Chest.pdf"
+      }
+    },
+    "smith-flat": {
+      "title": "Smith Machine Bench Press",
+      "images": [
+        {
+          "src": "/exercise-images/smith-flat-1.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Smith Machine Bench Press, reference position 1",
+          "label": "Position 1"
+        },
+        {
+          "src": "/exercise-images/smith-flat-2.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Smith Machine Bench Press, reference position 2",
+          "label": "Position 2"
+        }
+      ],
+      "source": {
+        "name": "Free Exercise DB",
+        "url": "https://github.com/yuhonas/free-exercise-db/tree/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Smith_Machine_Bench_Press",
+        "license": "Unlicense",
+        "revision": "f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5"
+      },
+      "drawing": {
+        "src": "/exercise-images/pdf-19-11.webp",
+        "width": 864,
+        "height": 922,
+        "alt": "Smith Machine Bench Press drawing from Building a Legendary Chest, PDF page 19",
+        "label": "PDF drawing",
+        "page": 19,
+        "source": "Building-a-Legendary-Chest.pdf"
+      }
+    },
+    "decline-push": {
+      "title": "Decline Push-Up",
+      "images": [
+        {
+          "src": "/exercise-images/decline-push-1.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Decline Push-Up, reference position 1",
+          "label": "Position 1"
+        },
+        {
+          "src": "/exercise-images/decline-push-2.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Decline Push-Up, reference position 2",
+          "label": "Position 2"
+        }
+      ],
+      "source": {
+        "name": "Free Exercise DB",
+        "url": "https://github.com/yuhonas/free-exercise-db/tree/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Decline_Push-Up",
+        "license": "Unlicense",
+        "revision": "f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5"
+      },
+      "drawing": {
+        "src": "/exercise-images/pdf-19-10.webp",
+        "width": 816,
+        "height": 468,
+        "alt": "Decline Push-Up drawing from Building a Legendary Chest, PDF page 19",
+        "label": "PDF drawing",
+        "page": 19,
+        "source": "Building-a-Legendary-Chest.pdf"
+      }
+    },
+    "decline-push-2": {
+      "title": "Decline push-up",
+      "images": [],
+      "drawing": {
+        "src": "/exercise-images/pdf-22-10.webp",
+        "width": 840,
+        "height": 480,
+        "alt": "Decline push-up drawing from Building a Legendary Chest, PDF page 22",
+        "label": "PDF drawing",
+        "page": 22,
+        "source": "Building-a-Legendary-Chest.pdf"
+      }
+    },
+    "barbell-incline": {
+      "title": "Barbell Incline Bench Press - Medium Grip",
+      "images": [
+        {
+          "src": "/exercise-images/barbell-incline-1.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Barbell Incline Bench Press - Medium Grip, reference position 1",
+          "label": "Position 1"
+        },
+        {
+          "src": "/exercise-images/barbell-incline-2.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Barbell Incline Bench Press - Medium Grip, reference position 2",
+          "label": "Position 2"
+        }
+      ],
+      "source": {
+        "name": "Free Exercise DB",
+        "url": "https://github.com/yuhonas/free-exercise-db/tree/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Barbell_Incline_Bench_Press_-_Medium_Grip",
+        "license": "Unlicense",
+        "revision": "f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5"
+      },
+      "drawing": {
+        "src": "/exercise-images/pdf-21-10.webp",
+        "width": 900,
+        "height": 985,
+        "alt": "Barbell Incline Bench Press - Medium Grip drawing from Building a Legendary Chest, PDF page 21",
+        "label": "PDF drawing",
+        "page": 21,
+        "source": "Building-a-Legendary-Chest.pdf"
+      }
+    },
+    "db-flat": {
+      "title": "Dumbbell Bench Press",
+      "images": [
+        {
+          "src": "/exercise-images/db-flat-1.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Dumbbell Bench Press, reference position 1",
+          "label": "Position 1"
+        },
+        {
+          "src": "/exercise-images/db-flat-2.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Dumbbell Bench Press, reference position 2",
+          "label": "Position 2"
+        }
+      ],
+      "source": {
+        "name": "Free Exercise DB",
+        "url": "https://github.com/yuhonas/free-exercise-db/tree/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Dumbbell_Bench_Press",
+        "license": "Unlicense",
+        "revision": "f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5"
+      },
+      "drawing": {
+        "src": "/exercise-images/pdf-23-10.webp",
+        "width": 1000,
+        "height": 727,
+        "alt": "Dumbbell Bench Press drawing from Building a Legendary Chest, PDF page 23",
+        "label": "PDF drawing",
+        "page": 23,
+        "source": "Building-a-Legendary-Chest.pdf"
+      }
+    },
+    "push": {
+      "title": "Pushups",
+      "images": [
+        {
+          "src": "/exercise-images/push-1.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Pushups, reference position 1",
+          "label": "Position 1"
+        },
+        {
+          "src": "/exercise-images/push-2.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Pushups, reference position 2",
+          "label": "Position 2"
+        }
+      ],
+      "source": {
+        "name": "Free Exercise DB",
+        "url": "https://github.com/yuhonas/free-exercise-db/tree/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Pushups",
+        "license": "Unlicense",
+        "revision": "f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5"
+      },
+      "drawing": {
+        "src": "/exercise-images/pdf-24-10.webp",
+        "width": 656,
+        "height": 376,
+        "alt": "Pushups drawing from Building a Legendary Chest, PDF page 24",
+        "label": "PDF drawing",
+        "page": 24,
+        "source": "Building-a-Legendary-Chest.pdf"
+      }
+    },
+    "dip": {
+      "title": "Parallel-bar dip",
+      "images": [
+        {
+          "src": "/exercise-images/dip-1.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Parallel-bar dip, reference position 1",
+          "label": "Position 1"
+        },
+        {
+          "src": "/exercise-images/dip-2.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Parallel-bar dip, reference position 2",
+          "label": "Position 2"
+        }
+      ],
+      "source": {
+        "name": "Free Exercise DB",
+        "url": "https://github.com/yuhonas/free-exercise-db/tree/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Dips_-_Chest_Version",
+        "license": "Unlicense",
+        "revision": "f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5"
+      },
+      "drawing": {
+        "src": "/exercise-images/pdf-13-0.webp",
+        "width": 1000,
+        "height": 876,
+        "alt": "Parallel-bar dip drawing from Building a Legendary Chest, PDF page 13",
+        "label": "PDF drawing",
+        "page": 13,
+        "source": "Building-a-Legendary-Chest.pdf"
+      }
+    },
+    "machine-fly": {
+      "title": "Butterfly",
+      "images": [
+        {
+          "src": "/exercise-images/machine-fly-1.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Butterfly, reference position 1",
+          "label": "Position 1"
+        },
+        {
+          "src": "/exercise-images/machine-fly-2.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Butterfly, reference position 2",
+          "label": "Position 2"
+        }
+      ],
+      "source": {
+        "name": "Free Exercise DB",
+        "url": "https://github.com/yuhonas/free-exercise-db/tree/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Butterfly",
+        "license": "Unlicense",
+        "revision": "f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5"
+      }
+    },
+    "wide-pulldown": {
+      "title": "Wide-Grip Lat Pulldown",
+      "images": [
+        {
+          "src": "/exercise-images/wide-pulldown-1.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Wide-Grip Lat Pulldown, reference position 1",
+          "label": "Position 1"
+        },
+        {
+          "src": "/exercise-images/wide-pulldown-2.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Wide-Grip Lat Pulldown, reference position 2",
+          "label": "Position 2"
+        }
+      ],
+      "source": {
+        "name": "Free Exercise DB",
+        "url": "https://github.com/yuhonas/free-exercise-db/tree/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Wide-Grip_Lat_Pulldown",
+        "license": "Unlicense",
+        "revision": "f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5"
+      }
+    },
+    "row": {
+      "title": "Seated Cable Rows",
+      "images": [
+        {
+          "src": "/exercise-images/row-1.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Seated Cable Rows, reference position 1",
+          "label": "Position 1"
+        },
+        {
+          "src": "/exercise-images/row-2.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Seated Cable Rows, reference position 2",
+          "label": "Position 2"
+        }
+      ],
+      "source": {
+        "name": "Free Exercise DB",
+        "url": "https://github.com/yuhonas/free-exercise-db/tree/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Seated_Cable_Rows",
+        "license": "Unlicense",
+        "revision": "f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5"
+      }
+    },
+    "reverse-pulldown": {
+      "title": "Underhand Cable Pulldowns",
+      "images": [
+        {
+          "src": "/exercise-images/reverse-pulldown-1.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Underhand Cable Pulldowns, reference position 1",
+          "label": "Position 1"
+        },
+        {
+          "src": "/exercise-images/reverse-pulldown-2.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Underhand Cable Pulldowns, reference position 2",
+          "label": "Position 2"
+        }
+      ],
+      "source": {
+        "name": "Free Exercise DB",
+        "url": "https://github.com/yuhonas/free-exercise-db/tree/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Underhand_Cable_Pulldowns",
+        "license": "Unlicense",
+        "revision": "f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5"
+      }
+    },
+    "bb-row": {
+      "title": "Bent Over Barbell Row",
+      "images": [
+        {
+          "src": "/exercise-images/bb-row-1.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Bent Over Barbell Row, reference position 1",
+          "label": "Position 1"
+        },
+        {
+          "src": "/exercise-images/bb-row-2.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Bent Over Barbell Row, reference position 2",
+          "label": "Position 2"
+        }
+      ],
+      "source": {
+        "name": "Free Exercise DB",
+        "url": "https://github.com/yuhonas/free-exercise-db/tree/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Bent_Over_Barbell_Row",
+        "license": "Unlicense",
+        "revision": "f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5"
+      }
+    },
+    "db-stiff": {
+      "title": "Stiff-Legged Dumbbell Deadlift",
+      "images": [
+        {
+          "src": "/exercise-images/db-stiff-1.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Stiff-Legged Dumbbell Deadlift, reference position 1",
+          "label": "Position 1"
+        },
+        {
+          "src": "/exercise-images/db-stiff-2.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Stiff-Legged Dumbbell Deadlift, reference position 2",
+          "label": "Position 2"
+        }
+      ],
+      "source": {
+        "name": "Free Exercise DB",
+        "url": "https://github.com/yuhonas/free-exercise-db/tree/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Stiff-Legged_Dumbbell_Deadlift",
+        "license": "Unlicense",
+        "revision": "f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5"
+      }
+    },
+    "rope-pulldown": {
+      "title": "Rope Straight-Arm Pulldown",
+      "images": [
+        {
+          "src": "/exercise-images/rope-pulldown-1.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Rope Straight-Arm Pulldown, reference position 1",
+          "label": "Position 1"
+        },
+        {
+          "src": "/exercise-images/rope-pulldown-2.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Rope Straight-Arm Pulldown, reference position 2",
+          "label": "Position 2"
+        }
+      ],
+      "source": {
+        "name": "Free Exercise DB",
+        "url": "https://github.com/yuhonas/free-exercise-db/tree/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Rope_Straight-Arm_Pulldown",
+        "license": "Unlicense",
+        "revision": "f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5"
+      }
+    },
+    "shoulder-press": {
+      "title": "Dumbbell Shoulder Press",
+      "images": [
+        {
+          "src": "/exercise-images/shoulder-press-1.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Dumbbell Shoulder Press, reference position 1",
+          "label": "Position 1"
+        },
+        {
+          "src": "/exercise-images/shoulder-press-2.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Dumbbell Shoulder Press, reference position 2",
+          "label": "Position 2"
+        }
+      ],
+      "source": {
+        "name": "Free Exercise DB",
+        "url": "https://github.com/yuhonas/free-exercise-db/tree/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Dumbbell_Shoulder_Press",
+        "license": "Unlicense",
+        "revision": "f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5"
+      }
+    },
+    "lateral": {
+      "title": "Side Lateral Raise",
+      "images": [
+        {
+          "src": "/exercise-images/lateral-1.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Side Lateral Raise, reference position 1",
+          "label": "Position 1"
+        },
+        {
+          "src": "/exercise-images/lateral-2.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Side Lateral Raise, reference position 2",
+          "label": "Position 2"
+        }
+      ],
+      "source": {
+        "name": "Free Exercise DB",
+        "url": "https://github.com/yuhonas/free-exercise-db/tree/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Side_Lateral_Raise",
+        "license": "Unlicense",
+        "revision": "f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5"
+      }
+    },
+    "bb-front": {
+      "title": "Standing Front Barbell Raise Over Head",
+      "images": [
+        {
+          "src": "/exercise-images/bb-front-1.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Standing Front Barbell Raise Over Head, reference position 1",
+          "label": "Position 1"
+        },
+        {
+          "src": "/exercise-images/bb-front-2.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Standing Front Barbell Raise Over Head, reference position 2",
+          "label": "Position 2"
+        }
+      ],
+      "source": {
+        "name": "Free Exercise DB",
+        "url": "https://github.com/yuhonas/free-exercise-db/tree/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Standing_Front_Barbell_Raise_Over_Head",
+        "license": "Unlicense",
+        "revision": "f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5"
+      }
+    },
+    "bb-overhead": {
+      "title": "Standing Military Press",
+      "images": [
+        {
+          "src": "/exercise-images/bb-overhead-1.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Standing Military Press, reference position 1",
+          "label": "Position 1"
+        },
+        {
+          "src": "/exercise-images/bb-overhead-2.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Standing Military Press, reference position 2",
+          "label": "Position 2"
+        }
+      ],
+      "source": {
+        "name": "Free Exercise DB",
+        "url": "https://github.com/yuhonas/free-exercise-db/tree/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Standing_Military_Press",
+        "license": "Unlicense",
+        "revision": "f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5"
+      }
+    },
+    "upright": {
+      "title": "Upright Barbell Row",
+      "images": [
+        {
+          "src": "/exercise-images/upright-1.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Upright Barbell Row, reference position 1",
+          "label": "Position 1"
+        },
+        {
+          "src": "/exercise-images/upright-2.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Upright Barbell Row, reference position 2",
+          "label": "Position 2"
+        }
+      ],
+      "source": {
+        "name": "Free Exercise DB",
+        "url": "https://github.com/yuhonas/free-exercise-db/tree/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Upright_Barbell_Row",
+        "license": "Unlicense",
+        "revision": "f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5"
+      }
+    },
+    "rear-machine": {
+      "title": "Reverse Machine Flyes",
+      "images": [
+        {
+          "src": "/exercise-images/rear-machine-1.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Reverse Machine Flyes, reference position 1",
+          "label": "Position 1"
+        },
+        {
+          "src": "/exercise-images/rear-machine-2.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Reverse Machine Flyes, reference position 2",
+          "label": "Position 2"
+        }
+      ],
+      "source": {
+        "name": "Free Exercise DB",
+        "url": "https://github.com/yuhonas/free-exercise-db/tree/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Reverse_Machine_Flyes",
+        "license": "Unlicense",
+        "revision": "f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5"
+      }
+    },
+    "seated-calf": {
+      "title": "Seated Calf Raise",
+      "images": [
+        {
+          "src": "/exercise-images/seated-calf-1.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Seated Calf Raise, reference position 1",
+          "label": "Position 1"
+        },
+        {
+          "src": "/exercise-images/seated-calf-2.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Seated Calf Raise, reference position 2",
+          "label": "Position 2"
+        }
+      ],
+      "source": {
+        "name": "Free Exercise DB",
+        "url": "https://github.com/yuhonas/free-exercise-db/tree/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Seated_Calf_Raise",
+        "license": "Unlicense",
+        "revision": "f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5"
+      }
+    },
+    "leg-extension": {
+      "title": "Leg Extensions",
+      "images": [
+        {
+          "src": "/exercise-images/leg-extension-1.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Leg Extensions, reference position 1",
+          "label": "Position 1"
+        },
+        {
+          "src": "/exercise-images/leg-extension-2.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Leg Extensions, reference position 2",
+          "label": "Position 2"
+        }
+      ],
+      "source": {
+        "name": "Free Exercise DB",
+        "url": "https://github.com/yuhonas/free-exercise-db/tree/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Leg_Extensions",
+        "license": "Unlicense",
+        "revision": "f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5"
+      }
+    },
+    "lying-curl": {
+      "title": "Lying Leg Curls",
+      "images": [
+        {
+          "src": "/exercise-images/lying-curl-1.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Lying Leg Curls, reference position 1",
+          "label": "Position 1"
+        },
+        {
+          "src": "/exercise-images/lying-curl-2.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Lying Leg Curls, reference position 2",
+          "label": "Position 2"
+        }
+      ],
+      "source": {
+        "name": "Free Exercise DB",
+        "url": "https://github.com/yuhonas/free-exercise-db/tree/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Lying_Leg_Curls",
+        "license": "Unlicense",
+        "revision": "f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5"
+      }
+    },
+    "leg-press": {
+      "title": "Leg Press",
+      "images": [
+        {
+          "src": "/exercise-images/leg-press-1.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Leg Press, reference position 1",
+          "label": "Position 1"
+        },
+        {
+          "src": "/exercise-images/leg-press-2.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Leg Press, reference position 2",
+          "label": "Position 2"
+        }
+      ],
+      "source": {
+        "name": "Free Exercise DB",
+        "url": "https://github.com/yuhonas/free-exercise-db/tree/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Leg_Press",
+        "license": "Unlicense",
+        "revision": "f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5"
+      }
+    },
+    "smith-split": {
+      "title": "Smith Single-Leg Split Squat",
+      "images": [
+        {
+          "src": "/exercise-images/smith-split-1.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Smith Single-Leg Split Squat, reference position 1",
+          "label": "Position 1"
+        },
+        {
+          "src": "/exercise-images/smith-split-2.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Smith Single-Leg Split Squat, reference position 2",
+          "label": "Position 2"
+        }
+      ],
+      "source": {
+        "name": "Free Exercise DB",
+        "url": "https://github.com/yuhonas/free-exercise-db/tree/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Smith_Single-Leg_Split_Squat",
+        "license": "Unlicense",
+        "revision": "f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5"
+      }
+    },
+    "bb-stiff": {
+      "title": "Stiff-Legged Barbell Deadlift",
+      "images": [
+        {
+          "src": "/exercise-images/bb-stiff-1.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Stiff-Legged Barbell Deadlift, reference position 1",
+          "label": "Position 1"
+        },
+        {
+          "src": "/exercise-images/bb-stiff-2.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Stiff-Legged Barbell Deadlift, reference position 2",
+          "label": "Position 2"
+        }
+      ],
+      "source": {
+        "name": "Free Exercise DB",
+        "url": "https://github.com/yuhonas/free-exercise-db/tree/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Stiff-Legged_Barbell_Deadlift",
+        "license": "Unlicense",
+        "revision": "f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5"
+      }
+    },
+    "single-extension": {
+      "title": "Single-Leg Leg Extension",
+      "images": [
+        {
+          "src": "/exercise-images/single-extension-1.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Single-Leg Leg Extension, reference position 1",
+          "label": "Position 1"
+        },
+        {
+          "src": "/exercise-images/single-extension-2.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Single-Leg Leg Extension, reference position 2",
+          "label": "Position 2"
+        }
+      ],
+      "source": {
+        "name": "Free Exercise DB",
+        "url": "https://github.com/yuhonas/free-exercise-db/tree/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Single-Leg_Leg_Extension",
+        "license": "Unlicense",
+        "revision": "f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5"
+      }
+    },
+    "seated-curl": {
+      "title": "Seated Leg Curl",
+      "images": [
+        {
+          "src": "/exercise-images/seated-curl-1.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Seated Leg Curl, reference position 1",
+          "label": "Position 1"
+        },
+        {
+          "src": "/exercise-images/seated-curl-2.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Seated Leg Curl, reference position 2",
+          "label": "Position 2"
+        }
+      ],
+      "source": {
+        "name": "Free Exercise DB",
+        "url": "https://github.com/yuhonas/free-exercise-db/tree/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Seated_Leg_Curl",
+        "license": "Unlicense",
+        "revision": "f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5"
+      }
+    },
+    "walk-lunge": {
+      "title": "Bodyweight Walking Lunge",
+      "images": [
+        {
+          "src": "/exercise-images/walk-lunge-1.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Bodyweight Walking Lunge, reference position 1",
+          "label": "Position 1"
+        },
+        {
+          "src": "/exercise-images/walk-lunge-2.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Bodyweight Walking Lunge, reference position 2",
+          "label": "Position 2"
+        }
+      ],
+      "source": {
+        "name": "Free Exercise DB",
+        "url": "https://github.com/yuhonas/free-exercise-db/tree/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Bodyweight_Walking_Lunge",
+        "license": "Unlicense",
+        "revision": "f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5"
+      }
+    },
+    "bb-curl": {
+      "title": "Barbell Curl",
+      "images": [
+        {
+          "src": "/exercise-images/bb-curl-1.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Barbell Curl, reference position 1",
+          "label": "Position 1"
+        },
+        {
+          "src": "/exercise-images/bb-curl-2.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Barbell Curl, reference position 2",
+          "label": "Position 2"
+        }
+      ],
+      "source": {
+        "name": "Free Exercise DB",
+        "url": "https://github.com/yuhonas/free-exercise-db/tree/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Barbell_Curl",
+        "license": "Unlicense",
+        "revision": "f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5"
+      }
+    },
+    "close-bench": {
+      "title": "Close-Grip Barbell Bench Press",
+      "images": [
+        {
+          "src": "/exercise-images/close-bench-1.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Close-Grip Barbell Bench Press, reference position 1",
+          "label": "Position 1"
+        },
+        {
+          "src": "/exercise-images/close-bench-2.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Close-Grip Barbell Bench Press, reference position 2",
+          "label": "Position 2"
+        }
+      ],
+      "source": {
+        "name": "Free Exercise DB",
+        "url": "https://github.com/yuhonas/free-exercise-db/tree/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Close-Grip_Barbell_Bench_Press",
+        "license": "Unlicense",
+        "revision": "f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5"
+      }
+    },
+    "spider": {
+      "title": "Prone incline dumbbell curl",
+      "images": [
+        {
+          "src": "/exercise-images/spider-1.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Prone incline dumbbell curl, reference position 1",
+          "label": "Position 1"
+        },
+        {
+          "src": "/exercise-images/spider-2.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Prone incline dumbbell curl, reference position 2",
+          "label": "Position 2"
+        }
+      ],
+      "source": {
+        "name": "Free Exercise DB",
+        "url": "https://github.com/yuhonas/free-exercise-db/tree/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Dumbbell_Prone_Incline_Curl",
+        "license": "Unlicense",
+        "revision": "f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5"
+      }
+    },
+    "db-extension": {
+      "title": "Standing Dumbbell Triceps Extension",
+      "images": [
+        {
+          "src": "/exercise-images/db-extension-1.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Standing Dumbbell Triceps Extension, reference position 1",
+          "label": "Position 1"
+        },
+        {
+          "src": "/exercise-images/db-extension-2.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Standing Dumbbell Triceps Extension, reference position 2",
+          "label": "Position 2"
+        }
+      ],
+      "source": {
+        "name": "Free Exercise DB",
+        "url": "https://github.com/yuhonas/free-exercise-db/tree/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Standing_Dumbbell_Triceps_Extension",
+        "license": "Unlicense",
+        "revision": "f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5"
+      }
+    },
+    "preacher": {
+      "title": "Machine Preacher Curls",
+      "images": [
+        {
+          "src": "/exercise-images/preacher-1.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Machine Preacher Curls, reference position 1",
+          "label": "Position 1"
+        },
+        {
+          "src": "/exercise-images/preacher-2.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Machine Preacher Curls, reference position 2",
+          "label": "Position 2"
+        }
+      ],
+      "source": {
+        "name": "Free Exercise DB",
+        "url": "https://github.com/yuhonas/free-exercise-db/tree/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Machine_Preacher_Curls",
+        "license": "Unlicense",
+        "revision": "f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5"
+      }
+    },
+    "pushdown": {
+      "title": "Triceps Pushdown",
+      "images": [
+        {
+          "src": "/exercise-images/pushdown-1.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Triceps Pushdown, reference position 1",
+          "label": "Position 1"
+        },
+        {
+          "src": "/exercise-images/pushdown-2.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Triceps Pushdown, reference position 2",
+          "label": "Position 2"
+        }
+      ],
+      "source": {
+        "name": "Free Exercise DB",
+        "url": "https://github.com/yuhonas/free-exercise-db/tree/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Triceps_Pushdown",
+        "license": "Unlicense",
+        "revision": "f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5"
+      }
+    },
+    "rope-curl": {
+      "title": "Cable Hammer Curls - Rope Attachment",
+      "images": [
+        {
+          "src": "/exercise-images/rope-curl-1.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Cable Hammer Curls - Rope Attachment, reference position 1",
+          "label": "Position 1"
+        },
+        {
+          "src": "/exercise-images/rope-curl-2.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Cable Hammer Curls - Rope Attachment, reference position 2",
+          "label": "Position 2"
+        }
+      ],
+      "source": {
+        "name": "Free Exercise DB",
+        "url": "https://github.com/yuhonas/free-exercise-db/tree/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Cable_Hammer_Curls_-_Rope_Attachment",
+        "license": "Unlicense",
+        "revision": "f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5"
+      }
+    },
+    "rope-extension": {
+      "title": "Cable Rope Overhead Triceps Extension",
+      "images": [
+        {
+          "src": "/exercise-images/rope-extension-1.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Cable Rope Overhead Triceps Extension, reference position 1",
+          "label": "Position 1"
+        },
+        {
+          "src": "/exercise-images/rope-extension-2.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Cable Rope Overhead Triceps Extension, reference position 2",
+          "label": "Position 2"
+        }
+      ],
+      "source": {
+        "name": "Free Exercise DB",
+        "url": "https://github.com/yuhonas/free-exercise-db/tree/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Cable_Rope_Overhead_Triceps_Extension",
+        "license": "Unlicense",
+        "revision": "f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5"
+      }
+    },
+    "reverse-curl": {
+      "title": "Reverse Barbell Curl",
+      "images": [
+        {
+          "src": "/exercise-images/reverse-curl-1.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Reverse Barbell Curl, reference position 1",
+          "label": "Position 1"
+        },
+        {
+          "src": "/exercise-images/reverse-curl-2.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Reverse Barbell Curl, reference position 2",
+          "label": "Position 2"
+        }
+      ],
+      "source": {
+        "name": "Free Exercise DB",
+        "url": "https://github.com/yuhonas/free-exercise-db/tree/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Reverse_Barbell_Curl",
+        "license": "Unlicense",
+        "revision": "f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5"
+      }
+    },
+    "leg-lift": {
+      "title": "Flat Bench Lying Leg Raise",
+      "images": [
+        {
+          "src": "/exercise-images/leg-lift-1.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Flat Bench Lying Leg Raise, reference position 1",
+          "label": "Position 1"
+        },
+        {
+          "src": "/exercise-images/leg-lift-2.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Flat Bench Lying Leg Raise, reference position 2",
+          "label": "Position 2"
+        }
+      ],
+      "source": {
+        "name": "Free Exercise DB",
+        "url": "https://github.com/yuhonas/free-exercise-db/tree/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Flat_Bench_Lying_Leg_Raise",
+        "license": "Unlicense",
+        "revision": "f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5"
+      }
+    },
+    "hanging-leg": {
+      "title": "Hanging Leg Raise",
+      "images": [
+        {
+          "src": "/exercise-images/hanging-leg-1.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Hanging Leg Raise, reference position 1",
+          "label": "Position 1"
+        },
+        {
+          "src": "/exercise-images/hanging-leg-2.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Hanging Leg Raise, reference position 2",
+          "label": "Position 2"
+        }
+      ],
+      "source": {
+        "name": "Free Exercise DB",
+        "url": "https://github.com/yuhonas/free-exercise-db/tree/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Hanging_Leg_Raise",
+        "license": "Unlicense",
+        "revision": "f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5"
+      }
+    },
+    "crunch": {
+      "title": "Crunches",
+      "images": [
+        {
+          "src": "/exercise-images/crunch-1.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Crunches, reference position 1",
+          "label": "Position 1"
+        },
+        {
+          "src": "/exercise-images/crunch-2.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Crunches, reference position 2",
+          "label": "Position 2"
+        }
+      ],
+      "source": {
+        "name": "Free Exercise DB",
+        "url": "https://github.com/yuhonas/free-exercise-db/tree/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Crunches",
+        "license": "Unlicense",
+        "revision": "f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5"
+      }
+    },
+    "decline-crunch": {
+      "title": "Decline Reverse Crunch",
+      "images": [
+        {
+          "src": "/exercise-images/decline-crunch-1.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Decline Reverse Crunch, reference position 1",
+          "label": "Position 1"
+        },
+        {
+          "src": "/exercise-images/decline-crunch-2.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Decline Reverse Crunch, reference position 2",
+          "label": "Position 2"
+        }
+      ],
+      "source": {
+        "name": "Free Exercise DB",
+        "url": "https://github.com/yuhonas/free-exercise-db/tree/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Decline_Reverse_Crunch",
+        "license": "Unlicense",
+        "revision": "f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5"
+      }
+    },
+    "smith-incline": {
+      "title": "Smith Machine Incline Bench Press",
+      "images": [
+        {
+          "src": "/exercise-images/smith-incline-1.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Smith Machine Incline Bench Press, reference position 1",
+          "label": "Position 1"
+        },
+        {
+          "src": "/exercise-images/smith-incline-2.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Smith Machine Incline Bench Press, reference position 2",
+          "label": "Position 2"
+        }
+      ],
+      "source": {
+        "name": "Free Exercise DB",
+        "url": "https://github.com/yuhonas/free-exercise-db/tree/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Smith_Machine_Incline_Bench_Press",
+        "license": "Unlicense",
+        "revision": "f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5"
+      }
+    },
+    "back-extension": {
+      "title": "Hyperextensions (Back Extensions)",
+      "images": [
+        {
+          "src": "/exercise-images/back-extension-1.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Hyperextensions (Back Extensions), reference position 1",
+          "label": "Position 1"
+        },
+        {
+          "src": "/exercise-images/back-extension-2.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Hyperextensions (Back Extensions), reference position 2",
+          "label": "Position 2"
+        }
+      ],
+      "source": {
+        "name": "Free Exercise DB",
+        "url": "https://github.com/yuhonas/free-exercise-db/tree/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Hyperextensions_Back_Extensions",
+        "license": "Unlicense",
+        "revision": "f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5"
+      }
+    },
+    "pullup": {
+      "title": "Pullups",
+      "images": [
+        {
+          "src": "/exercise-images/pullup-1.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Pullups, reference position 1",
+          "label": "Position 1"
+        },
+        {
+          "src": "/exercise-images/pullup-2.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Pullups, reference position 2",
+          "label": "Position 2"
+        }
+      ],
+      "source": {
+        "name": "Free Exercise DB",
+        "url": "https://github.com/yuhonas/free-exercise-db/tree/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Pullups",
+        "license": "Unlicense",
+        "revision": "f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5"
+      }
+    },
+    "db-row": {
+      "title": "One-Arm Dumbbell Row",
+      "images": [
+        {
+          "src": "/exercise-images/db-row-1.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "One-Arm Dumbbell Row, reference position 1",
+          "label": "Position 1"
+        },
+        {
+          "src": "/exercise-images/db-row-2.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "One-Arm Dumbbell Row, reference position 2",
+          "label": "Position 2"
+        }
+      ],
+      "source": {
+        "name": "Free Exercise DB",
+        "url": "https://github.com/yuhonas/free-exercise-db/tree/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/One-Arm_Dumbbell_Row",
+        "license": "Unlicense",
+        "revision": "f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5"
+      }
+    },
+    "single-lateral": {
+      "title": "One-Arm Side Laterals",
+      "images": [
+        {
+          "src": "/exercise-images/single-lateral-1.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "One-Arm Side Laterals, reference position 1",
+          "label": "Position 1"
+        },
+        {
+          "src": "/exercise-images/single-lateral-2.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "One-Arm Side Laterals, reference position 2",
+          "label": "Position 2"
+        }
+      ],
+      "source": {
+        "name": "Free Exercise DB",
+        "url": "https://github.com/yuhonas/free-exercise-db/tree/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/One-Arm_Side_Laterals",
+        "license": "Unlicense",
+        "revision": "f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5"
+      }
+    },
+    "neutral-press": {
+      "title": "Standing Palms-In Dumbbell Press",
+      "images": [
+        {
+          "src": "/exercise-images/neutral-press-1.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Standing Palms-In Dumbbell Press, reference position 1",
+          "label": "Position 1"
+        },
+        {
+          "src": "/exercise-images/neutral-press-2.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Standing Palms-In Dumbbell Press, reference position 2",
+          "label": "Position 2"
+        }
+      ],
+      "source": {
+        "name": "Free Exercise DB",
+        "url": "https://github.com/yuhonas/free-exercise-db/tree/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Standing_Palms-In_Dumbbell_Press",
+        "license": "Unlicense",
+        "revision": "f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5"
+      }
+    },
+    "rear-fly": {
+      "title": "Reverse Flyes",
+      "images": [
+        {
+          "src": "/exercise-images/rear-fly-1.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Reverse Flyes, reference position 1",
+          "label": "Position 1"
+        },
+        {
+          "src": "/exercise-images/rear-fly-2.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Reverse Flyes, reference position 2",
+          "label": "Position 2"
+        }
+      ],
+      "source": {
+        "name": "Free Exercise DB",
+        "url": "https://github.com/yuhonas/free-exercise-db/tree/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Reverse_Flyes",
+        "license": "Unlicense",
+        "revision": "f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5"
+      }
+    },
+    "smith-squat": {
+      "title": "Smith Machine Squat",
+      "images": [
+        {
+          "src": "/exercise-images/smith-squat-1.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Smith Machine Squat, reference position 1",
+          "label": "Position 1"
+        },
+        {
+          "src": "/exercise-images/smith-squat-2.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Smith Machine Squat, reference position 2",
+          "label": "Position 2"
+        }
+      ],
+      "source": {
+        "name": "Free Exercise DB",
+        "url": "https://github.com/yuhonas/free-exercise-db/tree/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Smith_Machine_Squat",
+        "license": "Unlicense",
+        "revision": "f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5"
+      }
+    },
+    "hack": {
+      "title": "Hack Squat",
+      "images": [
+        {
+          "src": "/exercise-images/hack-1.webp",
+          "width": 720,
+          "height": 720,
+          "alt": "Hack Squat, reference position 1",
+          "label": "Position 1"
+        },
+        {
+          "src": "/exercise-images/hack-2.webp",
+          "width": 720,
+          "height": 720,
+          "alt": "Hack Squat, reference position 2",
+          "label": "Position 2"
+        }
+      ],
+      "source": {
+        "name": "Free Exercise DB",
+        "url": "https://github.com/yuhonas/free-exercise-db/tree/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Hack_Squat",
+        "license": "Unlicense",
+        "revision": "f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5"
+      }
+    },
+    "db-lunge": {
+      "title": "Dumbbell Lunges",
+      "images": [
+        {
+          "src": "/exercise-images/db-lunge-1.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Dumbbell Lunges, reference position 1",
+          "label": "Position 1"
+        },
+        {
+          "src": "/exercise-images/db-lunge-2.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Dumbbell Lunges, reference position 2",
+          "label": "Position 2"
+        }
+      ],
+      "source": {
+        "name": "Free Exercise DB",
+        "url": "https://github.com/yuhonas/free-exercise-db/tree/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Dumbbell_Lunges",
+        "license": "Unlicense",
+        "revision": "f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5"
+      }
+    },
+    "ez-curl": {
+      "title": "EZ-Bar Curl",
+      "images": [
+        {
+          "src": "/exercise-images/ez-curl-1.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "EZ-Bar Curl, reference position 1",
+          "label": "Position 1"
+        },
+        {
+          "src": "/exercise-images/ez-curl-2.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "EZ-Bar Curl, reference position 2",
+          "label": "Position 2"
+        }
+      ],
+      "source": {
+        "name": "Free Exercise DB",
+        "url": "https://github.com/yuhonas/free-exercise-db/tree/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/EZ-Bar_Curl",
+        "license": "Unlicense",
+        "revision": "f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5"
+      }
+    },
+    "hammer": {
+      "title": "Hammer Curls",
+      "images": [
+        {
+          "src": "/exercise-images/hammer-1.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Hammer Curls, reference position 1",
+          "label": "Position 1"
+        },
+        {
+          "src": "/exercise-images/hammer-2.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Hammer Curls, reference position 2",
+          "label": "Position 2"
+        }
+      ],
+      "source": {
+        "name": "Free Exercise DB",
+        "url": "https://github.com/yuhonas/free-exercise-db/tree/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Hammer_Curls",
+        "license": "Unlicense",
+        "revision": "f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5"
+      }
+    },
+    "rope-pushdown": {
+      "title": "Triceps Pushdown - Rope Attachment",
+      "images": [
+        {
+          "src": "/exercise-images/rope-pushdown-1.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Triceps Pushdown - Rope Attachment, reference position 1",
+          "label": "Position 1"
+        },
+        {
+          "src": "/exercise-images/rope-pushdown-2.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Triceps Pushdown - Rope Attachment, reference position 2",
+          "label": "Position 2"
+        }
+      ],
+      "source": {
+        "name": "Free Exercise DB",
+        "url": "https://github.com/yuhonas/free-exercise-db/tree/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Triceps_Pushdown_-_Rope_Attachment",
+        "license": "Unlicense",
+        "revision": "f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5"
+      }
+    },
+    "db-curl": {
+      "title": "Dumbbell Bicep Curl",
+      "images": [
+        {
+          "src": "/exercise-images/db-curl-1.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Dumbbell Bicep Curl, reference position 1",
+          "label": "Position 1"
+        },
+        {
+          "src": "/exercise-images/db-curl-2.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Dumbbell Bicep Curl, reference position 2",
+          "label": "Position 2"
+        }
+      ],
+      "source": {
+        "name": "Free Exercise DB",
+        "url": "https://github.com/yuhonas/free-exercise-db/tree/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Dumbbell_Bicep_Curl",
+        "license": "Unlicense",
+        "revision": "f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5"
+      }
+    },
+    "machine-dip": {
+      "title": "Dip Machine",
+      "images": [
+        {
+          "src": "/exercise-images/machine-dip-1.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Dip Machine, reference position 1",
+          "label": "Position 1"
+        },
+        {
+          "src": "/exercise-images/machine-dip-2.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Dip Machine, reference position 2",
+          "label": "Position 2"
+        }
+      ],
+      "source": {
+        "name": "Free Exercise DB",
+        "url": "https://github.com/yuhonas/free-exercise-db/tree/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Dip_Machine",
+        "license": "Unlicense",
+        "revision": "f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5"
+      }
+    },
+    "close-push": {
+      "title": "Push-Ups - Close Triceps Position",
+      "images": [
+        {
+          "src": "/exercise-images/close-push-1.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Push-Ups - Close Triceps Position, reference position 1",
+          "label": "Position 1"
+        },
+        {
+          "src": "/exercise-images/close-push-2.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Push-Ups - Close Triceps Position, reference position 2",
+          "label": "Position 2"
+        }
+      ],
+      "source": {
+        "name": "Free Exercise DB",
+        "url": "https://github.com/yuhonas/free-exercise-db/tree/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Push-Ups_-_Close_Triceps_Position",
+        "license": "Unlicense",
+        "revision": "f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5"
+      }
+    },
+    "cable-crunch": {
+      "title": "Cable Crunch",
+      "images": [
+        {
+          "src": "/exercise-images/cable-crunch-1.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Cable Crunch, reference position 1",
+          "label": "Position 1"
+        },
+        {
+          "src": "/exercise-images/cable-crunch-2.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Cable Crunch, reference position 2",
+          "label": "Position 2"
+        }
+      ],
+      "source": {
+        "name": "Free Exercise DB",
+        "url": "https://github.com/yuhonas/free-exercise-db/tree/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Cable_Crunch",
+        "license": "Unlicense",
+        "revision": "f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5"
+      }
+    },
+    "bicycle": {
+      "title": "Bicycle crunch",
+      "images": [
+        {
+          "src": "/exercise-images/bicycle-1.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Bicycle crunch, reference position 1",
+          "label": "Position 1"
+        },
+        {
+          "src": "/exercise-images/bicycle-2.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Bicycle crunch, reference position 2",
+          "label": "Position 2"
+        }
+      ],
+      "source": {
+        "name": "Free Exercise DB",
+        "url": "https://github.com/yuhonas/free-exercise-db/tree/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Cross-Body_Crunch",
+        "license": "Unlicense",
+        "revision": "f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5"
+      }
+    },
+    "deadlift": {
+      "title": "Barbell Deadlift",
+      "images": [
+        {
+          "src": "/exercise-images/deadlift-1.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Barbell Deadlift, reference position 1",
+          "label": "Position 1"
+        },
+        {
+          "src": "/exercise-images/deadlift-2.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Barbell Deadlift, reference position 2",
+          "label": "Position 2"
+        }
+      ],
+      "source": {
+        "name": "Free Exercise DB",
+        "url": "https://github.com/yuhonas/free-exercise-db/tree/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Barbell_Deadlift",
+        "license": "Unlicense",
+        "revision": "f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5"
+      }
+    },
+    "t-row": {
+      "title": "T-Bar Row with Handle",
+      "images": [
+        {
+          "src": "/exercise-images/t-row-1.webp",
+          "width": 480,
+          "height": 720,
+          "alt": "T-Bar Row with Handle, reference position 1",
+          "label": "Position 1"
+        },
+        {
+          "src": "/exercise-images/t-row-2.webp",
+          "width": 480,
+          "height": 720,
+          "alt": "T-Bar Row with Handle, reference position 2",
+          "label": "Position 2"
+        }
+      ],
+      "source": {
+        "name": "Free Exercise DB",
+        "url": "https://github.com/yuhonas/free-exercise-db/tree/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/T-Bar_Row_with_Handle",
+        "license": "Unlicense",
+        "revision": "f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5"
+      }
+    },
+    "smith-shoulder": {
+      "title": "Smith Machine Overhead Shoulder Press",
+      "images": [
+        {
+          "src": "/exercise-images/smith-shoulder-1.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Smith Machine Overhead Shoulder Press, reference position 1",
+          "label": "Position 1"
+        },
+        {
+          "src": "/exercise-images/smith-shoulder-2.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Smith Machine Overhead Shoulder Press, reference position 2",
+          "label": "Position 2"
+        }
+      ],
+      "source": {
+        "name": "Free Exercise DB",
+        "url": "https://github.com/yuhonas/free-exercise-db/tree/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Smith_Machine_Overhead_Shoulder_Press",
+        "license": "Unlicense",
+        "revision": "f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5"
+      }
+    },
+    "db-front": {
+      "title": "Front Two-Dumbbell Raise",
+      "images": [
+        {
+          "src": "/exercise-images/db-front-1.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Front Two-Dumbbell Raise, reference position 1",
+          "label": "Position 1"
+        },
+        {
+          "src": "/exercise-images/db-front-2.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Front Two-Dumbbell Raise, reference position 2",
+          "label": "Position 2"
+        }
+      ],
+      "source": {
+        "name": "Free Exercise DB",
+        "url": "https://github.com/yuhonas/free-exercise-db/tree/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Front_Two-Dumbbell_Raise",
+        "license": "Unlicense",
+        "revision": "f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5"
+      }
+    },
+    "face-pull": {
+      "title": "Face Pull",
+      "images": [
+        {
+          "src": "/exercise-images/face-pull-1.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Face Pull, reference position 1",
+          "label": "Position 1"
+        },
+        {
+          "src": "/exercise-images/face-pull-2.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Face Pull, reference position 2",
+          "label": "Position 2"
+        }
+      ],
+      "source": {
+        "name": "Free Exercise DB",
+        "url": "https://github.com/yuhonas/free-exercise-db/tree/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Face_Pull",
+        "license": "Unlicense",
+        "revision": "f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5"
+      }
+    },
+    "sumo": {
+      "title": "Sumo Deadlift",
+      "images": [
+        {
+          "src": "/exercise-images/sumo-1.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Sumo Deadlift, reference position 1",
+          "label": "Position 1"
+        },
+        {
+          "src": "/exercise-images/sumo-2.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Sumo Deadlift, reference position 2",
+          "label": "Position 2"
+        }
+      ],
+      "source": {
+        "name": "Free Exercise DB",
+        "url": "https://github.com/yuhonas/free-exercise-db/tree/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Sumo_Deadlift",
+        "license": "Unlicense",
+        "revision": "f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5"
+      }
+    },
+    "cable-curl": {
+      "title": "Standing Biceps Cable Curl",
+      "images": [
+        {
+          "src": "/exercise-images/cable-curl-1.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Standing Biceps Cable Curl, reference position 1",
+          "label": "Position 1"
+        },
+        {
+          "src": "/exercise-images/cable-curl-2.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Standing Biceps Cable Curl, reference position 2",
+          "label": "Position 2"
+        }
+      ],
+      "source": {
+        "name": "Free Exercise DB",
+        "url": "https://github.com/yuhonas/free-exercise-db/tree/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Standing_Biceps_Cable_Curl",
+        "license": "Unlicense",
+        "revision": "f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5"
+      }
+    },
+    "reverse-pushdown": {
+      "title": "Reverse Grip Triceps Pushdown",
+      "images": [
+        {
+          "src": "/exercise-images/reverse-pushdown-1.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Reverse Grip Triceps Pushdown, reference position 1",
+          "label": "Position 1"
+        },
+        {
+          "src": "/exercise-images/reverse-pushdown-2.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Reverse Grip Triceps Pushdown, reference position 2",
+          "label": "Position 2"
+        }
+      ],
+      "source": {
+        "name": "Free Exercise DB",
+        "url": "https://github.com/yuhonas/free-exercise-db/tree/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Reverse_Grip_Triceps_Pushdown",
+        "license": "Unlicense",
+        "revision": "f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5"
+      }
+    },
+    "squat": {
+      "title": "Bodyweight Squat",
+      "images": [
+        {
+          "src": "/exercise-images/squat-1.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Bodyweight Squat, reference position 1",
+          "label": "Position 1"
+        },
+        {
+          "src": "/exercise-images/squat-2.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Bodyweight Squat, reference position 2",
+          "label": "Position 2"
+        }
+      ],
+      "source": {
+        "name": "Free Exercise DB",
+        "url": "https://github.com/yuhonas/free-exercise-db/tree/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Bodyweight_Squat",
+        "license": "Unlicense",
+        "revision": "f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5"
+      }
+    },
+    "rdl": {
+      "title": "Romanian Deadlift",
+      "images": [
+        {
+          "src": "/exercise-images/rdl-1.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Romanian Deadlift, reference position 1",
+          "label": "Position 1"
+        },
+        {
+          "src": "/exercise-images/rdl-2.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Romanian Deadlift, reference position 2",
+          "label": "Position 2"
+        }
+      ],
+      "source": {
+        "name": "Free Exercise DB",
+        "url": "https://github.com/yuhonas/free-exercise-db/tree/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Romanian_Deadlift",
+        "license": "Unlicense",
+        "revision": "f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5"
+      }
+    },
+    "calf": {
+      "title": "Standing Calf Raises",
+      "images": [
+        {
+          "src": "/exercise-images/calf-1.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Standing Calf Raises, reference position 1",
+          "label": "Position 1"
+        },
+        {
+          "src": "/exercise-images/calf-2.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Standing Calf Raises, reference position 2",
+          "label": "Position 2"
+        }
+      ],
+      "source": {
+        "name": "Free Exercise DB",
+        "url": "https://github.com/yuhonas/free-exercise-db/tree/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Standing_Calf_Raises",
+        "license": "Unlicense",
+        "revision": "f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5"
+      }
+    },
+    "plank": {
+      "title": "Plank",
+      "images": [
+        {
+          "src": "/exercise-images/plank-2.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Plank, reference position 2",
+          "label": "Hold position"
+        }
+      ],
+      "source": {
+        "name": "Free Exercise DB",
+        "url": "https://github.com/yuhonas/free-exercise-db/tree/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Plank",
+        "license": "Unlicense",
+        "revision": "f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5"
+      }
+    }
+  },
+  "exercises": {
+    "source-bulk-chest-1": [
+      {
+        "reference": "bench"
+      }
+    ],
+    "source-bulk-chest-2": [
+      {
+        "reference": "incline"
+      }
+    ],
+    "source-bulk-chest-3": [
+      {
+        "reference": "cable-low",
+        "label": "Low cable fly"
+      },
+      {
+        "reference": "cable-mid",
+        "label": "Mid cable fly"
+      },
+      {
+        "reference": "cable-high",
+        "label": "High cable fly"
+      }
+    ],
+    "source-bulk-chest-4": [
+      {
+        "reference": "hammer-press"
+      }
+    ],
+    "source-bulk-chest-5": [
+      {
+        "reference": "machine-fly"
+      }
+    ],
+    "source-bulk-back-1": [
+      {
+        "reference": "wide-pulldown"
+      }
+    ],
+    "source-bulk-back-2": [
+      {
+        "reference": "row"
+      }
+    ],
+    "source-bulk-back-3": [
+      {
+        "reference": "reverse-pulldown"
+      }
+    ],
+    "source-bulk-back-4": [
+      {
+        "reference": "bb-row"
+      }
+    ],
+    "source-bulk-back-5": [
+      {
+        "reference": "db-stiff"
+      }
+    ],
+    "source-bulk-back-6": [
+      {
+        "reference": "rope-pulldown"
+      }
+    ],
+    "source-bulk-shoulders-1": [
+      {
+        "reference": "shoulder-press"
+      }
+    ],
+    "source-bulk-shoulders-2": [
+      {
+        "reference": "lateral"
+      }
+    ],
+    "source-bulk-shoulders-3": [
+      {
+        "reference": "bb-front",
+        "note": "Photo includes an overhead finish. Follow the range and instructions in your program; do not add overhead repetitions."
+      }
+    ],
+    "source-bulk-shoulders-4": [
+      {
+        "reference": "bb-overhead"
+      }
+    ],
+    "source-bulk-shoulders-5": [
+      {
+        "reference": "upright"
+      }
+    ],
+    "source-bulk-shoulders-6": [
+      {
+        "reference": "rear-machine"
+      }
+    ],
+    "source-bulk-legs-1": [
+      {
+        "reference": "seated-calf"
+      },
+      {
+        "reference": "leg-extension"
+      },
+      {
+        "reference": "lying-curl"
+      }
+    ],
+    "source-bulk-legs-2": [
+      {
+        "reference": "leg-press"
+      }
+    ],
+    "source-bulk-legs-3": [
+      {
+        "reference": "smith-split"
+      }
+    ],
+    "source-bulk-legs-4": [
+      {
+        "reference": "bb-stiff"
+      }
+    ],
+    "source-bulk-legs-5": [
+      {
+        "reference": "single-extension"
+      }
+    ],
+    "source-bulk-legs-6": [
+      {
+        "reference": "seated-curl"
+      }
+    ],
+    "source-bulk-legs-7": [
+      {
+        "reference": "walk-lunge"
+      }
+    ],
+    "source-bulk-arms-1": [
+      {
+        "reference": "bb-curl"
+      },
+      {
+        "reference": "close-bench"
+      }
+    ],
+    "source-bulk-arms-2": [
+      {
+        "reference": "spider",
+        "note": "The photo shows both arms; the program calls for one arm at a time.",
+        "label": "Single-arm DB spider curl"
+      },
+      {
+        "reference": "db-extension"
+      }
+    ],
+    "source-bulk-arms-3": [
+      {
+        "reference": "preacher"
+      },
+      {
+        "reference": "pushdown"
+      }
+    ],
+    "source-bulk-arms-4": [
+      {
+        "reference": "rope-curl"
+      },
+      {
+        "reference": "rope-extension"
+      }
+    ],
+    "source-bulk-arms-5": [
+      {
+        "reference": "reverse-curl",
+        "note": "The photo uses a straight bar; the program specifies an E-Z bar.",
+        "label": "Reverse-grip E-Z bar curl"
+      },
+      {
+        "reference": "dip"
+      }
+    ],
+    "source-legendary-chest-weeks-1-4-1": [
+      {
+        "reference": "bench",
+        "preferDrawing": true
+      }
+    ],
+    "source-legendary-chest-weeks-1-4-2": [
+      {
+        "reference": "incline",
+        "preferDrawing": true
+      }
+    ],
+    "source-legendary-chest-weeks-1-4-3": [
+      {
+        "reference": "cable-high",
+        "preferDrawing": true
+      }
+    ],
+    "source-legendary-chest-weeks-1-4-4": [
+      {
+        "reference": "incline-close",
+        "preferDrawing": true
+      }
+    ],
+    "source-legendary-chest-weeks-1-4-5": [
+      {
+        "reference": "dip",
+        "preferDrawing": true
+      }
+    ],
+    "source-legendary-chest-weeks-5-8-1": [
+      {
+        "reference": "incline",
+        "preferDrawing": true
+      }
+    ],
+    "source-legendary-chest-weeks-5-8-2": [
+      {
+        "reference": "incline-close-2",
+        "preferDrawing": true
+      },
+      {
+        "reference": "incline-fly",
+        "preferDrawing": true
+      }
+    ],
+    "source-legendary-chest-weeks-5-8-3": [
+      {
+        "reference": "cable-press",
+        "preferDrawing": true,
+        "note": "The PDF drawing shows the standing cable press. The comparison photos show a seated cable press."
+      },
+      {
+        "reference": "cable-fly-2",
+        "preferDrawing": true
+      }
+    ],
+    "source-legendary-chest-weeks-5-8-4": [
+      {
+        "reference": "hammer-press",
+        "preferDrawing": true
+      }
+    ],
+    "source-legendary-chest-weeks-5-8-5": [
+      {
+        "reference": "smith-flat",
+        "preferDrawing": true
+      },
+      {
+        "reference": "decline-push",
+        "preferDrawing": true
+      }
+    ],
+    "source-legendary-chest-weeks-9-12-1": [
+      {
+        "reference": "barbell-incline",
+        "preferDrawing": true
+      }
+    ],
+    "source-legendary-chest-weeks-9-12-2": [
+      {
+        "reference": "cable-low",
+        "preferDrawing": true
+      },
+      {
+        "reference": "decline-push-2",
+        "preferDrawing": true
+      }
+    ],
+    "source-legendary-chest-weeks-9-12-3": [
+      {
+        "reference": "db-flat",
+        "note": "The photo shows a full repetition, not the prescribed isometric hold.",
+        "preferDrawing": true
+      },
+      {
+        "reference": "bench",
+        "note": "The PDF heading mentions barbell flat bench but supplies no separate sets for it. This picture adds no prescription.",
+        "preferDrawing": true
+      }
+    ],
+    "source-legendary-chest-weeks-9-12-4": [
+      {
+        "reference": "cable-mid",
+        "preferDrawing": true
+      },
+      {
+        "reference": "push",
+        "note": "The picture shows a standard push-up. Apply the tension hold and partial-rep instructions from the source.",
+        "label": "Tension / partial-rep push-up",
+        "preferDrawing": true
+      }
+    ],
+    "source-shred-phase-1-abs-1": [
+      {
+        "reference": "leg-lift",
+        "note": "Photo uses a flat bench; the source permits lying leg lifts."
+      },
+      {
+        "reference": "hanging-leg",
+        "label": "Advanced: hanging leg lift"
+      }
+    ],
+    "source-shred-phase-1-abs-2": [
+      {
+        "reference": "crunch"
+      }
+    ],
+    "source-shred-phase-1-abs-3": [
+      {
+        "reference": "decline-crunch"
+      }
+    ],
+    "source-shred-phase-1-chest-1": [
+      {
+        "reference": "cable-high"
+      }
+    ],
+    "source-shred-phase-1-chest-2": [
+      {
+        "reference": "incline"
+      }
+    ],
+    "source-shred-phase-1-chest-3": [
+      {
+        "reference": "cable-low",
+        "label": "Low cable fly"
+      },
+      {
+        "reference": "cable-mid",
+        "label": "Mid cable fly"
+      },
+      {
+        "reference": "cable-high",
+        "label": "High cable fly"
+      },
+      {
+        "reference": "push"
+      }
+    ],
+    "source-shred-phase-1-chest-4": [
+      {
+        "reference": "smith-incline"
+      }
+    ],
+    "source-shred-phase-1-chest-5": [
+      {
+        "reference": "machine-fly"
+      }
+    ],
+    "source-shred-phase-1-back-1": [
+      {
+        "reference": "back-extension"
+      }
+    ],
+    "source-shred-phase-1-back-2": [
+      {
+        "reference": "pullup"
+      }
+    ],
+    "source-shred-phase-1-back-3": [
+      {
+        "reference": "bb-row"
+      },
+      {
+        "reference": "bb-stiff"
+      }
+    ],
+    "source-shred-phase-1-back-4": [
+      {
+        "reference": "reverse-pulldown"
+      }
+    ],
+    "source-shred-phase-1-back-5": [
+      {
+        "reference": "db-row"
+      }
+    ],
+    "source-shred-phase-1-back-6": [
+      {
+        "reference": "wide-pulldown"
+      }
+    ],
+    "source-shred-phase-1-back-7": [
+      {
+        "reference": "back-extension"
+      }
+    ],
+    "source-shred-phase-1-shoulders-1": [
+      {
+        "reference": "shoulder-press"
+      }
+    ],
+    "source-shred-phase-1-shoulders-2": [
+      {
+        "reference": "lateral"
+      }
+    ],
+    "source-shred-phase-1-shoulders-3": [
+      {
+        "reference": "single-lateral"
+      }
+    ],
+    "source-shred-phase-1-shoulders-4": [
+      {
+        "reference": "neutral-press"
+      }
+    ],
+    "source-shred-phase-1-shoulders-5": [
+      {
+        "reference": "rear-fly",
+        "note": "Photo shows an incline-bench-supported rear delt fly; the program calls for a bent-over rear delt fly."
+      }
+    ],
+    "source-shred-phase-1-shoulders-6": [
+      {
+        "reference": "rear-machine"
+      }
+    ],
+    "source-shred-phase-1-legs-1": [
+      {
+        "reference": "seated-calf"
+      },
+      {
+        "reference": "leg-extension"
+      },
+      {
+        "reference": "lying-curl"
+      }
+    ],
+    "source-shred-phase-1-legs-2": [
+      {
+        "reference": "smith-squat",
+        "note": "Use the close stance printed in the program; the photo illustrates the base Smith squat."
+      }
+    ],
+    "source-shred-phase-1-legs-3": [
+      {
+        "reference": "hack"
+      }
+    ],
+    "source-shred-phase-1-legs-4": [
+      {
+        "reference": "db-lunge",
+        "note": "The photos show a forward lunge in place; the program calls for walking steps.",
+        "label": "DB walking lunge"
+      }
+    ],
+    "source-shred-phase-1-legs-5": [
+      {
+        "reference": "lying-curl"
+      }
+    ],
+    "source-shred-phase-1-arms-1": [
+      {
+        "reference": "ez-curl"
+      },
+      {
+        "reference": "pushdown"
+      }
+    ],
+    "source-shred-phase-1-arms-2": [
+      {
+        "reference": "hammer"
+      },
+      {
+        "reference": "rope-pushdown"
+      }
+    ],
+    "source-shred-phase-1-arms-3": [
+      {
+        "reference": "spider",
+        "note": "The photo shows both arms; the program calls for one arm at a time.",
+        "label": "Single-arm DB spider curl"
+      },
+      {
+        "reference": "db-extension"
+      }
+    ],
+    "source-shred-phase-1-arms-4": [
+      {
+        "reference": "db-curl"
+      },
+      {
+        "reference": "machine-dip"
+      }
+    ],
+    "source-shred-phase-1-arms-5": [
+      {
+        "reference": "bb-curl"
+      },
+      {
+        "reference": "close-push"
+      }
+    ],
+    "source-shred-phase-2-abs-1": [
+      {
+        "reference": "leg-lift",
+        "note": "Photo uses a flat bench; the source permits lying leg lifts."
+      },
+      {
+        "reference": "hanging-leg",
+        "label": "Advanced: hanging leg lift"
+      }
+    ],
+    "source-shred-phase-2-abs-2": [
+      {
+        "reference": "cable-crunch"
+      }
+    ],
+    "source-shred-phase-2-abs-3": [
+      {
+        "reference": "decline-crunch"
+      }
+    ],
+    "source-shred-phase-2-abs-4": [
+      {
+        "reference": "bicycle"
+      }
+    ],
+    "source-shred-phase-2-chest-1": [
+      {
+        "reference": "smith-incline"
+      }
+    ],
+    "source-shred-phase-2-chest-2": [
+      {
+        "reference": "incline-close"
+      }
+    ],
+    "source-shred-phase-2-chest-3": [
+      {
+        "reference": "cable-fly-2"
+      },
+      {
+        "reference": "cable-press",
+        "note": "The PDF drawing shows the standing cable press. The comparison photos show a seated cable press."
+      }
+    ],
+    "source-shred-phase-2-chest-4": [
+      {
+        "reference": "smith-incline"
+      }
+    ],
+    "source-shred-phase-2-chest-5": [
+      {
+        "reference": "machine-fly"
+      },
+      {
+        "reference": "push"
+      }
+    ],
+    "source-shred-phase-2-back-1": [
+      {
+        "reference": "deadlift"
+      }
+    ],
+    "source-shred-phase-2-back-2": [
+      {
+        "reference": "wide-pulldown"
+      }
+    ],
+    "source-shred-phase-2-back-3": [
+      {
+        "reference": "db-row"
+      }
+    ],
+    "source-shred-phase-2-back-4": [
+      {
+        "reference": "t-row"
+      }
+    ],
+    "source-shred-phase-2-back-5": [
+      {
+        "reference": "row",
+        "note": "Photo shows a neutral-grip handle; this program specifies an underhand grip.",
+        "label": "Underhand seated cable row"
+      }
+    ],
+    "source-shred-phase-2-back-6": [
+      {
+        "reference": "rope-pulldown"
+      }
+    ],
+    "source-shred-phase-2-back-7": [
+      {
+        "reference": "back-extension"
+      }
+    ],
+    "source-shred-phase-2-shoulders-1": [
+      {
+        "reference": "smith-shoulder"
+      }
+    ],
+    "source-shred-phase-2-shoulders-2": [
+      {
+        "reference": "lateral"
+      }
+    ],
+    "source-shred-phase-2-shoulders-3": [
+      {
+        "reference": "db-front",
+        "note": "Photo shows palms down. The source specifies thumbs up with both arms moving together.",
+        "label": "Thumbs-up DB front raise"
+      }
+    ],
+    "source-shred-phase-2-shoulders-4": [
+      {
+        "reference": "bb-front",
+        "note": "Photo includes an overhead finish. Follow the range and instructions in your program; do not add overhead repetitions."
+      }
+    ],
+    "source-shred-phase-2-shoulders-5": [
+      {
+        "reference": "rear-fly",
+        "note": "Photo shows an incline-bench-supported rear delt fly; the program calls for a bent-over rear delt fly."
+      }
+    ],
+    "source-shred-phase-2-shoulders-6": [
+      {
+        "reference": "face-pull"
+      },
+      {
+        "reference": "rear-fly",
+        "note": "Photo shows an incline-bench-supported rear delt fly; the program calls for a bent-over rear delt fly."
+      }
+    ],
+    "source-shred-phase-2-legs-1": [
+      {
+        "reference": "seated-calf"
+      },
+      {
+        "reference": "leg-extension"
+      },
+      {
+        "reference": "lying-curl"
+      }
+    ],
+    "source-shred-phase-2-legs-2": [
+      {
+        "reference": "leg-press"
+      }
+    ],
+    "source-shred-phase-2-legs-3": [
+      {
+        "reference": "smith-split",
+        "note": "The photo shows a rear-foot-elevated Smith split squat; the program calls for Smith lunges without specifying elevation.",
+        "label": "Smith machine lunge"
+      }
+    ],
+    "source-shred-phase-2-legs-4": [
+      {
+        "reference": "sumo"
+      }
+    ],
+    "source-shred-phase-2-legs-5": [
+      {
+        "reference": "seated-curl"
+      },
+      {
+        "reference": "leg-extension"
+      }
+    ],
+    "source-shred-phase-2-arms-1": [
+      {
+        "reference": "bb-curl"
+      },
+      {
+        "reference": "close-bench"
+      }
+    ],
+    "source-shred-phase-2-arms-2": [
+      {
+        "reference": "preacher"
+      },
+      {
+        "reference": "machine-dip"
+      }
+    ],
+    "source-shred-phase-2-arms-3": [
+      {
+        "reference": "cable-curl"
+      },
+      {
+        "reference": "reverse-pushdown"
+      }
+    ],
+    "source-shred-phase-2-arms-4": [
+      {
+        "reference": "reverse-curl",
+        "note": "The photo uses a straight bar; the program specifies an E-Z bar.",
+        "label": "Reverse-grip E-Z bar curl"
+      },
+      {
+        "reference": "rope-extension"
+      }
+    ],
+    "curl": [
+      {
+        "reference": "db-curl"
+      }
+    ],
+    "hammer": [
+      {
+        "reference": "hammer"
+      }
+    ],
+    "bench": [
+      {
+        "reference": "bench"
+      }
+    ],
+    "incline": [
+      {
+        "reference": "incline"
+      }
+    ],
+    "press": [
+      {
+        "reference": "shoulder-press"
+      }
+    ],
+    "raise": [
+      {
+        "reference": "lateral"
+      }
+    ],
+    "pulldown": [
+      {
+        "reference": "wide-pulldown"
+      }
+    ],
+    "row": [
+      {
+        "reference": "row"
+      }
+    ],
+    "squat": [
+      {
+        "reference": "squat"
+      }
+    ],
+    "rdl": [
+      {
+        "reference": "rdl"
+      }
+    ],
+    "lunge": [
+      {
+        "reference": "db-lunge"
+      }
+    ],
+    "pushdown": [
+      {
+        "reference": "pushdown"
+      }
+    ],
+    "calf": [
+      {
+        "reference": "calf"
+      }
+    ],
+    "plank": [
+      {
+        "reference": "plank"
+      }
+    ]
+  },
+  "missing": {
+    "wall-push": "An exact wall push-up photo is not available in the supplied PDFs or the licensed collection. Follow the wall-specific checkpoints below.",
+    "prone-w": "An exact prone W raise photo is not available in the supplied PDFs or the licensed collection. Follow the W-position checkpoints below."
+  }
+}

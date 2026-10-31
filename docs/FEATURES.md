@@ -17,7 +17,7 @@
 - Food diary with source-required manual values and serving arithmetic, copy-to-today, deletion, editable targets and water logging.
 - Measurement entry, actual-data weight trend/table, completed-session count and total training volume.
 - Explainable rule-based coaching with suggestions that do not silently edit plans.
-- Exercise written cues and searchable muscle directory for eleven groups.
+- Exercise written cues and searchable muscle directory for eleven groups. Picture gallery for all 105 imported movement blocks and 14 starter exercises, separate superset/tri-set references, original chest PDF drawings, attributed supplemental photos, enlargement, offline caching and image-failure fallback. Two home-only exercises (wall push-up and prone W raise) remain labeled written-only; pictured variation differences are explicit.
 - Three.js hero, reviewed asset/animation viewer infrastructure, static alternative.
 - User data export/local deletion; server account-deletion implementation.
 - Schema, RLS, catalog seed, storage policies, PWA build and Cloudflare SPA routing.

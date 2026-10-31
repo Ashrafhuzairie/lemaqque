@@ -286,3 +286,8 @@ Empty states use a small circular plus mark, concise explanation, and next usefu
 - **Don't** fill the interface with invented performance statistics, transformation claims, or nutrition values.
 - **Don't** turn a decorative sculpture or unavailable/unvalidated motion asset into exercise instruction.
 - **Don't** apply hero-scale typography or artwork to every tracking panel.
+
+
+### Exercise Reference Pictures
+
+Exercise pictures are functional reference content on library details, source program blocks and active sessions. Show paired positions without cropping limbs or equipment; preserve a single original PDF drawing when available for the exact source movement. Supersets, tri-sets and ladder heights have separate named references. The gallery uses native disclosure, body typography, subdued source credits and an enlargement link for each picture. Equipment/grip/support differences appear in gold beside the affected picture. Use a readable missing-image message while preserving written cues and logging. Library rows use contained thumbnails. Builder references start collapsed; active and detail galleries start open. Keep images self-hosted and precached for offline access. Pictures remain separate from reviewed 3D demonstrations.

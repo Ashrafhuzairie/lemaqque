@@ -39,7 +39,7 @@ export default defineConfig({
         ],
       },
       workbox: {
-        globPatterns: ["**/*.{js,css,html,svg,woff2}"],
+        globPatterns: ["**/*.{js,css,html,svg,woff2,webp}"],
         maximumFileSizeToCacheInBytes: 4000000,
         navigateFallbackDenylist: [/^\/auth\//],
       },

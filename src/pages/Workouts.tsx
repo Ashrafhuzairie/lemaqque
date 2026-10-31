@@ -1,3 +1,4 @@
+import ExercisePictures from "../components/ExercisePictures";
 import { useState, useEffect } from "react";
 import { useQueryClient } from "@tanstack/react-query";
 import {
@@ -729,6 +730,10 @@ export function ActiveWorkout() {
                           </Link>
                         </Button>
                       </div>
+                      <ExercisePictures
+                        key={exercise.id}
+                        exerciseId={exercise.id}
+                      />
                       <details>
                         <summary>
                           Movement checkpoints <ChevronDown size={15} />
@@ -747,6 +752,7 @@ export function ActiveWorkout() {
                         <div className="source-active-plan">
                           <SourcePrescription
                             source={currentPrescription.source}
+                            showPictures={false}
                             compact
                           />
                           {currentPrescription.source.rows.map(

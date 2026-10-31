@@ -47,9 +47,18 @@ try {
     await page.evaluate(() => !!navigator.serviceWorker.controller),
     true,
   );
+  await page.goto(origin + "/app/library?exercise=curl");
+  const pictures = page.locator(".exercise-pictures[open] img");
+  await pictures.first().waitFor({ state: "visible" });
+  assert.equal(await pictures.count(), 2);
+  for (const picture of await pictures.all()) {
+    await picture.scrollIntoViewIfNeeded();
+    await picture.evaluate((img) => img.decode());
+    assert.equal(await picture.evaluate((img) => img.naturalWidth > 0), true);
+  }
   assert.deepEqual(errors, []);
   console.log(
-    "PASS: production routes, manifest/icons, persisted profile, active service worker and offline local nutrition route",
+    "PASS: production routes, manifest/icons, persisted profile, active service worker offline local nutrition route and bundled exercise photos",
   );
 } finally {
   await browser.close();

@@ -1,12 +1,15 @@
 import { lazy, Suspense, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { useSearchParams, Link } from "react-router-dom";
-import { ArrowRight, Box, Search, SlidersHorizontal } from "lucide-react";
+import { ArrowRight, Box, Search } from "lucide-react";
 import { exercises, muscleGroups, findExercise } from "../lib/catalog";
 import { useStore, useProfile } from "../lib/store";
 import { Button } from "../components/ui/button";
 import { PageHead, Field, Notice, DataGate } from "../components/common";
 import SourcePrescription from "../components/SourcePrescription";
+import ExercisePictures from "../components/ExercisePictures";
+import { exerciseThumbnail } from "../lib/exercise-media";
+import { sourceExercises } from "../lib/programs";
 const AssetViewer = lazy(() => import("../three/AssetViewer"));
 export function Library() {
   const [params, setParams] = useSearchParams();
@@ -53,6 +56,7 @@ export function Library() {
               </Link>
             </Button>
           </div>
+          <ExercisePictures key={selected.id} exerciseId={selected.id} />
           {model && animation && profile?.quality !== "static" ? (
             <Suspense fallback={<p>Loading reviewed demonstration…</p>}>
               <AssetViewer
@@ -63,17 +67,14 @@ export function Library() {
               />
             </Suspense>
           ) : (
-            <div className="asset-unavailable">
+            <div className="asset-unavailable exercise-3d-status">
               <Box size={34} strokeWidth={1} />
               <h3>
                 {profile?.quality === "static"
                   ? "Static display selected."
                   : "No validated 3D demonstration available."}
               </h3>
-              <p>
-                Use the written cues below. We only publish licensed animations
-                after a technique review.
-              </p>
+              <p>Reviewed 3D demonstrations will appear here when approved.</p>
             </div>
           )}
           {assets.error && (
@@ -82,7 +83,10 @@ export function Library() {
             </Notice>
           )}
           {selected.prescription ? (
-            <SourcePrescription source={selected.prescription} />
+            <SourcePrescription
+              source={selected.prescription}
+              showPictures={false}
+            />
           ) : (
             <>
               {" "}
@@ -145,11 +149,17 @@ export function Library() {
             </Field>
           </div>
           <div className="exercise-library">
-            {exercises
+            {[...exercises, ...sourceExercises]
               .filter(
                 (e) =>
                   (muscle === "All" || e.muscle === muscle) &&
-                  (e.name + " " + e.equipment)
+                  (
+                    e.name +
+                    " " +
+                    e.equipment +
+                    " " +
+                    (e.prescription?.programTitle ?? "")
+                  )
                     .toLowerCase()
                     .includes(search.toLowerCase()),
               )
@@ -159,13 +169,14 @@ export function Library() {
                   to={"?exercise=" + e.id}
                   className="library-row"
                 >
-                  <div className="movement-icon">
-                    <SlidersHorizontal size={24} strokeWidth={1} />
-                  </div>
+                  <MovementThumbnail id={e.id} />
                   <div>
                     <h2>{e.name}</h2>
                     <p>
-                      {e.muscle} · {e.equipment}
+                      {e.muscle} ·{" "}
+                      {e.prescription
+                        ? `${e.prescription.programTitle} · ${e.prescription.phaseTitle}`
+                        : e.equipment}
                     </p>
                   </div>
                   <span className="tag">{e.difficulty}</span>
@@ -174,13 +185,38 @@ export function Library() {
               ))}
           </div>
           <p className="fine-print">
-            Written guidance is available for all movements. Reviewed 3D assets
-            will appear as they are approved; no generated motion is presented
-            as exercise instruction.
+            Picture references are available for all imported program blocks.
+            Wall push-up and prone W raise currently have written guidance only.
+            Reviewed 3D assets will appear as they are approved; no generated
+            motion is presented as exercise instruction.
           </p>
         </>
       )}
     </>
+  );
+}
+function MovementThumbnail({ id }: { id: string }) {
+  const picture = exerciseThumbnail(id);
+  const [failed, setFailed] = useState(false);
+  return (
+    <div className="movement-thumbnail">
+      {picture && !failed ? (
+        <img
+          src={picture.src}
+          alt=""
+          width={picture.width}
+          height={picture.height}
+          loading="lazy"
+          onError={() => setFailed(true)}
+        />
+      ) : (
+        <span>
+          Written
+          <br />
+          guide
+        </span>
+      )}
+    </div>
   );
 }
 export function Muscles() {
