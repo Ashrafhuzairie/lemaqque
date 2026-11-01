@@ -12,6 +12,7 @@ export interface ExerciseImage {
 export interface ExerciseReference {
   title: string;
   images: ExerciseImage[];
+  photoNote?: string;
   source?: { name: string; url: string; license: string; revision: string };
   drawing?: ExerciseImage & { page: number; source: string };
 }
@@ -19,7 +20,6 @@ export interface ExercisePictureEntry {
   reference: string;
   label?: string;
   note?: string;
-  preferDrawing?: boolean;
 }
 export const exerciseMedia = manifest as {
   references: Record<string, ExerciseReference>;
@@ -35,5 +35,5 @@ export function sourcePictureId(source: SourcePrescription) {
 export function exerciseThumbnail(id: string) {
   const entry = exerciseMedia.exercises[id]?.[0];
   const ref = entry && exerciseMedia.references[entry.reference];
-  return ref?.images[0] ?? ref?.drawing;
+  return ref?.images[0];
 }

@@ -47,18 +47,21 @@ def ref(key, dataset=None, title=None, drawing=None):
 
 ref('bench','Barbell_Bench_Press_-_Medium_Grip',drawing=(9,6))
 ref('incline','Incline_Dumbbell_Press',drawing=(10,3))
-ref('cable-mid',None,'Shoulder-height cable fly',drawing=(24,11))
+ref('cable-mid','Cable_Crossover','Shoulder-height cable fly',drawing=(24,11))
+references['cable-mid']['photoNote'] = 'Photo uses higher pulleys. Set the pulleys to shoulder height for this program’s mid-height fly.'
 ref('cable-low','Low_Cable_Crossover',drawing=(22,11))
 ref('cable-high','Cable_Crossover',drawing=(11,7))
-ref('incline-close',None,'Close-grip incline dumbbell press',drawing=(12,9))
-ref('incline-close-2',None,'Close-grip incline dumbbell press',drawing=(16,8))
+ref('incline-close','Hammer_Grip_Incline_DB_Bench_Press','Close-grip incline dumbbell press',drawing=(12,9))
+ref('incline-close-2','Hammer_Grip_Incline_DB_Bench_Press','Close-grip incline dumbbell press',drawing=(16,8))
+for key in ['incline-close', 'incline-close-2']:
+    references[key]['photoNote'] = 'Photo shows a neutral-grip incline press with hands shoulder-width apart. This program specifies a close grip.'
 ref('incline-fly','Incline_Dumbbell_Flyes',drawing=(16,7))
-ref('cable-press','Cable_Chest_Press',drawing=(17,9))
-ref('cable-fly-2',None,'Cable chest fly',drawing=(17,10))
+ref('cable-press','Standing_Cable_Chest_Press','Standing cable chest press',drawing=(17,9))
+ref('cable-fly-2','Cable_Crossover','Cable chest fly',drawing=(17,10))
 ref('hammer-press','Leverage_Incline_Chest_Press',title='Lever incline chest press',drawing=(18,8))
 ref('smith-flat','Smith_Machine_Bench_Press',drawing=(19,11))
 ref('decline-push','Decline_Push-Up',drawing=(19,10))
-ref('decline-push-2',None,'Decline push-up',drawing=(22,10))
+ref('decline-push-2','Decline_Push-Up','Decline push-up',drawing=(22,10))
 ref('barbell-incline','Barbell_Incline_Bench_Press_-_Medium_Grip',drawing=(21,10))
 ref('db-flat','Dumbbell_Bench_Press',drawing=(23,10))
 ref('push','Pushups',drawing=(24,10))
@@ -87,8 +90,8 @@ for key, dataset, title in [
 ]: ref(key,dataset,title)
 
 # Each mapping is deliberate. A nearby variation must disclose its difference.
-def R(key, note=None, label=None, pdf=False):
-    return {k:v for k,v in {'reference':key,'note':note,'label':label,'preferDrawing':pdf}.items() if v is not None and v is not False}
+def R(key, note=None, label=None):
+    return {k:v for k,v in {'reference':key,'note':note,'label':label}.items() if v is not None}
 ladder=[R('cable-low',label='Low cable fly'),R('cable-mid',label='Mid cable fly'),R('cable-high',label='High cable fly')]
 warm=[R('seated-calf'),R('leg-extension'),R('lying-curl')]
 spider=R('spider','The photo shows both arms; the program calls for one arm at a time.', 'Single-arm DB spider curl')
@@ -109,10 +112,6 @@ group('bulk-arms',[[R('bb-curl'),R('close-bench')],[spider,R('db-extension')],[R
 group('legendary-chest-weeks-1-4',['bench','incline','cable-high','incline-close','dip'])
 group('legendary-chest-weeks-5-8',['incline',[R('incline-close-2'),R('incline-fly')],[R('cable-press'),R('cable-fly-2')],'hammer-press',[R('smith-flat'),R('decline-push')]])
 group('legendary-chest-weeks-9-12',['barbell-incline',[R('cable-low'),R('decline-push-2')],[R('db-flat', 'The photo shows a full repetition, not the prescribed isometric hold.'),R('bench','The PDF heading mentions barbell flat bench but supplies no separate sets for it. This picture adds no prescription.')],[R('cable-mid'),R('push','The picture shows a standard push-up. Apply the tension hold and partial-rep instructions from the source.', 'Tension / partial-rep push-up')]])
-for key, refs in exercises.items():
-    if key.startswith('source-legendary'):
-        for r in refs:
-            if 'drawing' in references[r['reference']]: r['preferDrawing']=True
 legs=[R('leg-lift','Photo uses a flat bench; the source permits lying leg lifts.'),R('hanging-leg',label='Advanced: hanging leg lift')]
 group('shred-phase-1-abs',[legs,'crunch','decline-crunch'])
 group('shred-phase-1-chest',['cable-high','incline',ladder+[R('push')],'smith-incline','machine-fly'])
@@ -132,8 +131,6 @@ for entries in exercises.values():
     for entry in entries:
         if entry['reference'] == 'rear-fly':
             entry['note'] = 'Photo shows an incline-bench-supported rear delt fly; the program calls for a bent-over rear delt fly.'
-        if entry['reference'] == 'cable-press':
-            entry['note'] = 'The PDF drawing shows the standing cable press. The comparison photos show a seated cable press.'
 # Do not show an unrelated movement for these two home-only library exercises.
 missing={'wall-push':'An exact wall push-up photo is not available in the supplied PDFs or the licensed collection. Follow the wall-specific checkpoints below.', 'prone-w':'An exact prone W raise photo is not available in the supplied PDFs or the licensed collection. Follow the W-position checkpoints below.'}
 source=json.loads((root/'src/data/buendia-programs.json').read_text())

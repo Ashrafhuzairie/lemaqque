@@ -73,18 +73,15 @@ export default function ExercisePictures({
         <div className="exercise-reference-list">
           {entries.map((entry, index) => {
             const ref = exerciseMedia.references[entry.reference];
-            const useDrawing =
-              ref.drawing && (entry.preferDrawing || !ref.images.length);
-            const pictures = useDrawing ? [ref.drawing!] : ref.images;
+            const pictures = ref.images;
+            const note = [entry.note, ref.photoNote].filter(Boolean).join(" ");
             return (
               <section
                 className="exercise-reference"
                 key={`${entry.reference}-${index}`}
               >
                 <h4>{entry.label ?? ref.title}</h4>
-                {entry.note && (
-                  <p className="picture-variation">{entry.note}</p>
-                )}
+                {note && <p className="picture-variation">{note}</p>}
                 <div
                   className={`exercise-photo-grid ${pictures.length === 1 ? "single-picture" : ""}`}
                 >
@@ -93,23 +90,17 @@ export default function ExercisePictures({
                   ))}
                 </div>
                 <div className="picture-credit">
-                  {useDrawing ? (
-                    <span>
-                      {ref.drawing!.source} · PDF p. {ref.drawing!.page}
-                    </span>
-                  ) : (
-                    ref.source && (
-                      <a
-                        href={ref.source.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        {ref.source.name} · {ref.source.license}
-                        <ExternalLink size={12} />
-                      </a>
-                    )
+                  {ref.source && (
+                    <a
+                      href={ref.source.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {ref.source.name} · {ref.source.license}
+                      <ExternalLink size={12} />
+                    </a>
                   )}
-                  {!useDrawing && ref.drawing && (
+                  {ref.drawing && (
                     <a
                       href={ref.drawing.src}
                       target="_blank"
@@ -118,28 +109,6 @@ export default function ExercisePictures({
                       PDF drawing · p. {ref.drawing.page}
                       <ExternalLink size={12} />
                     </a>
-                  )}
-                  {useDrawing && ref.images.length > 0 && (
-                    <details className="alternate-pictures">
-                      <summary>Compare photo reference</summary>
-                      <div className="exercise-photo-grid">
-                        {ref.images.map((picture) => (
-                          <ReferencePicture
-                            key={picture.src}
-                            picture={picture}
-                          />
-                        ))}
-                      </div>
-                      {ref.source && (
-                        <a
-                          href={ref.source.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          {ref.source.name} · {ref.source.license}
-                        </a>
-                      )}
-                    </details>
                   )}
                 </div>
               </section>

@@ -4237,20 +4237,6 @@ h3 {
   max-width: 70ch;
   margin: 0 0 12px;
 }
-.alternate-pictures {
-  width: 100%;
-  padding: 0;
-  margin: 0;
-  background: transparent;
-}
-.alternate-pictures > summary {
-  min-height: 44px;
-  cursor: pointer;
-  padding: 12px 0;
-}
-.alternate-pictures .exercise-photo-grid {
-  margin-bottom: 10px;
-}
 .picture-missing {
   display: flex;
   align-items: flex-start;

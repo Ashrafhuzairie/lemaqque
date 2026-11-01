@@ -43,7 +43,7 @@ describe("exercise picture coverage and provenance", () => {
         expect(exerciseMedia.references[entry.reference]).toBeDefined();
     }
     for (const ref of Object.values(exerciseMedia.references)) {
-      expect(ref.images.length > 0 || !!ref.drawing, ref.title).toBe(true);
+      expect(ref.images.length, ref.title).toBeGreaterThan(0);
       if (ref.images.length) {
         expect(ref.source?.license).toBe("Unlicense");
         expect(ref.source?.url).toMatch(
@@ -70,6 +70,28 @@ describe("exercise picture coverage and provenance", () => {
         expect(ref.drawing.page).toBeLessThanOrEqual(24);
       }
     }
+  });
+  it("uses real-person photos for the previously illustrated references", () => {
+    for (const key of [
+      "incline-close",
+      "incline-close-2",
+      "cable-mid",
+      "cable-fly-2",
+      "decline-push-2",
+    ]) {
+      const ref = exerciseMedia.references[key];
+      expect(ref.images).toHaveLength(2);
+      expect(ref.images.every((image) => !image.src.includes("/pdf-"))).toBe(
+        true,
+      );
+      expect(ref.source?.license).toBe("Unlicense");
+    }
+    expect(exerciseMedia.references["cable-mid"].photoNote).toContain(
+      "shoulder height",
+    );
+    expect(exerciseMedia.references["incline-close"].photoNote).toContain(
+      "close grip",
+    );
   });
   it("discloses variant differences and never uses a different exercise for missing home photos", () => {
     expect(Object.keys(exerciseMedia.missing).sort()).toEqual([

@@ -70,7 +70,28 @@
     },
     "cable-mid": {
       "title": "Shoulder-height cable fly",
-      "images": [],
+      "images": [
+        {
+          "src": "/exercise-images/cable-mid-1.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Shoulder-height cable fly, reference position 1",
+          "label": "Position 1"
+        },
+        {
+          "src": "/exercise-images/cable-mid-2.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Shoulder-height cable fly, reference position 2",
+          "label": "Position 2"
+        }
+      ],
+      "source": {
+        "name": "Free Exercise DB",
+        "url": "https://github.com/yuhonas/free-exercise-db/tree/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Cable_Crossover",
+        "license": "Unlicense",
+        "revision": "f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5"
+      },
       "drawing": {
         "src": "/exercise-images/pdf-24-11.webp",
         "width": 852,
@@ -79,7 +100,8 @@
         "label": "PDF drawing",
         "page": 24,
         "source": "Building-a-Legendary-Chest.pdf"
-      }
+      },
+      "photoNote": "Photo uses higher pulleys. Set the pulleys to shoulder height for this program\u2019s mid-height fly."
     },
     "cable-low": {
       "title": "Low Cable Crossover",
@@ -151,7 +173,28 @@
     },
     "incline-close": {
       "title": "Close-grip incline dumbbell press",
-      "images": [],
+      "images": [
+        {
+          "src": "/exercise-images/incline-close-1.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Close-grip incline dumbbell press, reference position 1",
+          "label": "Position 1"
+        },
+        {
+          "src": "/exercise-images/incline-close-2.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Close-grip incline dumbbell press, reference position 2",
+          "label": "Position 2"
+        }
+      ],
+      "source": {
+        "name": "Free Exercise DB",
+        "url": "https://github.com/yuhonas/free-exercise-db/tree/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Hammer_Grip_Incline_DB_Bench_Press",
+        "license": "Unlicense",
+        "revision": "f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5"
+      },
       "drawing": {
         "src": "/exercise-images/pdf-12-9.webp",
         "width": 944,
@@ -160,11 +203,33 @@
         "label": "PDF drawing",
         "page": 12,
         "source": "Building-a-Legendary-Chest.pdf"
-      }
+      },
+      "photoNote": "Photo shows a neutral-grip incline press with hands shoulder-width apart. This program specifies a close grip."
     },
     "incline-close-2": {
       "title": "Close-grip incline dumbbell press",
-      "images": [],
+      "images": [
+        {
+          "src": "/exercise-images/incline-close-2-1.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Close-grip incline dumbbell press, reference position 1",
+          "label": "Position 1"
+        },
+        {
+          "src": "/exercise-images/incline-close-2-2.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Close-grip incline dumbbell press, reference position 2",
+          "label": "Position 2"
+        }
+      ],
+      "source": {
+        "name": "Free Exercise DB",
+        "url": "https://github.com/yuhonas/free-exercise-db/tree/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Hammer_Grip_Incline_DB_Bench_Press",
+        "license": "Unlicense",
+        "revision": "f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5"
+      },
       "drawing": {
         "src": "/exercise-images/pdf-16-8.webp",
         "width": 704,
@@ -173,7 +238,8 @@
         "label": "PDF drawing",
         "page": 16,
         "source": "Building-a-Legendary-Chest.pdf"
-      }
+      },
+      "photoNote": "Photo shows a neutral-grip incline press with hands shoulder-width apart. This program specifies a close grip."
     },
     "incline-fly": {
       "title": "Incline Dumbbell Flyes",
@@ -210,26 +276,26 @@
       }
     },
     "cable-press": {
-      "title": "Cable Chest Press",
+      "title": "Standing cable chest press",
       "images": [
         {
           "src": "/exercise-images/cable-press-1.webp",
           "width": 720,
           "height": 480,
-          "alt": "Cable Chest Press, reference position 1",
+          "alt": "Standing cable chest press, reference position 1",
           "label": "Position 1"
         },
         {
           "src": "/exercise-images/cable-press-2.webp",
           "width": 720,
           "height": 480,
-          "alt": "Cable Chest Press, reference position 2",
+          "alt": "Standing cable chest press, reference position 2",
           "label": "Position 2"
         }
       ],
       "source": {
         "name": "Free Exercise DB",
-        "url": "https://github.com/yuhonas/free-exercise-db/tree/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Cable_Chest_Press",
+        "url": "https://github.com/yuhonas/free-exercise-db/tree/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Standing_Cable_Chest_Press",
         "license": "Unlicense",
         "revision": "f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5"
       },
@@ -237,7 +303,7 @@
         "src": "/exercise-images/pdf-17-9.webp",
         "width": 736,
         "height": 869,
-        "alt": "Cable Chest Press drawing from Building a Legendary Chest, PDF page 17",
+        "alt": "Standing cable chest press drawing from Building a Legendary Chest, PDF page 17",
         "label": "PDF drawing",
         "page": 17,
         "source": "Building-a-Legendary-Chest.pdf"
@@ -245,7 +311,28 @@
     },
     "cable-fly-2": {
       "title": "Cable chest fly",
-      "images": [],
+      "images": [
+        {
+          "src": "/exercise-images/cable-fly-2-1.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Cable chest fly, reference position 1",
+          "label": "Position 1"
+        },
+        {
+          "src": "/exercise-images/cable-fly-2-2.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Cable chest fly, reference position 2",
+          "label": "Position 2"
+        }
+      ],
+      "source": {
+        "name": "Free Exercise DB",
+        "url": "https://github.com/yuhonas/free-exercise-db/tree/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Cable_Crossover",
+        "license": "Unlicense",
+        "revision": "f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5"
+      },
       "drawing": {
         "src": "/exercise-images/pdf-17-10.webp",
         "width": 776,
@@ -360,7 +447,28 @@
     },
     "decline-push-2": {
       "title": "Decline push-up",
-      "images": [],
+      "images": [
+        {
+          "src": "/exercise-images/decline-push-2-1.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Decline push-up, reference position 1",
+          "label": "Position 1"
+        },
+        {
+          "src": "/exercise-images/decline-push-2-2.webp",
+          "width": 720,
+          "height": 480,
+          "alt": "Decline push-up, reference position 2",
+          "label": "Position 2"
+        }
+      ],
+      "source": {
+        "name": "Free Exercise DB",
+        "url": "https://github.com/yuhonas/free-exercise-db/tree/f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5/exercises/Decline_Push-Up",
+        "license": "Unlicense",
+        "revision": "f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5"
+      },
       "drawing": {
         "src": "/exercise-images/pdf-22-10.webp",
         "width": 840,
@@ -2309,115 +2417,94 @@
     ],
     "source-legendary-chest-weeks-1-4-1": [
       {
-        "reference": "bench",
-        "preferDrawing": true
+        "reference": "bench"
       }
     ],
     "source-legendary-chest-weeks-1-4-2": [
       {
-        "reference": "incline",
-        "preferDrawing": true
+        "reference": "incline"
       }
     ],
     "source-legendary-chest-weeks-1-4-3": [
       {
-        "reference": "cable-high",
-        "preferDrawing": true
+        "reference": "cable-high"
       }
     ],
     "source-legendary-chest-weeks-1-4-4": [
       {
-        "reference": "incline-close",
-        "preferDrawing": true
+        "reference": "incline-close"
       }
     ],
     "source-legendary-chest-weeks-1-4-5": [
       {
-        "reference": "dip",
-        "preferDrawing": true
+        "reference": "dip"
       }
     ],
     "source-legendary-chest-weeks-5-8-1": [
       {
-        "reference": "incline",
-        "preferDrawing": true
+        "reference": "incline"
       }
     ],
     "source-legendary-chest-weeks-5-8-2": [
       {
-        "reference": "incline-close-2",
-        "preferDrawing": true
+        "reference": "incline-close-2"
       },
       {
-        "reference": "incline-fly",
-        "preferDrawing": true
+        "reference": "incline-fly"
       }
     ],
     "source-legendary-chest-weeks-5-8-3": [
       {
-        "reference": "cable-press",
-        "preferDrawing": true,
-        "note": "The PDF drawing shows the standing cable press. The comparison photos show a seated cable press."
+        "reference": "cable-press"
       },
       {
-        "reference": "cable-fly-2",
-        "preferDrawing": true
+        "reference": "cable-fly-2"
       }
     ],
     "source-legendary-chest-weeks-5-8-4": [
       {
-        "reference": "hammer-press",
-        "preferDrawing": true
+        "reference": "hammer-press"
       }
     ],
     "source-legendary-chest-weeks-5-8-5": [
       {
-        "reference": "smith-flat",
-        "preferDrawing": true
+        "reference": "smith-flat"
       },
       {
-        "reference": "decline-push",
-        "preferDrawing": true
+        "reference": "decline-push"
       }
     ],
     "source-legendary-chest-weeks-9-12-1": [
       {
-        "reference": "barbell-incline",
-        "preferDrawing": true
+        "reference": "barbell-incline"
       }
     ],
     "source-legendary-chest-weeks-9-12-2": [
       {
-        "reference": "cable-low",
-        "preferDrawing": true
+        "reference": "cable-low"
       },
       {
-        "reference": "decline-push-2",
-        "preferDrawing": true
+        "reference": "decline-push-2"
       }
     ],
     "source-legendary-chest-weeks-9-12-3": [
       {
         "reference": "db-flat",
-        "note": "The photo shows a full repetition, not the prescribed isometric hold.",
-        "preferDrawing": true
+        "note": "The photo shows a full repetition, not the prescribed isometric hold."
       },
       {
         "reference": "bench",
-        "note": "The PDF heading mentions barbell flat bench but supplies no separate sets for it. This picture adds no prescription.",
-        "preferDrawing": true
+        "note": "The PDF heading mentions barbell flat bench but supplies no separate sets for it. This picture adds no prescription."
       }
     ],
     "source-legendary-chest-weeks-9-12-4": [
       {
-        "reference": "cable-mid",
-        "preferDrawing": true
+        "reference": "cable-mid"
       },
       {
         "reference": "push",
         "note": "The picture shows a standard push-up. Apply the tension hold and partial-rep instructions from the source.",
-        "label": "Tension / partial-rep push-up",
-        "preferDrawing": true
+        "label": "Tension / partial-rep push-up"
       }
     ],
     "source-shred-phase-1-abs-1": [
@@ -2662,8 +2749,7 @@
         "reference": "cable-fly-2"
       },
       {
-        "reference": "cable-press",
-        "note": "The PDF drawing shows the standing cable press. The comparison photos show a seated cable press."
+        "reference": "cable-press"
       }
     ],
     "source-shred-phase-2-chest-4": [

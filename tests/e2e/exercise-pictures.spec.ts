@@ -25,13 +25,22 @@ async function expectDecodedPictures(page: import("@playwright/test").Page) {
   }
 }
 
-test("library includes source movements, real photos, PDF drawings and accessible enlargement", async ({
+test("library includes source movements, real-person photos and accessible enlargement", async ({
   page,
 }) => {
   await localWorkspace(page);
   await page.goto("/app/library");
   await page.getByLabel("Search movements").fill("spider");
   await expect(page.locator(".library-row")).toHaveCount(2);
+  await page.getByLabel("Search movements").fill("close grip");
+  await expect(page.locator(".movement-thumbnail img")).toHaveCount(5);
+  for (const image of await page.locator(".movement-thumbnail img").all()) {
+    expect(await image.getAttribute("src")).not.toContain("/pdf-");
+  }
+  await page.screenshot({
+    path: ".impeccable/review/real-person-library-desktop.png",
+    fullPage: true,
+  });
   await page.goto("/app/library?exercise=curl");
   await expect(
     page.getByRole("heading", { name: "Dumbbell biceps curl", exact: true }),
@@ -61,9 +70,19 @@ test("library includes source movements, real photos, PDF drawings and accessibl
 
   await page.goto("/app/library?exercise=source-legendary-chest-weeks-5-8-2");
   await expect(page.locator(".exercise-reference")).toHaveCount(2);
-  await expect(page.locator(".picture-credit").first()).toContainText(
-    "PDF p. 16",
+  await expect(page.locator(".exercise-reference").first()).toContainText(
+    "This program specifies a close grip",
   );
+  await expect(page.locator(".picture-credit").first()).toContainText(
+    "Free Exercise DB",
+  );
+  const primaryPictures = page.locator(
+    ".exercise-reference > .exercise-photo-grid img",
+  );
+  await expect(primaryPictures).toHaveCount(4);
+  for (const picture of await primaryPictures.all()) {
+    expect(await picture.getAttribute("src")).not.toContain("/pdf-");
+  }
   await expectDecodedPictures(page);
   await page.setViewportSize({ width: 390, height: 844 });
   await page.waitForTimeout(300);
