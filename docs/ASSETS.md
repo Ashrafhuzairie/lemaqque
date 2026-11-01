@@ -10,6 +10,8 @@ The new championship-inspired theme retains original LMQ artwork with crimson/go
 
 ## Exercise reference pictures
 
+The user requires actual photographs only. Do not use AI-generated photo references, including for wall push-up and prone W raise. Obtain matching reusable photographs before filling those two remaining gaps.
+
 `public/exercise-images/` and `src/data/exercise-media.json` contain 165 photo positions and 18 optional source drawings. Real-person photographs are the primary references for all 105 imported program blocks and 14 starter-library exercises. PDF drawings are available only through optional source links. Supersets, tri-sets and cable-fly ladders show components separately. Wall push-up and prone W raise remain explicitly marked as written-only because no exact image was found in the supplied PDFs or chosen photo collection.
 
 - Drawings: Jeremy Buendia, user-supplied `Building-a-Legendary-Chest.pdf`, PDF pages 9–13, 16–19 and 21–24. Extracted original embedded drawings, resized/converted to WebP. Manifest records each file page; rights remain with their source holders. These user-provided drawings are not relicensed under the photo dataset license. No endorsement or qualified technique review is claimed.
