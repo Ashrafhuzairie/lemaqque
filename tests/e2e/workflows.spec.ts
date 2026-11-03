@@ -17,7 +17,7 @@ test("persistent daily tracking workflow, nutrition, attendance, progress and st
   await expect(page.getByRole("status")).toContainText("preferences are saved");
   await page.getByRole("button", { name: "Generate a starter plan" }).click();
   await expect(
-    page.getByRole("heading", { name: "Your training, your terms." }),
+    page.getByRole("heading", { name: "My workouts" }),
   ).toBeVisible();
   await page.getByRole("button", { name: "Start workout" }).first().click();
   await expect(

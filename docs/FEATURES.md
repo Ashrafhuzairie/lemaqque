@@ -2,6 +2,8 @@
 
 ## Implemented MVP capabilities
 
+- Refined daily-training workspace: searchable source/custom workout plans, movement previews, a clearer next-session dashboard, mobile exercise selection and progressive disclosure for reference/logging help. See [UI-REFRESH.md](UI-REFRESH.md).
+
 - Vibrant championship-inspired black/crimson/gold brand system, local Barlow Condensed/Manrope fonts, keyboard controls, reduced motion and mobile navigation.
 - All three supplied PDF programs: 20 source-linked templates, 105 exercise blocks, 471 printed sets; idempotent single/phase/all import; exact per-set rows, example pounds and rest ranges.
 - Composite actual-set logging for supersets, partial/drop segments and ladders, with timed flexes excluded from volume.

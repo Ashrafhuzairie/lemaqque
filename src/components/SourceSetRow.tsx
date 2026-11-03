@@ -33,14 +33,9 @@ export default function SourceSetRow({
         </span>
         {log?.completed ? <Check size={18} /> : <ChevronDown size={18} />}
       </summary>
-      <div className="source-set-inputs">
-        <p>
-          Log what you actually perform. Source example pounds stay unchanged
-          above; your load below is in kg. Use total external load for each
-          repetition. For targets marked per side, enter the load used on one
-          side; the app counts both sides. Other entries use total load;
-          bodyweight without added load contributes 0 kg to external volume.
-        </p>
+      <div
+        className={`source-set-inputs ${parts.length === 1 ? "source-single-part" : ""}`}
+      >
         {parts.map((part, i) => (
           <div className="source-segment" key={i}>
             <div>
@@ -55,7 +50,7 @@ export default function SourceSetRow({
                 {part.unit === "seconds" ? "Actual seconds" : "Actual reps"}
               </span>
               <input
-                aria-label={`Set ${number} part ${i + 1} ${part.unit === "seconds" ? "seconds" : "reps"}`}
+                aria-label={`${part.unit === "seconds" ? "Actual seconds" : "Actual reps"} · Set ${number} part ${i + 1}`}
                 type="number"
                 min={0}
                 max={1000}
@@ -78,7 +73,7 @@ export default function SourceSetRow({
                     : "Load · kg total"}
                 </span>
                 <input
-                  aria-label={`Set ${number} part ${i + 1} weight kg`}
+                  aria-label={`${part.multiplier === 2 ? "Load · kg per side" : "Load · kg total"} · Set ${number} part ${i + 1}`}
                   type="number"
                   min={0}
                   max={1000}
@@ -101,7 +96,7 @@ export default function SourceSetRow({
           <label>
             <span>Set effort · RPE</span>
             <input
-              aria-label={`Set ${number} RPE`}
+              aria-label={`Set effort · RPE · Set ${number}`}
               type="number"
               min={1}
               max={10}
@@ -121,6 +116,16 @@ export default function SourceSetRow({
             {log?.completed ? "Uncomplete" : "Complete"} set {number}
           </Button>
         </div>
+        <details className="set-load-help">
+          <summary>How to log load</summary>{" "}
+          <p>
+            Log what you actually perform. Source example pounds stay unchanged
+            above; your load below is in kg. Use total external load for each
+            repetition. For targets marked per side, enter the load used on one
+            side; the app counts both sides. Other entries use total load;
+            bodyweight without added load contributes 0 kg to external volume.
+          </p>
+        </details>
       </div>
     </details>
   );

@@ -6,6 +6,7 @@ import "@fontsource-variable/manrope";
 import "@fontsource/barlow-condensed/700.css";
 import "@fontsource/barlow-condensed/800.css";
 import "./styles.css";
+import "./styles/workspace.css";
 import App from "./App";
 import { StoreProvider } from "./lib/store";
 const queryClient = new QueryClient({

@@ -6,12 +6,12 @@ import {
   Dumbbell,
   Flame,
   Plus,
-  Sun,
   TrendingUp,
 } from "lucide-react";
 import { Button } from "../components/ui/button";
-import { DataGate, Empty, round, weekdays } from "../components/common";
+import { DataGate, round, weekdays } from "../components/common";
 import { useRows, useProfile } from "../lib/store";
+import { findExercise } from "../lib/catalog";
 import { localDay, nutritionTotals, volume } from "../lib/fitness";
 export default function Dashboard() {
   const profile = useProfile(),
@@ -40,6 +40,7 @@ export default function Dashboard() {
     d.setUTCDate(d.getUTCDate() - d.getUTCDay() + i);
     return d.toISOString().slice(0, 10);
   });
+  const movements = active?.exercises || template?.exercises || [];
   return (
     <DataGate
       queries={[
@@ -54,206 +55,253 @@ export default function Dashboard() {
         logs,
       ]}
     >
-      <div className="dashboard-heading">
-        <div>
-          <h1>
-            {profile.profile
-              ? `Good to see you, ${profile.profile.name.split(" ")[0]}.`
-              : "Your strongest self starts here."}
-          </h1>
-          <p>A little intention. A little effort. A little closer.</p>
-        </div>
-        <div className="today-date">
-          <CalendarDays size={18} />
-          {new Date(today + "T12:00:00Z").toLocaleDateString(undefined, {
-            weekday: "short",
-            day: "numeric",
-            month: "short",
-            timeZone: "UTC",
-          })}
-        </div>
-      </div>
-      {!profile.profile && (
-        <div className="resume-banner">
+      <div className="dashboard-page">
+        <div className="dashboard-heading">
           <div>
-            <strong>Let’s find your starting point.</strong>
-            <p>Tell us about your goals and build a routine that fits.</p>
+            <h1>
+              {profile.profile
+                ? `Good to see you, ${profile.profile.name.split(" ")[0]}.`
+                : "Your training starts here."}
+            </h1>
+            <p>Your training, meals and next steps in one place.</p>
           </div>
-          <Button asChild>
-            <Link to="/app/settings">
-              Set up my profile
-              <ArrowRight size={16} />
-            </Link>
-          </Button>
+          <div className="today-date">
+            <CalendarDays size={18} />
+            {new Date(today + "T12:00:00Z").toLocaleDateString(undefined, {
+              weekday: "short",
+              day: "numeric",
+              month: "short",
+              timeZone: "UTC",
+            })}
+          </div>
         </div>
-      )}
-      <div className="dashboard-main">
-        <section className="training-feature">
-          <div className="training-feature-top">
-            <Dumbbell size={28} strokeWidth={1} />
-          </div>
-          <div className="training-feature-copy">
-            <h2>
-              {active?.name || template?.name || "Make room for movement."}
-            </h2>
-            <p>
-              {active ? "Unfinished session · " : ""}
-              {template
-                ? `${template.exercises.length} movements · ${template.exercises.reduce((a, e) => a + e.sets, 0)} working sets`
-                : "Your routine starts with a plan that’s yours."}
-            </p>
+        {!profile.profile && (
+          <div className="resume-banner">
+            <div>
+              <strong>Start with a plan that fits.</strong>
+              <p>Set your goals, available equipment and training days.</p>
+            </div>
             <Button asChild>
-              <Link
-                to={
-                  active
-                    ? "/app/session/" + active.id
-                    : template
-                      ? "/app/workouts"
-                      : "/app/settings"
-                }
-              >
-                <span>
-                  {active
-                    ? "Resume workout"
-                    : template
-                      ? "Open my workout"
-                      : "Build my routine"}
-                </span>
-                <ArrowUpRight size={18} />
+              <Link to="/app/settings">
+                Set up my profile
+                <ArrowRight size={16} />
               </Link>
             </Button>
           </div>
-          <div className="training-sculpture" aria-hidden="true">
-            <div />
-            <div />
-            <div />
-            <span>LMQ</span>
-          </div>
-          <div className="training-feature-footer">
-            <span>SHOW UP. DO THE WORK.</span>
-            <span>TRAIN / FUEL / EVOLVE</span>
-          </div>
-        </section>
-        <section className="panel weekly-panel">
-          <header>
-            <h2>Your week</h2>
-            <Link to="/app/attendance" aria-label="Open attendance calendar">
-              <ArrowUpRight size={18} />
-            </Link>
-          </header>
-          <div className="week-days">
-            {week.map((d, i) => {
-              const a = attendance.data?.find((a) => a.day === d);
-              return (
+        )}
+        <div className="dashboard-main">
+          <section className="dashboard-training">
+            <header className="section-title">
+              <h2>
+                {active ? "Pick up where you left off" : "Your next session"}
+              </h2>
+              <Link to="/app/workouts">
+                All workouts
+                <ArrowUpRight size={17} />
+              </Link>
+            </header>
+            {active || template ? (
+              <>
+                <div className="dashboard-plan-heading">
+                  <div>
+                    <h3>{active?.name || template?.name}</h3>
+                    <p>
+                      {movements.length} movements ·{" "}
+                      {movements.reduce((n, e) => n + e.sets, 0)}{" "}
+                      {movements.some((e) => e.source)
+                        ? "sets incl. warm-ups"
+                        : "sets"}
+                    </p>
+                  </div>
+                  <Button asChild>
+                    <Link
+                      to={
+                        active ? "/app/session/" + active.id : "/app/workouts"
+                      }
+                    >
+                      {active ? "Resume workout" : "Open my workout"}
+                      <ArrowRight size={17} />
+                    </Link>
+                  </Button>
+                </div>
+                <ol className="dashboard-movements">
+                  {movements.slice(0, 4).map((item, i) => (
+                    <li key={item.exercise_id + i}>
+                      <Link to={"/app/library?exercise=" + item.exercise_id}>
+                        {findExercise(item.exercise_id)?.name ||
+                          "Exercise reference unavailable"}
+                        <ArrowUpRight size={15} />
+                      </Link>
+                      <span>{item.sets} sets</span>
+                    </li>
+                  ))}
+                </ol>
+                {movements.length > 4 && (
+                  <p className="dashboard-plan-more">
+                    + {movements.length - 4} more{" "}
+                    {movements.length === 5 ? "movement" : "movements"} in this
+                    session
+                  </p>
+                )}
+                <p className="dashboard-plan-note">
+                  Follow the prescribed sets. Choose your own actual load.
+                </p>
+              </>
+            ) : (
+              <div className="dashboard-start">
+                <Dumbbell size={34} strokeWidth={1.3} />
+                <h3>Choose your first workout.</h3>
+                <p>
+                  Build your own plan or choose from the source programs in your
+                  library.
+                </p>
+                <div className="dashboard-start-actions">
+                  <Button asChild>
+                    <Link to="/app/programs">
+                      Browse training programs
+                      <ArrowRight size={16} />
+                    </Link>
+                  </Button>
+                  <Link className="text-link" to="/app/builder">
+                    Build a workout
+                    <Plus size={15} />
+                  </Link>
+                </div>
+              </div>
+            )}
+          </section>
+          <aside className="dashboard-aside">
+            <section className="weekly-panel">
+              <header>
+                <h2>Your week</h2>
                 <Link
-                  key={d}
                   to="/app/attendance"
-                  className={`${d === today ? "week-today" : ""} ${a?.status === "completed" ? "week-done" : ""}`}
-                  aria-label={`${weekdays[i]}, ${a?.status || "not logged"}`}
+                  aria-label="Open attendance calendar"
                 >
-                  <span>{weekdays[i].slice(0, 1)}</span>
-                  <strong>{Number(d.slice(-2))}</strong>
-                  <i />
+                  <ArrowUpRight size={18} />
                 </Link>
-              );
-            })}
-          </div>
-          <div className="weekly-bottom">
+              </header>
+              <div className="week-days">
+                {week.map((d, i) => {
+                  const a = attendance.data?.find((a) => a.day === d);
+                  return (
+                    <Link
+                      key={d}
+                      to="/app/attendance"
+                      className={`${d === today ? "week-today" : ""} ${a?.status === "completed" ? "week-done" : ""}`}
+                      aria-current={d === today ? "date" : undefined}
+                    >
+                      <span>{weekdays[i]}</span>{" "}
+                      <strong>{Number(d.slice(-2))}</strong>
+                      <span className="sr-only">
+                        , {a?.status || "not logged"}
+                      </span>
+                      <i aria-hidden="true" />
+                    </Link>
+                  );
+                })}
+              </div>
+              <p className="week-summary">
+                <strong>
+                  {attendance.data?.filter(
+                    (a) => week.includes(a.day) && a.status === "completed",
+                  ).length || 0}
+                </strong>{" "}
+                sessions logged this week
+              </p>
+              <Link className="text-link" to="/app/attendance">
+                Check in for today
+                <Plus size={15} />
+              </Link>
+            </section>
+            <section className="dashboard-fuel">
+              <header className="section-title">
+                <h2>Nutrition</h2>
+                <Link to="/app/nutrition" aria-label="Open daily nutrition">
+                  <ArrowUpRight size={18} />
+                </Link>
+              </header>
+              <p>
+                {meals.data?.some((m) => m.day === today)
+                  ? `${round(total.calories)} kcal logged today`
+                  : "No meals logged today."}
+              </p>
+              <p className="dashboard-small">
+                {target
+                  ? `${round(Math.max(0, target.calories - total.calories))} kcal to your target`
+                  : "Set targets when you’re ready."}
+              </p>
+              <Button asChild variant="outline">
+                <Link to="/app/nutrition">
+                  Log a meal
+                  <Plus size={15} />
+                </Link>
+              </Button>
+            </section>
+          </aside>
+        </div>
+        <div className="dashboard-metrics">
+          <section className="metric">
+            <div>
+              <Flame size={18} />
+              <span>Daily energy</span>
+              <Link to="/app/nutrition" aria-label="View nutrition diary">
+                <ArrowUpRight size={16} />
+              </Link>
+            </div>
             <strong>
-              {attendance.data?.filter(
-                (a) => week.includes(a.day) && a.status === "completed",
-              ).length || 0}
-              <span> sessions logged this week</span>
+              {round(total.calories)}
+              <small> kcal</small>
             </strong>
             <p>
-              {profile.profile?.days.length
-                ? `You’re aiming for ${profile.profile.days.length} training days. Make room for recovery, too.`
-                : "Find a training rhythm that fits your week."}
+              {target
+                ? `Target: ${round(target.calories)} kcal`
+                : "No calorie target set"}
             </p>
-          </div>
-          <Button asChild variant="outline">
-            <Link to="/app/attendance">
-              Check in for today <Plus size={16} />
-            </Link>
-          </Button>
-        </section>
-      </div>
-      <div className="dashboard-metrics">
-        <section className="metric">
-          <div>
-            <Flame size={18} />
-            <span>Daily energy</span>
-            <Link to="/app/nutrition" aria-label="Open daily nutrition">
-              <ArrowUpRight size={16} />
-            </Link>
-          </div>
-          <strong>
-            {round(total.calories)}
-            <small> kcal</small>
-          </strong>
-          <p>
-            {target
-              ? `${round(Math.max(0, target.calories - total.calories))} kcal to your target`
-              : "No calorie target set"}
-          </p>
-          <div className="progress-track">
-            <span
-              style={{
-                width: `${target ? Math.min(100, (total.calories / target.calories) * 100) : 0}%`,
-              }}
-            />
-          </div>
-        </section>
-        <section className="metric">
-          <div>
-            <Dumbbell size={18} />
-            <span>Training volume</span>
-            <Link to="/app/progress" aria-label="Open training progress">
-              <ArrowUpRight size={16} />
-            </Link>
-          </div>
-          <strong>
-            {round(
-              volume(
-                (logs.data || []).filter((l) =>
-                  sessions.data?.some(
-                    (s) => s.id === l.session_id && s.status === "completed",
+          </section>
+          <section className="metric">
+            <div>
+              <Dumbbell size={18} />
+              <span>Training volume</span>
+              <Link to="/app/progress" aria-label="Open training progress">
+                <ArrowUpRight size={16} />
+              </Link>
+            </div>
+            <strong>
+              {round(
+                volume(
+                  (logs.data || []).filter((l) =>
+                    sessions.data?.some(
+                      (s) => s.id === l.session_id && s.status === "completed",
+                    ),
                   ),
                 ),
-              ),
-            )}
-            <small> kg</small>
-          </strong>
-          <p>Across your completed workouts</p>
-          <span className="metric-caption">EVERY REP, RECORDED.</span>
-        </section>
-        <section className="metric">
-          <div>
-            <TrendingUp size={18} />
-            <span>Body weight</span>
-            <Link to="/app/progress" aria-label="Open body measurements">
-              <ArrowUpRight size={16} />
+              )}
+              <small> kg</small>
+            </strong>
+            <p>Across your completed workouts</p>
+          </section>
+          <section className="metric">
+            <div>
+              <TrendingUp size={18} />
+              <span>Body weight</span>
+              <Link to="/app/progress" aria-label="Open body measurements">
+                <ArrowUpRight size={16} />
+              </Link>
+            </div>
+            <strong>
+              {measurements.data?.toSorted((a, b) =>
+                b.day.localeCompare(a.day),
+              )[0]?.weight ?? "—"}
+              <small> kg</small>
+            </strong>
+            <Link className="text-link" to="/app/progress">
+              Log a measurement
+              <Plus size={14} />
             </Link>
-          </div>
-          <strong>
-            {measurements.data?.toSorted((a, b) =>
-              b.day.localeCompare(a.day),
-            )[0]?.weight || "—"}
-            <small> kg</small>
-          </strong>
-          <p>
-            {measurements.data?.length
-              ? "Your latest logged measurement"
-              : "Your first check-in is waiting"}
-          </p>
-          <Link className="text-link" to="/app/progress">
-            Log a measurement
-            <Plus size={14} />
-          </Link>
-        </section>
-      </div>
-      <div className="dashboard-bottom">
-        <section className="panel">
+          </section>
+        </div>
+        <section className="dashboard-schedule">
           <header className="section-title">
             <h2>Coming up</h2>
             <Link to="/app/attendance">
@@ -262,9 +310,13 @@ export default function Dashboard() {
             </Link>
           </header>
           {!planned?.length ? (
-            <Empty title="A little space for a plan.">
-              Schedule your next session in the attendance calendar.
-            </Empty>
+            <div className="dashboard-schedule-empty">
+              <p>No upcoming sessions scheduled.</p>
+              <Link className="text-link" to="/app/attendance">
+                Plan your next session
+                <ArrowRight size={15} />
+              </Link>
+            </div>
           ) : (
             <div className="record-list">
               {planned.slice(0, 3).map((s) => (
@@ -291,22 +343,13 @@ export default function Dashboard() {
             </div>
           )}
         </section>
-        <section className="coach-note">
-          <h2>
-            Small steps.
-            <br />
-            Stronger habits.
-          </h2>
-          <p>
-            {sessions.data?.some((s) => s.status === "completed")
-              ? "Keep an eye on recovery, then build on the work you’ve already done."
-              : "Start with a comfortable load and controlled repetitions. The first goal is a routine you can repeat."}
-          </p>
-          <Link to="/app/coach">
-            A little guidance
-            <ArrowUpRight size={17} />
+        <div className="dashboard-coach-link">
+          <p>Need help choosing your next step?</p>
+          <Link className="text-link" to="/app/coach">
+            Open Smart coach
+            <ArrowUpRight size={16} />
           </Link>
-        </section>
+        </div>
       </div>
     </DataGate>
   );

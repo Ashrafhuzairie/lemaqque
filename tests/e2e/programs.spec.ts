@@ -52,7 +52,9 @@ test("all three source books import exactly, survive reload, and log complex sou
   await expect(page.locator(".source-active-plan")).toContainText("120s rest");
   await expect(page.locator(".source-set")).toHaveCount(6);
   await page
-    .getByRole("spinbutton", { name: "Set 1 part 1 weight kg" })
+    .getByRole("spinbutton", {
+      name: /Load · kg (total|per side) · Set 1 part 1$/,
+    })
     .fill("50");
   await page
     .getByRole("button", { name: "Complete set 1", exact: true })
@@ -60,7 +62,7 @@ test("all three source books import exactly, survive reload, and log complex sou
   await expect(page.locator(".source-set-complete")).toHaveCount(1);
   await page.reload();
   await expect(page.locator(".source-set-complete")).toHaveCount(1);
-  await page.locator(".source-set-complete summary").click();
+  await page.locator(".source-set-complete > summary").click();
   await expect(
     page.getByRole("button", { name: "Uncomplete set 1" }),
   ).toBeVisible();
@@ -90,10 +92,14 @@ test("all three source books import exactly, survive reload, and log complex sou
   });
   await page.setViewportSize({ width: 1440, height: 1000 });
   await page
-    .getByRole("spinbutton", { name: "Set 1 part 1 weight kg" })
+    .getByRole("spinbutton", {
+      name: /Load · kg (total|per side) · Set 1 part 1$/,
+    })
     .fill("10");
   await page
-    .getByRole("spinbutton", { name: "Set 1 part 2 weight kg" })
+    .getByRole("spinbutton", {
+      name: /Load · kg (total|per side) · Set 1 part 2$/,
+    })
     .fill("20");
   await page
     .getByRole("button", { name: "Complete set 1", exact: true })

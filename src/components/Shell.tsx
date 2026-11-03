@@ -1,11 +1,12 @@
 import { useState, useRef, useEffect } from "react";
-import { NavLink, Outlet, Link, Navigate } from "react-router-dom";
+import { NavLink, Outlet, Link, Navigate, useLocation } from "react-router-dom";
 import {
   Activity,
   ArrowUpRight,
   CalendarDays,
   ChartNoAxesCombined,
   ChevronRight,
+  ChevronDown,
   Dumbbell,
   Flame,
   LayoutDashboard,
@@ -41,6 +42,14 @@ export function Brand() {
 }
 export default function Shell() {
   const { userId, ready, local, signOut } = useStore();
+  const { pathname } = useLocation();
+  const section =
+    navigation.find((n) => n.path === pathname)?.name ??
+    (pathname.includes("/session/")
+      ? "Active session"
+      : pathname.includes("builder")
+        ? "Workout builder"
+        : "Your profile");
   const profileState = useProfile();
   const { profile } = profileState;
   const [open, setOpen] = useState(false);
@@ -162,17 +171,6 @@ export default function Shell() {
           ))}
         </nav>
         <div className="sidebar-bottom">
-          <div className="intent">
-            <span>ONE DAY AT A TIME.</span>
-            <p>
-              Build a routine.
-              <br />
-              Become your strongest self.
-            </p>
-            <Link to="/app/coach">
-              Find your next step <ArrowUpRight size={15} />
-            </Link>
-          </div>
           <NavLink
             to="/app/settings"
             onClick={() => setOpen(false)}
@@ -198,7 +196,11 @@ export default function Shell() {
       </aside>
       <div className="app-body" inert={mobile && open}>
         <div className="topbar">
-          <span>YOUR PERSONAL PERFORMANCE SPACE</span>
+          <div className="workspace-breadcrumb">
+            <Link to="/app">Workspace</Link>
+            <ChevronRight size={13} />
+            <span>{section}</span>
+          </div>
           <div>
             <span className="status-dot" />
             {local ? "On-device storage" : "Supabase connected"}
@@ -207,13 +209,19 @@ export default function Shell() {
         <main id="main-content">
           {error && <Notice error>{error}</Notice>}
           {local && (
-            <div className="local-banner">
-              Device-local workspace · Your records stay in this browser. Export
-              a backup in Settings.{" "}
-              <Link to="/auth">
-                Connect an account <ArrowUpRight size={13} />
-              </Link>
-            </div>
+            <details className="local-storage-note">
+              <summary>
+                Saved on this device
+                <ChevronDown size={14} />
+              </summary>
+              <p>
+                Your records stay in this browser. Export a backup in Settings.
+                <Link to="/auth">
+                  Connect an account
+                  <ArrowUpRight size={13} />
+                </Link>
+              </p>
+            </details>
           )}
           <Outlet />
         </main>

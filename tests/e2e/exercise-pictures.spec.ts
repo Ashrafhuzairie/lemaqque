@@ -10,6 +10,12 @@ async function expectDecodedPictures(page: import("@playwright/test").Page) {
   const pictures = page.locator(
     ".exercise-pictures[open] > .exercise-picture-content > .exercise-reference-list > .exercise-reference > .exercise-photo-grid img",
   );
+  const disclosure = page.locator(".exercise-pictures").first();
+  if (
+    (await disclosure.getAttribute("open")) === null &&
+    (await disclosure.isVisible())
+  )
+    await disclosure.locator(":scope > summary").click();
   await expect(pictures.first()).toBeVisible();
   expect(await pictures.count()).toBeGreaterThan(0);
   for (const picture of await pictures.all()) {
@@ -135,11 +141,14 @@ test("all program components display pictures and logging survives image failure
   await expectDecodedPictures(page);
   await page.route("**/exercise-images/**", (route) => route.abort());
   await page.reload();
+  await page.locator(".exercise-pictures > summary").click();
   await expect(page.locator(".picture-unavailable").first()).toContainText(
     "workout controls remain available",
   );
   await page
-    .getByRole("spinbutton", { name: "Set 1 part 1 weight kg" })
+    .getByRole("spinbutton", {
+      name: /Load · kg (total|per side) · Set 1 part 1$/,
+    })
     .fill("10");
   await page
     .getByRole("button", { name: "Complete set 1", exact: true })

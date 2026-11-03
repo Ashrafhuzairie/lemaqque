@@ -22,6 +22,7 @@ import {
   ArrowDown,
   Timer,
   Flag,
+  Search,
 } from "lucide-react";
 import { Button } from "../components/ui/button";
 import {
@@ -41,6 +42,7 @@ import {
   useProfile,
 } from "../lib/store";
 import { exercises, findExercise, splits } from "../lib/catalog";
+import { exerciseThumbnail } from "../lib/exercise-media";
 import { sourceExercises, restLabel } from "../lib/programs";
 import SourcePrescription from "../components/SourcePrescription";
 import SourceSetRow from "../components/SourceSetRow";
@@ -60,6 +62,37 @@ export function Workouts() {
   const { userId } = useStore();
   const navigate = useNavigate();
   const [error, setError] = useState("");
+  const [search, setSearch] = useState("");
+  const [program, setProgram] = useState("all");
+  const [selected, setSelected] = useState<string | null>(null);
+  const programs = [
+    ...new Map(
+      (query.data ?? []).flatMap((t) => {
+        const source = t.exercises.find((e) => e.source)?.source;
+        return source ? [[source.programId, source.programTitle] as const] : [];
+      }),
+    ).entries(),
+  ];
+  const filtered = (query.data ?? []).filter(
+    (t) =>
+      (program === "all" ||
+        (program === "custom"
+          ? !t.exercises.some((e) => e.source)
+          : t.exercises.some((e) => e.source?.programId === program))) &&
+      (
+        t.name +
+        " " +
+        t.split +
+        " " +
+        t.exercises
+          .map((e) => findExercise(e.exercise_id)?.name ?? "")
+          .join(" ")
+      )
+        .toLowerCase()
+        .includes(search.toLowerCase()),
+  );
+  const selectedId = selected ?? filtered[0]?.id;
+
   async function start(t: Template) {
     try {
       const active = sessions.data?.find((s) => s.status === "active");
@@ -87,10 +120,10 @@ export function Workouts() {
   return (
     <>
       <PageHead
-        title="Your training, your terms."
-        description="A repeatable plan. Room to make it yours."
+        title="My workouts"
+        description="Choose a plan, check the movements, start your session."
       >
-        <Button asChild>
+        <Button asChild variant="outline">
           <Link to="/app/builder">
             <Plus size={17} />
             Build a workout
@@ -124,98 +157,210 @@ export function Workouts() {
             scratch.
           </Empty>
         ) : (
-          <div className="workout-grid">
-            {query.data.map((t, i) => (
-              <article className="workout-card" key={t.id}>
-                <div className="workout-art">
-                  <span className="workout-index">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <Dumbbell size={90} strokeWidth={0.65} />
-                  <span>{t.split.toUpperCase()}</span>
+          <>
+            <div className="workout-toolbar">
+              <Field label="Find a workout">
+                <div className="search-field">
+                  <Search size={17} />
+                  <input
+                    value={search}
+                    onChange={(e) => {
+                      setSearch(e.target.value);
+                      setSelected(null);
+                    }}
+                    placeholder="Search plans or movements…"
+                  />
                 </div>
-                <div className="workout-details">
-                  <h2>{t.name}</h2>
-                  <p>
-                    {t.exercises.length}{" "}
-                    {t.exercises.some((e) => e.source)
-                      ? "source blocks"
-                      : "exercises"}{" "}
-                    <span>·</span> {t.exercises.reduce((a, e) => a + e.sets, 0)}{" "}
-                    sets
-                  </p>
-                  {t.exercises[0]?.source && (
-                    <Link
-                      className="source-template-link"
-                      to={
-                        "/app/programs?program=" +
-                        t.exercises[0].source.programId
-                      }
-                    >
-                      {t.exercises[0].source.programTitle} ·{" "}
-                      {t.exercises[0].source.phaseTitle}
-                      <ArrowRight size={13} />
-                    </Link>
-                  )}
-                  <div className="muscle-tags">
-                    {[
-                      ...new Set(
-                        t.exercises.map(
-                          (e) => findExercise(e.exercise_id)?.muscle,
-                        ),
-                      ),
-                    ]
-                      .filter(Boolean)
-                      .map((m) => (
-                        <span key={m}>{m}</span>
-                      ))}
-                  </div>
-                  <Button
-                    onClick={() => start(t)}
-                    disabled={saveSession.isPending}
+              </Field>
+              <Field label="Program">
+                <select
+                  aria-label="Program"
+                  value={program}
+                  onChange={(e) => {
+                    setProgram(e.target.value);
+                    setSelected(null);
+                  }}
+                >
+                  <option value="all">All programs</option>
+                  {programs.map(([id, title]) => (
+                    <option key={id} value={id}>
+                      {title}
+                    </option>
+                  ))}
+                  <option value="custom">My custom plans</option>
+                </select>
+              </Field>
+              <p className="workout-result-count" aria-live="polite">
+                {filtered.length} of {query.data.length} saved plans
+              </p>
+            </div>
+            <div className="workout-grid">
+              {filtered.map((t) => {
+                const expanded = selectedId === t.id;
+                const source = t.exercises.find((e) => e.source)?.source;
+                return (
+                  <article
+                    className={`workout-card ${expanded ? "workout-card-selected" : ""}`}
+                    key={t.id}
                   >
-                    <Play size={15} />
-                    Start workout
-                  </Button>
-                  <div className="workout-tools">
-                    <Link to={"/app/builder?edit=" + t.id}>
-                      Edit plan <ArrowRight size={14} />
-                    </Link>
-                    <button
-                      aria-label={"Duplicate " + t.name}
-                      onClick={() =>
-                        save.mutate(
-                          {
-                            ...t,
-                            ...identity(userId!),
-                            name: t.name + " · copy",
-                          },
-                          { onError: (e) => setError(e.message) },
-                        )
-                      }
+                    <div className="workout-plan-header">
+                      <div className="workout-details">
+                        <h2>
+                          <button
+                            className="workout-select"
+                            aria-expanded={expanded}
+                            aria-controls={`plan-${t.id}`}
+                            onClick={() => setSelected(expanded ? "" : t.id)}
+                          >
+                            {t.name}
+                            <ChevronDown size={18} />
+                          </button>
+                        </h2>
+                        <p>
+                          {t.exercises.length}{" "}
+                          {source ? "source blocks" : "exercises"}{" "}
+                          <span>·</span>{" "}
+                          {t.exercises.reduce((a, e) => a + e.sets, 0)}{" "}
+                          {source ? "sets incl. warm-ups" : "sets"}
+                        </p>
+                        {source && (
+                          <Link
+                            className="source-template-link"
+                            to={"/app/programs?program=" + source.programId}
+                          >
+                            {source.programTitle} · {source.phaseTitle}
+                            <ArrowRight size={13} />
+                          </Link>
+                        )}
+                      </div>
+                      <div className="workout-plan-actions">
+                        <Button
+                          variant={expanded ? "default" : "outline"}
+                          onClick={() => start(t)}
+                          disabled={saveSession.isPending}
+                        >
+                          <Play size={15} />
+                          Start workout
+                        </Button>
+                        <div className="workout-tools">
+                          <Link to={"/app/builder?edit=" + t.id}>
+                            Edit plan <ArrowRight size={14} />
+                          </Link>
+                          <button
+                            aria-label={"Duplicate " + t.name}
+                            onClick={() =>
+                              save.mutate(
+                                {
+                                  ...t,
+                                  ...identity(userId!),
+                                  name: t.name + " · copy",
+                                },
+                                { onError: (e) => setError(e.message) },
+                              )
+                            }
+                          >
+                            <Copy size={16} />
+                          </button>
+                          <button
+                            aria-label={"Delete " + t.name}
+                            onClick={() => {
+                              if (
+                                window.confirm(
+                                  "Delete this template? Past sessions are preserved.",
+                                )
+                              )
+                                remove.mutate(t.id, {
+                                  onError: (e) => setError(e.message),
+                                });
+                            }}
+                          >
+                            <Trash2 size={16} />
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      id={`plan-${t.id}`}
+                      hidden={!expanded}
+                      className="workout-plan-preview"
                     >
-                      <Copy size={16} />
-                    </button>
-                    <button
-                      aria-label={"Delete " + t.name}
-                      onClick={() => {
-                        if (
-                          window.confirm(
-                            "Delete this template? Past sessions are preserved.",
-                          )
-                        )
-                          remove.mutate(t.id, {
-                            onError: (e) => setError(e.message),
-                          });
-                      }}
-                    >
-                      <Trash2 size={16} />
-                    </button>
-                  </div>
-                </div>
-              </article>
-            ))}
-          </div>
+                      <div className="plan-column-labels">
+                        <span>Movement</span>
+                        <span>Sets</span>
+                        <span className="sr-only">Reference</span>
+                      </div>
+                      <ol className="plan-movements">
+                        {t.exercises.map((p, i) => {
+                          const exercise = findExercise(p.exercise_id);
+                          const picture = exerciseThumbnail(p.exercise_id);
+                          return (
+                            <li key={`${p.exercise_id}-${i}`}>
+                              <Link
+                                className="plan-movement-name"
+                                to={"/app/library?exercise=" + p.exercise_id}
+                              >
+                                {picture ? (
+                                  <img
+                                    src={picture.src}
+                                    alt=""
+                                    width={picture.width}
+                                    height={picture.height}
+                                    loading="lazy"
+                                  />
+                                ) : (
+                                  <Dumbbell size={24} aria-hidden="true" />
+                                )}
+                                <span>
+                                  {exercise?.name ??
+                                    "Exercise reference unavailable"}
+                                </span>
+                              </Link>
+                              <span className="plan-set-count">
+                                {p.sets}
+                                <small> sets</small>
+                              </span>
+                              <Link
+                                className="plan-reference-link"
+                                to={"/app/library?exercise=" + p.exercise_id}
+                                aria-label={
+                                  "View reference for " +
+                                  (exercise?.name ?? "exercise")
+                                }
+                              >
+                                View reference
+                                <ArrowRight size={14} />
+                              </Link>
+                            </li>
+                          );
+                        })}
+                      </ol>
+                      {source && (
+                        <p className="plan-source-caption">
+                          Source set counts include warm-ups. Log your own
+                          actual loads during the session.
+                        </p>
+                      )}
+                    </div>
+                  </article>
+                );
+              })}
+            </div>
+            {filtered.length === 0 && (
+              <div className="workout-no-results">
+                <h2>No matching plans</h2>
+                <p>Try another movement name or program.</p>
+                <Button
+                  variant="outline"
+                  onClick={() => {
+                    setSearch("");
+                    setProgram("all");
+                  }}
+                >
+                  Clear filters
+                </Button>
+              </div>
+            )}
+          </>
         )}
         <section className="section-space">
           <h2>Training history</h2>
@@ -554,7 +699,7 @@ export function ActiveWorkout() {
     }
   }
   return (
-    <>
+    <div className="active-workout-page">
       <PageHead
         title={session?.name || "Your session."}
         description={
@@ -651,6 +796,21 @@ export function ActiveWorkout() {
               <div className="session-layout">
                 <aside className="panel session-exercises">
                   <h2>Today’s movements</h2>
+                  <label className="session-exercise-picker">
+                    <span>Current exercise</span>
+                    <select
+                      aria-label="Current exercise"
+                      value={index}
+                      onChange={(event) => setIndex(Number(event.target.value))}
+                    >
+                      {ids.map((exerciseId, i) => (
+                        <option key={exerciseId} value={i}>
+                          {i + 1}.{" "}
+                          {findExercise(exerciseId)?.name || "Exercise"}
+                        </option>
+                      ))}
+                    </select>
+                  </label>
                   {ids.map((exerciseId, i) => (
                     <button
                       key={exerciseId}
@@ -716,9 +876,9 @@ export function ActiveWorkout() {
                     <>
                       <div className="exercise-title">
                         <div>
-                          <span className="tag">{exercise.muscle}</span>
                           <h2>{exercise.name}</h2>
                           <p>
+                            {exercise.muscle} ·{" "}
                             {currentPrescription?.source
                               ? `${currentPrescription.source.rows.length} source sets · ${restLabel(currentPrescription.source)}`
                               : `${currentPrescription?.sets || 3} sets · ${currentPrescription?.reps || 10} target reps · ${currentPrescription?.rest || 90}s rest`}
@@ -733,6 +893,7 @@ export function ActiveWorkout() {
                       <ExercisePictures
                         key={exercise.id}
                         exerciseId={exercise.id}
+                        compact
                       />
                       <details>
                         <summary>
@@ -750,11 +911,13 @@ export function ActiveWorkout() {
                       </details>
                       {currentPrescription?.source ? (
                         <div className="source-active-plan">
-                          <SourcePrescription
-                            source={currentPrescription.source}
-                            showPictures={false}
-                            compact
-                          />
+                          <div className="session-set-heading">
+                            <h3>Your sets</h3>
+                            <span>
+                              Actual load in kg ·{" "}
+                              {restLabel(currentPrescription.source)}
+                            </span>
+                          </div>
                           {currentPrescription.source.rows.map(
                             (sourceSet, i) => {
                               const log = sessionLogs.find(
@@ -809,6 +972,16 @@ export function ActiveWorkout() {
                               );
                             },
                           )}
+                          <details className="session-source-notes">
+                            <summary>
+                              Full source prescription <ChevronDown size={15} />
+                            </summary>
+                            <SourcePrescription
+                              source={currentPrescription.source}
+                              showPictures={false}
+                              compact
+                            />
+                          </details>
                           {currentPrescription.source.restMin !==
                             currentPrescription.source.restMax &&
                             currentPrescription.source.restMin !== null && (
@@ -915,15 +1088,24 @@ export function ActiveWorkout() {
                           </Button>
                         </div>
                       )}
-                      <Button
-                        variant="outline"
-                        onClick={() =>
-                          setIndex((i) => Math.min(i + 1, ids.length - 1))
-                        }
-                        disabled={index === ids.length - 1}
-                      >
-                        Next exercise <ArrowRight size={16} />
-                      </Button>
+                      <div className="session-step-actions">
+                        <Button
+                          variant="ghost"
+                          onClick={() => setIndex((i) => Math.max(0, i - 1))}
+                          disabled={index === 0}
+                        >
+                          Previous exercise
+                        </Button>
+                        <Button
+                          variant="outline"
+                          onClick={() =>
+                            setIndex((i) => Math.min(i + 1, ids.length - 1))
+                          }
+                          disabled={index === ids.length - 1}
+                        >
+                          Next exercise <ArrowRight size={16} />
+                        </Button>
+                      </div>
                     </>
                   ) : (
                     <Notice>
@@ -937,7 +1119,7 @@ export function ActiveWorkout() {
           </>
         )}
       </DataGate>
-    </>
+    </div>
   );
 }
 function SetRow({
