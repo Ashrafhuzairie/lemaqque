@@ -35,7 +35,7 @@ export default function Landing() {
         <Brand />
         <div className="public-links">
           <a href="#approach">The approach</a>
-          <Link to="/programs">Training programs</Link>
+          <Link to="/features">Features</Link>
         </div>
         <Button asChild variant="outline">
           <Link to="/auth">
@@ -122,19 +122,19 @@ export default function Landing() {
                 icon: Dumbbell,
                 title: "Train with purpose.",
                 text: "Build your own routine. Log sets, reps and load. Pick up an unfinished session without losing your place.",
-                to: "/app/workouts",
+                to: "/features#training",
               },
               {
                 icon: Utensils,
                 title: "Fuel with awareness.",
                 text: "Your meals, macros and hydration, in one clear daily diary. Values from your sources, targets on your terms.",
-                to: "/app/nutrition",
+                to: "/features#nutrition",
               },
               {
                 icon: ChartNoAxesCombined,
                 title: "See the bigger picture.",
                 text: "Follow your real training and measurement history. Progress is more than a number on a scale.",
-                to: "/app/progress",
+                to: "/features#progress",
               },
             ].map((f) => (
               <Link to={f.to} className="feature-row" key={f.title}>
@@ -173,7 +173,7 @@ export default function Landing() {
         <span>Train. Fuel. Evolve.</span>
         <div>
           <Link to="/privacy">Privacy</Link>
-          <Link to="/programs">Training programs</Link>
+          <Link to="/features">Features</Link>
         </div>
       </footer>
     </div>

@@ -61,7 +61,8 @@ export function Brand() {
   );
 }
 export default function Shell() {
-  const { userId, ready, local, signOut, enterLocal } = useStore();
+  const { userId, accountId, ready, local, signOut, enterLocal, enterCloud } =
+    useStore();
   const navigate = useNavigate();
   const { pathname } = useLocation();
   const section =
@@ -126,7 +127,7 @@ export default function Shell() {
   }, [mobile, open]);
   const [error, setError] = useState("");
   if (!ready) return <Pending />;
-  if (!userId) return <Navigate to="/auth" replace />;
+  if (!accountId || !userId) return <Navigate to="/auth" replace />;
   if (profileState.isPending) return <Pending />;
   return (
     <div className="app-layout">
@@ -241,8 +242,8 @@ export default function Shell() {
               </summary>
               <p>
                 Your records stay in this browser. Export a backup in Settings.
-                <Link to="/auth">
-                  Connect an account
+                <Link to="/app" onClick={enterCloud}>
+                  Use cloud workspace
                   <ArrowUpRight size={13} />
                 </Link>
               </p>

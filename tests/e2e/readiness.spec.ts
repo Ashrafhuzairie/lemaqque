@@ -1,3 +1,4 @@
+import { openMemberWorkspace } from "../member-fixture.mjs";
 import { test, expect } from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
 import { readFile } from "node:fs/promises";
@@ -6,9 +7,7 @@ const unfinished =
   /\b(beta|testing|demo|prototype|placeholder)\b|early-stage|coming soon/i;
 async function localWorkspace(page: import("@playwright/test").Page) {
   await page.goto("/auth");
-  await page
-    .getByRole("button", { name: "Open device-local workspace" })
-    .click();
+  await openMemberWorkspace(page);
   await page.getByLabel("Your name", { exact: true }).fill("Readiness check");
   await page.getByRole("button", { name: "Save preferences" }).click();
   await expect(
@@ -200,11 +199,9 @@ test("custom workout editing, duplicate/delete, timed logging, export and device
   await page
     .getByRole("button", { name: "Delete permanently", exact: true })
     .click();
-  await expect(page).toHaveURL("/auth");
+  await expect(page).toHaveURL(/\/auth(?:\?|$)/);
   await page.goto("/auth");
-  await page
-    .getByRole("button", { name: "Open device-local workspace" })
-    .click();
+  await openMemberWorkspace(page);
   await expect(
     page.getByRole("heading", { name: "Make it your own." }),
   ).toBeVisible();

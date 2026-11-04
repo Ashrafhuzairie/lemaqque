@@ -1,3 +1,4 @@
+import { openMemberWorkspace } from "../member-fixture.mjs";
 import { test, expect } from "@playwright/test";
 test("all three source books import exactly, survive reload, and log complex source sets", async ({
   page,
@@ -5,9 +6,7 @@ test("all three source books import exactly, survive reload, and log complex sou
   const errors: string[] = [];
   page.on("pageerror", (e) => errors.push(e.message));
   await page.goto("/auth");
-  await page
-    .getByRole("button", { name: "Open device-local workspace" })
-    .click();
+  await openMemberWorkspace(page);
   await page.goto("/app/programs");
   await expect(
     page.getByRole("heading", { name: "Train beyond ordinary." }),
@@ -154,9 +153,7 @@ test("program views remain accessible on desktop and mobile", async ({
 }) => {
   const { default: AxeBuilder } = await import("@axe-core/playwright");
   await page.goto("/auth");
-  await page
-    .getByRole("button", { name: "Open device-local workspace" })
-    .click();
+  await openMemberWorkspace(page);
   for (const width of [1440, 390]) {
     await page.setViewportSize({ width, height: 900 });
     await page.goto("/app/programs?program=shred");

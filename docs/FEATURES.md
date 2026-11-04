@@ -2,6 +2,9 @@
 
 ## Implemented MVP capabilities
 
+- Account-only workspace and detailed program screens. The public landing and Features page describe LMQ’s tools without printed prescriptions or program calculations. Legacy `/programs` links preserve their selection through sign-in; old local-mode storage alone does not grant entry.
+- Interactive 3D dumbbell hero with stacked metal plates, crimson collars and the LMQ emblem. Reduced motion, off-screen suspension and the static emblem fallback remain available.
+
 - Refined daily-training workspace: searchable source/custom workout plans, movement previews, a clearer next-session dashboard, mobile exercise selection and progressive disclosure for reference/logging help. See [UI-REFRESH.md](UI-REFRESH.md).
 
 - Vibrant championship-inspired black/crimson/gold brand system, local Barlow Condensed/Manrope fonts, keyboard controls, reduced motion and mobile navigation.
@@ -9,7 +12,7 @@
 - Composite actual-set logging for supersets, partial/drop segments and ladders, with timed flexes excluded from volume.
 - Exact source shred macro equations, adjusted/re-feed arithmetic, source meal portions, rounded examples and 30-day example table. No fabricated recipe macros or auto-entered example records.
 - Email sign-up/sign-in/password recovery UI with Supabase client integration; cloud flows require reachable and configured Auth.
-- Device-local workspace explicitly labeled, persisted in IndexedDB, separate from cloud accounts.
+- Member device workspace explicitly labeled, persisted in IndexedDB and separate from cloud records; its entry is behind account sign-in.
 - Editable adult profile: goals, height/weight, experience, equipment, preferred days, duration, restrictions, timezone and static-display preference.
 - Starter plan and seven-day schedule generation; full-body or push/pull/legs approach based on days and equipment. Restrictions are retained as notes, not medically interpreted.
 - Workout template create/edit/reorder/duplicate/delete, per-exercise sets, reps and rest.

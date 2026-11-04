@@ -1,10 +1,9 @@
+import { openMemberWorkspace } from "../member-fixture.mjs";
 import { test, expect } from "@playwright/test";
 
 async function localWorkspace(page: import("@playwright/test").Page) {
   await page.goto("/auth");
-  await page
-    .getByRole("button", { name: "Open device-local workspace" })
-    .click();
+  await openMemberWorkspace(page);
 }
 async function expectDecodedPictures(page: import("@playwright/test").Page) {
   const pictures = page.locator(

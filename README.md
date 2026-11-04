@@ -13,7 +13,7 @@ cp .env.example .env # only if .env does not already exist
 npm run dev
 ```
 
-The supplied public Supabase connection is configured locally in ignored `.env`. No service-role credential belongs in a `VITE_` variable. Open `/auth` and choose **Open device-local workspace** to use IndexedDB without relying on cloud availability. It is a real persistent workspace, not seeded demo activity. Local and cloud records remain separate; signing into an account does not upload local data. Export a backup before clearing browser data.
+The public Supabase browser configuration is kept in ignored `.env`. No service-role credential belongs in a `VITE_` variable. Open `/auth` to sign in or create an account. The workspace and full program details require a signed-in account; the public `/features` page explains the available tools. Existing device records remain in IndexedDB. Signed-in members can explicitly use the device workspace from the cloud-storage recovery screen, without uploading or deleting existing device records. Local and cloud data remain separate.
 
 ## Supplied program library
 
@@ -52,7 +52,7 @@ Browser tests use `/usr/bin/chromium` by default. Set `CHROMIUM_PATH` to an inst
 - React 19, TypeScript, Vite, Tailwind 4, shadcn-style Button using Radix Slot/CVA, React Router, TanStack Query, React Hook Form/Zod, Lucide and Recharts.
 - Supabase Auth and owner-scoped CRUD repository, database migrations, transactional completion RPC, private photo storage policies and account-deletion Edge Function.
 - Device-local IndexedDB persistence with serialized writes. Cloud errors never silently fall back to local storage.
-- Original lazy Three.js/R3F/drei hero with GSAP scroll control, reduced-motion handling, capped DPR and static fallback.
+- Original lazy Three.js/R3F/drei dumbbell hero with the LMQ emblem and GSAP scroll control, reduced-motion handling, capped DPR and static fallback.
 - Reviewed GLB/animation-loading infrastructure. No unvalidated human meshes or motion clips are represented as educational anatomy.
 
 [Architecture, routes, ERD, 3D strategy and milestones](docs/ARCHITECTURE.md) · [Asset licensing](docs/ASSETS.md) · [Feature status](docs/FEATURES.md) · [Validation evidence](docs/VALIDATION.md)

@@ -1,3 +1,4 @@
+import { openMemberWorkspace } from "./member-fixture.mjs";
 import assert from "node:assert/strict";
 import { chromium } from "@playwright/test";
 const origin = process.env.APP_ORIGIN || "http://127.0.0.1:4173";
@@ -40,9 +41,7 @@ try {
   assert(manifest.icons.some((i) => i.sizes === "192x192"));
   assert(manifest.icons.some((i) => i.sizes === "512x512"));
   await page.goto(origin + "/auth");
-  await page
-    .getByRole("button", { name: "Open device-local workspace" })
-    .click();
+  await openMemberWorkspace(page);
   await page.getByLabel("Your name", { exact: true }).fill("Production smoke");
   await page.getByRole("button", { name: "Save preferences" }).click();
   await page

@@ -1,6 +1,6 @@
 # Asset licenses and approval
 
-The LMQ mark and procedural hero sculpture are original project assets. Manrope Variable and Barlow Condensed fonts are distributed under SIL OFL via @fontsource packages (license included in each package). Lucide icons use ISC. No human anatomy meshes or exercise animations are included. Exercise reference imagery is documented below.
+The LMQ feline mark derives from the user-supplied reference; the procedural dumbbell is an original project asset. Manrope Variable and Barlow Condensed fonts are distributed under SIL OFL via @fontsource packages (license included in each package). Lucide icons use ISC. No human anatomy meshes or exercise animations are included. Exercise reference imagery is documented below.
 
 Model catalog records require URL, author, source URL, license, attribution, named region map and `review_status = approved`. Exercise clips additionally require a reviewer and review date. Do not publish an approval without a qualified review. Browser loading accepts HTTPS and same-origin root paths only; no script/data URL assets.
 
@@ -26,3 +26,7 @@ Rebuild assets with `python scripts/import-exercise-images.py /path/to/free-exer
 The user supplied the red faceted feline emblem in chat and requested an icon-only treatment with new LMQ lettering. `public/brand/lmq-icon.png` is a transparent image-tool extraction/redraw from that reference; the textured background, original lettering and tagline are excluded. It is used in the shared brand component, static hero fallback, favicon and 192/512-pixel app icons. This is a brand graphic, not an exercise photograph.
 
 `public/brand/lmq-wordmark.svg` outlines the existing Barlow Condensed ExtraBold letters with a forward lean, slightly broader proportions and custom spacing. The font's SIL Open Font License is included in `public/brand/OFL-Barlow.txt`. The full product name remains LÉMAQQUE in accessible navigation and descriptive copy. No premium-performance claim or third-party endorsement is added.
+
+## Dumbbell hero
+
+`src/three/PerformanceScene.tsx` builds the gym hero from native cylinder, ring and torus geometry: stacked plates, grip grooves, steel edges and crimson collars. The existing feline PNG appears on both endcaps and is self-hosted. No external 3D model, human figure or generated exercise photograph was introduced. The scene is decorative branding; it is not a validated technique demonstration or a representation of a user’s lifting performance.

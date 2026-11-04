@@ -11,6 +11,7 @@ import type { TableName, Tables } from "./types";
 const Context = createContext<{
   local: boolean;
   userId: string | null;
+  accountId: string | null;
   ready: boolean;
   repo: ReturnType<typeof repository>;
   enterLocal: () => void;
@@ -49,12 +50,13 @@ export function StoreProvider({ children }: { children: ReactNode }) {
     });
     return () => data.subscription.unsubscribe();
   }, [query]);
-  const id = local ? LOCAL_USER : userId;
+  const id = userId ? (local ? LOCAL_USER : userId) : null;
   return (
     <Context.Provider
       value={{
         local,
         userId: id,
+        accountId: userId,
         ready,
         repo: repository(local, id || ""),
         enterLocal: () => {

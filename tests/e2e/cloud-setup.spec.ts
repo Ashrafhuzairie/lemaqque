@@ -1,3 +1,4 @@
+import { openMemberWorkspace } from "../member-fixture.mjs";
 import { test, expect } from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
 
@@ -39,9 +40,7 @@ test("unavailable cloud schema offers an explicit device fallback without losing
     }),
   );
   await page.goto("/auth");
-  await page
-    .getByRole("button", { name: "Open device-local workspace" })
-    .click();
+  await openMemberWorkspace(page);
   await page.getByLabel("Your name", { exact: true }).fill("Device fixture");
   await page.getByRole("button", { name: "Save preferences" }).click();
   await expect(

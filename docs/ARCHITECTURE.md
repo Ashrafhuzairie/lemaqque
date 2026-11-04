@@ -6,7 +6,7 @@ React 19/TypeScript/Vite SPA → React Router routes → TanStack Query reposito
 
 ## Page map
 
-Public `/`: cinematic original abstract performance sculpture, product sections and registration CTA. `/features`, `/programs`, `/pricing`, `/privacy`, `/auth`: explanatory pages, original program previews, no fictitious pricing, privacy and authentication. `/app`: dashboard. Child routes: `workouts`, `builder`, `library`, `muscles`, `programs`, `session/:id`, `nutrition`, `attendance`, `progress`, `coach`, `settings`. Cloud authentication is required unless the user explicitly chooses local mode. Onboarding is editable in settings without deleting history.
+Public `/`: a procedural LMQ dumbbell, feature summaries and registration CTA. `/features`: a public product overview without detailed program prescriptions. `/programs`: redirects to account-only `/app/programs` while preserving selection; `/pricing` redirects home. `/privacy` and `/auth` provide privacy information and account entry. `/app`: dashboard. Child routes: `workouts`, `builder`, `library`, `muscles`, `programs`, `session/:id`, `nutrition`, `attendance`, `progress`, `coach`, `settings`. A signed-in account is required for every `/app` route, including the member device workspace. A stored local-mode flag is not authentication. Onboarding is editable in settings without deleting history.
 
 ## Database ERD
 
@@ -38,12 +38,12 @@ Templates have a JSON prescription for an atomic MVP save; normalized workout_ex
 
 ## Three.js scene architecture
 
-Lazy-loaded Canvas, capped DPR, no external HDR dependency, original abstract orbit/ribbon sculpture. GSAP ScrollTrigger changes the sculpture's pose with page scroll. OrbitControls provide touch and mouse manipulation. Reduced motion switches to on-demand frames; visibility suspends continuous rendering; unsupported WebGL falls back to a branded static graphic. Core forms never depend on Canvas.
+Lazy-loaded Canvas, capped DPR, no external HDR dependency, procedural dumbbell with stacked plates, textured LMQ endcaps and grip detail. GSAP ScrollTrigger changes the sculpture's pose with page scroll. OrbitControls provide touch and mouse manipulation. Reduced motion switches to on-demand frames; visibility suspends continuous rendering; unsupported WebGL falls back to a branded static graphic. Core forms never depend on Canvas.
 AssetViewer loads only reviewed model metadata with license and attribution. It uses region → node maps, raycasting, OrbitControls, camera presets and AnimationMixer actions from useAnimations. Keyboard muscle buttons mirror selection. Clip controls appear only when a reviewed clip exists. No primitive human substitute is shipped as anatomy.
 
 ## Asset strategy
 
-The hero is original procedural non-anatomical sculpture. No third-party human model or motion is bundled. Anatomy requires licensed GLB, named muscle nodes reviewed for region accuracy, compression, attribution and provenance. Exercise clips require documented human technique review before approved status. Until then the app supplies written exercise guidance and clearly reports that no reviewed 3D demo is available. No static demonstration is fabricated. Nutrition is entered from a user's packaging/source; Malaysian food names are suggestions without made-up nutrient values.
+The hero is a decorative procedural gym prop, not an exercise demonstration. No third-party human model or motion is bundled. Anatomy requires licensed GLB, named muscle nodes reviewed for region accuracy, compression, attribution and provenance. Exercise clips require documented human technique review before approved status. Until then the app supplies written exercise guidance and clearly reports that no reviewed 3D demo is available. No static demonstration is fabricated. Nutrition is entered from a user's packaging/source; Malaysian food names are suggestions without made-up nutrient values.
 
 ## Milestones
 

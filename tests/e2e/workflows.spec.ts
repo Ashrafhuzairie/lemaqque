@@ -1,3 +1,4 @@
+import { openMemberWorkspace } from "../member-fixture.mjs";
 import { test, expect } from "@playwright/test";
 test("persistent daily tracking workflow, nutrition, attendance, progress and static controls", async ({
   page,
@@ -5,9 +6,7 @@ test("persistent daily tracking workflow, nutrition, attendance, progress and st
   const errors: string[] = [];
   page.on("pageerror", (e) => errors.push(e.message));
   await page.goto("/auth");
-  await page
-    .getByRole("button", { name: "Open device-local workspace" })
-    .click();
+  await openMemberWorkspace(page);
   await expect(
     page.getByRole("heading", { name: "Make it your own." }),
   ).toBeVisible();
@@ -157,9 +156,7 @@ test("3D unavailable does not block tracking or landing", async ({ page }) => {
   await page.goto("/");
   await expect(page.getByRole("img", { name: "LMQ emblem" })).toBeVisible();
   await page.goto("/auth");
-  await page
-    .getByRole("button", { name: "Open device-local workspace" })
-    .click();
+  await openMemberWorkspace(page);
   await page.goto("/app/nutrition");
   await expect(page.getByRole("button", { name: "Log a meal" })).toBeEnabled();
 });
@@ -177,9 +174,7 @@ test("landing and local forms have no serious automated accessibility violations
       ),
     ).toEqual([]);
   }
-  await page
-    .getByRole("button", { name: "Open device-local workspace" })
-    .click();
+  await openMemberWorkspace(page);
   for (const route of [
     "/app/settings",
     "/app/nutrition",
@@ -222,7 +217,5 @@ test("renderer startup failure keeps the static logo without a drag affordance",
     page.getByRole("img", { name: "LMQ emblem", exact: true }),
   ).toBeVisible();
   await expect(page.locator(".scene-caption")).toHaveCount(0);
-  await expect(
-    page.getByLabel("Original interactive 3D performance sculpture"),
-  ).toHaveCount(0);
+  await expect(page.getByLabel("Interactive 3D LMQ dumbbell")).toHaveCount(0);
 });

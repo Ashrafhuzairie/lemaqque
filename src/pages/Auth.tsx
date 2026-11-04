@@ -7,6 +7,7 @@ import { Button } from "../components/ui/button";
 import { Field, Notice } from "../components/common";
 import { supabase } from "../lib/repository";
 import { useStore } from "../lib/store";
+import { accountPath } from "../lib/auth-navigation";
 export default function Auth() {
   const [params] = useSearchParams();
   const [mode, setMode] = useState(
@@ -19,19 +20,19 @@ export default function Auth() {
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");
   const [busy, setBusy] = useState(false);
-  const { enterLocal, enterCloud, userId, local } = useStore();
+  const { enterCloud, accountId } = useStore();
+  const destination = accountPath(params.get("next"));
   const navigate = useNavigate();
   useEffect(() => {
-    if (userId && !local && mode !== "update") navigate("/app");
-  }, [userId, local, mode, navigate]);
+    if (accountId && mode !== "update")
+      navigate(destination, { replace: true });
+  }, [accountId, destination, mode, navigate]);
   async function submit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setError("");
     setMessage("");
     if (!supabase) {
-      setError(
-        "Cloud accounts are not connected yet. Use the private device workspace below, or configure Supabase.",
-      );
+      setError("Sign-in is unavailable right now. Please try again later.");
       return;
     }
     const form = new FormData(e.currentTarget);
@@ -66,7 +67,7 @@ export default function Auth() {
         if (error) throw error;
         if (data.session) {
           enterCloud();
-          navigate("/app/settings");
+          navigate(destination === "/app" ? "/app/settings" : destination);
         } else
           setMessage("Check your email to confirm your account, then sign in.");
       } else {
@@ -76,7 +77,7 @@ export default function Auth() {
         });
         if (error) throw error;
         enterCloud();
-        navigate("/app");
+        navigate(destination);
       }
     } catch (e) {
       setError(
@@ -124,8 +125,7 @@ export default function Auth() {
         </div>
         {!supabase && (
           <Notice>
-            Cloud sign-in requires a Supabase connection. Device-local tracking
-            is available now.
+            Sign-in is unavailable right now. Please try again later.
           </Notice>
         )}
         <form onSubmit={submit}>
@@ -186,30 +186,10 @@ export default function Auth() {
         </div>
         {mode === "update" && (
           <Button asChild variant="outline">
-            <Link to="/app">Continue to dashboard</Link>
+            <Link to={destination}>Continue to dashboard</Link>
           </Button>
         )}
-        <div className="auth-divider">
-          <span>or start without an account</span>
-        </div>
-        <Button
-          variant="outline"
-          onClick={() => {
-            enterLocal();
-            navigate("/app/settings");
-          }}
-        >
-          Open device-local workspace
-          <ArrowUpRightIcon />
-        </Button>
-        <small className="privacy-note">
-          No cloud account is created. Data stays in this browser and can be
-          exported or deleted in Settings.
-        </small>
       </main>
     </div>
   );
-}
-function ArrowUpRightIcon() {
-  return <ArrowRight size={16} />;
 }

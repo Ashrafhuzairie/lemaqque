@@ -24,11 +24,7 @@ import {
   type ProgramPhase,
   type ProgramWorkout,
 } from "../lib/programs";
-export default function Programs({
-  publicPage = false,
-}: {
-  publicPage?: boolean;
-}) {
+export default function Programs() {
   const [params, setParams] = useSearchParams();
   const selectedId = params.get("program") || "bulk";
   const selected =
@@ -43,13 +39,13 @@ export default function Programs({
     phase.workouts.find((w) => w.id === workoutId) ||
     phase.workouts.find((w) => !w.name.startsWith("Abs")) ||
     phase.workouts[0];
-  const { repo, userId, local } = useStore();
+  const { repo, userId, accountId, local } = useStore();
   const templates = useRows("workout_templates");
   const query = useQueryClient();
   const [busy, setBusy] = useState(false),
     [error, setError] = useState(""),
     [message, setMessage] = useState("");
-  const canImport = !!userId && !publicPage;
+  const canImport = !!accountId && !!userId;
   async function add(selection: typeof allSourceWorkouts) {
     setBusy(true);
     setError("");

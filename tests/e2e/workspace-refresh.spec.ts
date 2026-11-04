@@ -1,3 +1,4 @@
+import { openMemberWorkspace } from "../member-fixture.mjs";
 import { test, expect } from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
 
@@ -8,9 +9,7 @@ test("training workspace filters real plans, previews source movements, and keep
   const errors: string[] = [];
   page.on("pageerror", (e) => errors.push(e.message));
   await page.goto("/auth");
-  await page
-    .getByRole("button", { name: "Open device-local workspace" })
-    .click();
+  await openMemberWorkspace(page);
   await page.goto("/app");
   await expect(page.locator(".dashboard-heading h1")).toBeVisible();
   await page.screenshot({

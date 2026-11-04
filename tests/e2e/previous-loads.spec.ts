@@ -1,3 +1,4 @@
+import { openMemberWorkspace } from "../member-fixture.mjs";
 import { test, expect } from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
 
@@ -18,9 +19,7 @@ test("repeat a source workout with prior actual single and ladder loads, preserv
   const errors: string[] = [];
   page.on("pageerror", (error) => errors.push(error.message));
   await page.goto("/auth");
-  await page
-    .getByRole("button", { name: "Open device-local workspace" })
-    .click();
+  await openMemberWorkspace(page);
   await page.goto("/app/programs");
   await page
     .getByRole("button", { name: "Add this workout", exact: true })
@@ -162,9 +161,7 @@ test("custom plans compare the same set number and copy only the selected set's 
   page,
 }) => {
   await page.goto("/auth");
-  await page
-    .getByRole("button", { name: "Open device-local workspace" })
-    .click();
+  await openMemberWorkspace(page);
   await page.getByLabel("Your name", { exact: true }).fill("History test");
   await page.getByLabel("3D display").selectOption("static");
   await page.getByRole("button", { name: "Save preferences" }).click();

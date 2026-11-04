@@ -1,11 +1,18 @@
-import { Component, useEffect, useRef, useState, type ReactNode } from "react";
+import {
+  Component,
+  Suspense,
+  useEffect,
+  useRef,
+  useState,
+  type ReactNode,
+} from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
-import { OrbitControls } from "@react-three/drei";
+import { OrbitControls, useTexture } from "@react-three/drei";
 import * as THREE from "three";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
-function Sculpture({
+function Dumbbell({
   reduced,
   scroll,
 }: {
@@ -16,34 +23,110 @@ function Sculpture({
   useFrame(({ clock }) => {
     if (!group.current) return;
     group.current.rotation.y =
-      scroll.current.value * 1.3 +
-      (reduced ? 0 : Math.sin(clock.elapsedTime * 0.22) * 0.12);
-    group.current.rotation.z = -0.28 + scroll.current.value * 0.2;
+      -0.62 +
+      scroll.current.value * 0.35 +
+      (reduced ? 0 : Math.sin(clock.elapsedTime * 0.24) * 0.16);
+    group.current.rotation.z = -0.36 + scroll.current.value * 0.12;
   });
   return (
-    <group ref={group} rotation={[0.3, 0, -0.28]}>
-      <mesh rotation={[0, 0, Math.PI / 7]}>
-        <torusKnotGeometry args={[1.35, 0.29, 180, 24, 2, 3]} />
-        <meshPhysicalMaterial
-          color="#c6c9d6"
-          roughness={0.32}
-          metalness={0.76}
-          clearcoat={0.6}
-        />
-      </mesh>
-      <mesh rotation={[Math.PI / 2, 0.3, 0]}>
-        <torusGeometry args={[2.18, 0.012, 8, 120]} />
+    <group ref={group} rotation={[0.18, -0.62, -0.36]} scale={0.93}>
+      <mesh rotation={[0, 0, Math.PI / 2]}>
+        <cylinderGeometry args={[0.13, 0.13, 2.28, 32]} />
         <meshStandardMaterial
-          color="#ff4d57"
-          roughness={0.4}
-          metalness={0.25}
+          color="#abb0b9"
+          roughness={0.25}
+          metalness={0.85}
         />
       </mesh>
-      <mesh rotation={[0.6, 0, Math.PI / 5]}>
-        <torusGeometry args={[2.45, 0.009, 8, 120]} />
-        <meshStandardMaterial color="#ffcf5c" roughness={0.5} metalness={0.4} />
-      </mesh>
+      {Array.from({ length: 19 }, (_, i) => (
+        <mesh
+          key={i}
+          position={[(i - 9) * 0.09, 0, 0]}
+          rotation={[0, Math.PI / 2, 0]}
+        >
+          <torusGeometry args={[0.133, 0.009, 6, 28]} />
+          <meshStandardMaterial
+            color="#50545f"
+            roughness={0.6}
+            metalness={0.6}
+          />
+        </mesh>
+      ))}
+      {[-1, 1].map((side) => (
+        <group key={side}>
+          <mesh position={[side * 1.16, 0, 0]} rotation={[0, 0, Math.PI / 2]}>
+            <cylinderGeometry args={[0.35, 0.35, 0.18, 40]} />
+            <meshStandardMaterial
+              color="#d52235"
+              roughness={0.3}
+              metalness={0.55}
+            />
+          </mesh>
+          {[
+            [1.36, 0.96, 0.28],
+            [1.68, 1.02, 0.28],
+            [2.0, 0.94, 0.28],
+            [2.25, 0.72, 0.19],
+          ].map(([x, radius, width]) => (
+            <group
+              key={x}
+              position={[side * x, 0, 0]}
+              rotation={[0, 0, Math.PI / 2]}
+            >
+              <mesh>
+                <cylinderGeometry args={[radius, radius, width, 64]} />
+                <meshStandardMaterial
+                  color="#717985"
+                  roughness={0.28}
+                  metalness={0.85}
+                />
+              </mesh>
+              <mesh>
+                <cylinderGeometry
+                  args={[radius * 0.88, radius * 0.88, width + 0.014, 64]}
+                />
+                <meshStandardMaterial
+                  color="#242832"
+                  roughness={0.46}
+                  metalness={0.65}
+                />
+              </mesh>
+            </group>
+          ))}
+          <mesh
+            position={[side * 2.355, 0, 0]}
+            rotation={[0, (side * Math.PI) / 2, 0]}
+          >
+            <ringGeometry args={[0.57, 0.59, 64]} />
+            <meshStandardMaterial
+              color="#ffcf5c"
+              roughness={0.36}
+              metalness={0.65}
+            />
+          </mesh>
+          <Suspense fallback={null}>
+            <DumbbellEmblem side={side} />
+          </Suspense>
+        </group>
+      ))}
     </group>
+  );
+}
+function DumbbellEmblem({ side }: { side: number }) {
+  const emblem = useTexture("/brand/lmq-icon.png");
+  return (
+    <mesh
+      position={[side * 2.36, 0, 0]}
+      rotation={[0, (side * Math.PI) / 2, 0]}
+    >
+      <planeGeometry args={[0.88, 0.88]} />
+      <meshBasicMaterial
+        map={emblem}
+        transparent
+        alphaTest={0.02}
+        toneMapped={false}
+      />
+    </mesh>
   );
 }
 export default function PerformanceScene() {
@@ -106,10 +189,9 @@ export default function PerformanceScene() {
           <>
             <Canvas
               onCreated={() => setInteractive(true)}
+              role={interactive ? "img" : undefined}
               aria-label={
-                interactive
-                  ? "Original interactive 3D performance sculpture"
-                  : undefined
+                interactive ? "Interactive 3D LMQ dumbbell" : undefined
               }
               dpr={[1, 1.5]}
               camera={{ position: [0, 0, 7], fov: 43 }}
@@ -138,7 +220,7 @@ export default function PerformanceScene() {
                 color="#ffcf5c"
                 angle={0.6}
               />
-              <Sculpture reduced={reduced} scroll={scroll} />
+              <Dumbbell reduced={reduced} scroll={scroll} />
               <OrbitControls
                 enablePan={false}
                 enableZoom={false}
@@ -147,7 +229,7 @@ export default function PerformanceScene() {
             </Canvas>
             {interactive && (
               <span className="scene-caption">
-                FORM IN MOTION <span>Drag to explore</span>
+                LMQ DUMBBELL <span>Drag to explore</span>
               </span>
             )}
           </>

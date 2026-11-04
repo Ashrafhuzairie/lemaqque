@@ -1,9 +1,10 @@
 import { Component, Suspense, lazy, type ReactNode } from "react";
-import { Routes, Route, Link, Navigate } from "react-router-dom";
+import { Routes, Route, Link, Navigate, useLocation } from "react-router-dom";
 import Shell from "./components/Shell";
 import { Pending, Notice } from "./components/common";
 import Landing from "./pages/Landing";
 import Auth from "./pages/Auth";
+import { useStore } from "./lib/store";
 import Dashboard from "./pages/Dashboard";
 const Workouts = lazy(() =>
     import("./pages/Workouts").then((m) => ({ default: m.Workouts })),
@@ -29,9 +30,7 @@ const Library = lazy(() =>
   Privacy = lazy(() =>
     import("./pages/Public").then((m) => ({ default: m.Privacy })),
   ),
-  PublicPrograms = lazy(() =>
-    import("./pages/Public").then((m) => ({ default: m.PublicPrograms })),
-  );
+  Features = lazy(() => import("./pages/Features"));
 export class ErrorBoundary extends Component<
   { children: ReactNode },
   { error: string }
@@ -56,6 +55,23 @@ export class ErrorBoundary extends Component<
     return this.props.children;
   }
 }
+function AccountWorkspace() {
+  const { ready, accountId } = useStore();
+  const { pathname, search, hash } = useLocation();
+  if (!ready) return <Pending />;
+  if (!accountId)
+    return (
+      <Navigate
+        to={`/auth?next=${encodeURIComponent(pathname + search + hash)}`}
+        replace
+      />
+    );
+  return <Shell />;
+}
+function ProgramsRedirect() {
+  const { search, hash } = useLocation();
+  return <Navigate to={"/app/programs" + search + hash} replace />;
+}
 export default function App() {
   return (
     <ErrorBoundary>
@@ -63,11 +79,11 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Landing />} />
           <Route path="/auth" element={<Auth />} />
-          <Route path="/features" element={<Landing />} />
-          <Route path="/programs" element={<PublicPrograms />} />
+          <Route path="/features" element={<Features />} />
+          <Route path="/programs" element={<ProgramsRedirect />} />
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/pricing" element={<Navigate to="/" replace />} />
-          <Route path="/app" element={<Shell />}>
+          <Route path="/app" element={<AccountWorkspace />}>
             <Route index element={<Dashboard />} />
             <Route path="settings" element={<Settings />} />
             <Route path="workouts" element={<Workouts />} />

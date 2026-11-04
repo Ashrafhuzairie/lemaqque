@@ -1,22 +1,6 @@
 import { Link } from "react-router-dom";
 import { Brand } from "../components/Shell";
 import { Button } from "../components/ui/button";
-import Programs from "./Programs";
-export function PublicPrograms() {
-  return (
-    <div className="public-document">
-      <nav>
-        <Brand />
-        <Button asChild variant="outline">
-          <Link to="/auth">Open workspace</Link>
-        </Button>
-      </nav>
-      <main>
-        <Programs publicPage />
-      </main>
-    </div>
-  );
-}
 export function Privacy() {
   return (
     <div className="public-document">
@@ -32,10 +16,11 @@ export function Privacy() {
         </p>
         <h2>Device-local workspace</h2>
         <p>
-          Data is stored in your browser’s IndexedDB. No account is created, and
-          local records are not automatically uploaded. Anyone with access to
-          this browser profile may access those records. Export backups in
-          Settings. Clearing browser storage removes local records.
+          Signed-in members can use a device workspace when cloud storage is
+          unavailable. Its records are stored in this browser and are not
+          automatically uploaded. Anyone with access to this browser profile may
+          access those records. Export backups in Settings. Clearing browser
+          storage removes local records.
         </p>
         <h2>Cloud accounts</h2>
         <p>
