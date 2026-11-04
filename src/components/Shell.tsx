@@ -1,5 +1,12 @@
 import { useState, useRef, useEffect } from "react";
-import { NavLink, Outlet, Link, Navigate, useLocation } from "react-router-dom";
+import {
+  NavLink,
+  Outlet,
+  Link,
+  Navigate,
+  useLocation,
+  useNavigate,
+} from "react-router-dom";
 import {
   Activity,
   ArrowUpRight,
@@ -18,6 +25,7 @@ import {
   Utensils,
   X,
 } from "lucide-react";
+import { CloudSetupError } from "../lib/cloud-errors";
 import { useStore, useProfile } from "../lib/store";
 import { Button } from "./ui/button";
 import { Notice, Pending } from "./common";
@@ -35,13 +43,26 @@ const navigation = [
 export function Brand() {
   return (
     <Link to="/" className="brand" aria-label="LÉMAQQUE home">
-      <img src="/mark.svg" alt="" />
-      <span>LÉMAQQUE</span>
+      <img
+        className="brand-icon"
+        src="/brand/lmq-icon.png"
+        alt=""
+        width="40"
+        height="40"
+      />
+      <img
+        className="brand-wordmark"
+        src="/brand/lmq-wordmark.svg"
+        alt=""
+        width="76"
+        height="36"
+      />
     </Link>
   );
 }
 export default function Shell() {
-  const { userId, ready, local, signOut } = useStore();
+  const { userId, ready, local, signOut, enterLocal } = useStore();
+  const navigate = useNavigate();
   const { pathname } = useLocation();
   const section =
     navigation.find((n) => n.path === pathname)?.name ??
@@ -203,7 +224,11 @@ export default function Shell() {
           </div>
           <div>
             <span className="status-dot" />
-            {local ? "On-device storage" : "Supabase connected"}
+            {local
+              ? "On-device storage"
+              : profileState.error instanceof CloudSetupError
+                ? "Cloud storage unavailable"
+                : "Supabase connected"}
           </div>
         </div>
         <main id="main-content">
@@ -223,7 +248,42 @@ export default function Shell() {
               </p>
             </details>
           )}
-          <Outlet />
+          {profileState.error instanceof CloudSetupError ? (
+            <section className="panel cloud-storage-fallback">
+              <h1>Cloud storage needs setup.</h1>
+              <p>
+                You’re signed in, but this project’s cloud storage isn’t ready
+                yet.
+              </p>
+              <Notice error>{profileState.error.message}</Notice>
+              <div className="cloud-storage-actions">
+                <Button
+                  onClick={() => {
+                    enterLocal();
+                    navigate("/app");
+                  }}
+                >
+                  Open device workspace
+                  <ArrowUpRight size={16} />
+                </Button>
+                <Button
+                  variant="outline"
+                  disabled={profileState.isFetching}
+                  onClick={() => profileState.refetch()}
+                >
+                  {profileState.isFetching
+                    ? "Checking cloud storage…"
+                    : "Retry cloud connection"}
+                </Button>
+              </div>
+              <p className="cloud-storage-explanation">
+                The device workspace uses records saved in this browser. Account
+                records stay separate; switching does not copy or delete them.
+              </p>
+            </section>
+          ) : (
+            <Outlet />
+          )}
         </main>
         <footer className="app-footer">
           <span>LÉMAQQUE</span>

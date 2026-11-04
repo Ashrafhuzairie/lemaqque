@@ -1,3 +1,4 @@
+import { cloudDataError, CloudSetupError } from "./cloud-errors";
 import { createClient } from "@supabase/supabase-js";
 import { get, set } from "idb-keyval";
 import type {
@@ -58,7 +59,7 @@ export function repository(local: boolean, userId: string) {
         .from(table)
         .select("*")
         .eq("user_id", userId);
-      if (error) throw Error(error.message);
+      if (error) throw cloudDataError(error);
       return data as Tables[K][];
     },
     async save<K extends TableName>(table: K, value: Tables[K]) {
@@ -70,7 +71,7 @@ export function repository(local: boolean, userId: string) {
         });
       else {
         const { error } = await client().from(table).upsert(value);
-        if (error) throw Error(error.message);
+        if (error) throw cloudDataError(error);
       }
       return value;
     },
@@ -90,11 +91,14 @@ export function repository(local: boolean, userId: string) {
         const { data, error } = await client().rpc("import_source_templates", {
           templates,
         });
-        if (error)
-          throw Error(
-            error.message +
+        if (error) {
+          const failure = cloudDataError(error);
+          if (failure instanceof CloudSetupError) throw failure;
+          throw new Error(
+            failure.message +
               " If this is a schema error, apply the program-prescription migration.",
           );
+        }
         added = Number(data);
       }
       return added;
@@ -116,7 +120,7 @@ export function repository(local: boolean, userId: string) {
           .delete()
           .eq("id", id)
           .eq("user_id", userId);
-        if (error) throw Error(error.message);
+        if (error) throw cloudDataError(error);
       }
     },
     async finishWorkout(sessionId: string, day: string) {
@@ -173,7 +177,7 @@ export function repository(local: boolean, userId: string) {
           session_id: sessionId,
           day,
         });
-        if (error) throw Error(error.message);
+        if (error) throw cloudDataError(error);
       }
     },
     async exportData() {

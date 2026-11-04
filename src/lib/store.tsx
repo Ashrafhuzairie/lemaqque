@@ -14,6 +14,7 @@ const Context = createContext<{
   ready: boolean;
   repo: ReturnType<typeof repository>;
   enterLocal: () => void;
+  enterCloud: () => void;
   signOut: () => Promise<void>;
 } | null>(null);
 export function StoreProvider({ children }: { children: ReactNode }) {
@@ -29,13 +30,21 @@ export function StoreProvider({ children }: { children: ReactNode }) {
       if (!error) setUserId(data.session?.user.id || null);
       setReady(true);
     });
-    const { data } = supabase.auth.onAuthStateChange((_event, session) => {
+    const { data } = supabase.auth.onAuthStateChange((event, session) => {
       setUserId(session?.user.id || null);
-      if (session) {
+      // Session restoration and token refresh must preserve an explicit device choice.
+      // Email-confirmation/recovery links are explicit account-entry actions.
+      const authLink =
+        new URLSearchParams(location.hash.slice(1)).has("access_token") ||
+        new URLSearchParams(location.search).has("code");
+      if (
+        session &&
+        (event === "PASSWORD_RECOVERY" || (event === "SIGNED_IN" && authLink))
+      ) {
         setLocal(false);
         localStorage.removeItem("lmq:mode");
       }
-      query.clear();
+      if (event !== "TOKEN_REFRESHED") query.clear();
       setReady(true);
     });
     return () => data.subscription.unsubscribe();
@@ -51,6 +60,11 @@ export function StoreProvider({ children }: { children: ReactNode }) {
         enterLocal: () => {
           setLocal(true);
           localStorage.setItem("lmq:mode", "local");
+          query.clear();
+        },
+        enterCloud: () => {
+          setLocal(false);
+          localStorage.removeItem("lmq:mode");
           query.clear();
         },
         signOut: async () => {

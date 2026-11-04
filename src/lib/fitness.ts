@@ -37,7 +37,9 @@ export const volume = (logs: SetLog[]) =>
                   : 0),
               0,
             )
-          : s.reps * s.weight),
+          : s.exercise_id === "plank"
+            ? 0
+            : s.reps * s.weight),
       0,
     );
 export function attendanceRate(

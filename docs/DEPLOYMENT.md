@@ -23,13 +23,15 @@ The publishable key cannot run migrations, administer users, or deploy functions
 
 ## Cloudflare Pages
 
+Current readiness and unresolved findings: [RELEASE-READINESS.md](RELEASE-READINESS.md).
+
 - Connect the GitHub repository through Cloudflare Pages.
 - Build command: `npm ci && npm run build`
 - Output directory: `dist`
 - Node: 24 (22.12+ supported).
 - Set `VITE_SUPABASE_URL` and `VITE_SUPABASE_ANON_KEY` for each deployment environment. They are public browser configuration. Changing them requires rebuilding.
 - `public/_redirects` provides SPA routing. The installable manifest and generated service worker cache the application shell, not Supabase API responses. Use HTTPS.
-- Set CSP and other headers after approving actual model asset destinations. Do not use a policy that blocks required Supabase HTTPS and WebSocket connections.
+- `public/_headers` ships security headers, including CSP restricted to the current Supabase host. Update its HTTPS/WebSocket origins when changing project configuration, and explicitly review any future approved external model hosts. Run `npm run test:cloudflare` against the built preview to check the actual header rules before deploying.
 
 ## Offline and browser storage
 

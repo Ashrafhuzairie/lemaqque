@@ -8,13 +8,19 @@ export default defineConfig({
     tailwind(),
     VitePWA({
       registerType: "prompt",
-      includeAssets: ["mark.svg", "icon-192.png", "icon-512.png"],
+      includeAssets: [
+        "brand/lmq-icon.png",
+        "brand/favicon.png",
+        "brand/lmq-wordmark.svg",
+        "icon-192.png",
+        "icon-512.png",
+      ],
       manifest: {
         name: "LÉMAQQUE — Train. Fuel. Evolve.",
         short_name: "LÉMAQQUE",
         description: "Your daily training, nutrition and progress companion.",
-        theme_color: "#141A18",
-        background_color: "#141A18",
+        theme_color: "#0b0d12",
+        background_color: "#0b0d12",
         display: "standalone",
         start_url: "/",
         icons: [
@@ -28,12 +34,6 @@ export default defineConfig({
             src: "/icon-512.png",
             sizes: "512x512",
             type: "image/png",
-            purpose: "any",
-          },
-          {
-            src: "/mark.svg",
-            sizes: "any",
-            type: "image/svg+xml",
             purpose: "any",
           },
         ],

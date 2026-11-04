@@ -1,3 +1,8 @@
+import PreviousSet from "./PreviousSet";
+import {
+  reuseSegmentLoads,
+  type PreviousSet as History,
+} from "../lib/workout-history";
 import { useState } from "react";
 import { Check, ChevronDown } from "lucide-react";
 import type { LoggedSegment, SetLog, SourceSet } from "../lib/types";
@@ -8,17 +13,22 @@ export default function SourceSetRow({
   source,
   log,
   disabled,
+  previous,
+  timezone,
   onSave,
 }: {
   number: number;
   source: SourceSet;
   log?: SetLog;
   disabled: boolean;
+  previous?: History;
+  timezone?: string;
   onSave: (value: { segments: LoggedSegment[]; rpe: number }) => Promise<void>;
 }) {
   const [parts, setParts] = useState<LoggedSegment[]>(
     () => log?.segments || source.segments.map(defaultSegmentLog),
   );
+  const [copied, setCopied] = useState(false);
   const [rpe, setRpe] = useState(log?.rpe ?? 7);
   return (
     <details
@@ -36,6 +46,24 @@ export default function SourceSetRow({
       <div
         className={`source-set-inputs ${parts.length === 1 ? "source-single-part" : ""}`}
       >
+        {previous && (
+          <PreviousSet
+            previous={previous}
+            timezone={timezone}
+            disabled={disabled || !!log?.completed}
+            copied={copied}
+            onReuse={() => {
+              const next = reuseSegmentLoads(
+                parts,
+                previous.log.segments ?? [],
+              );
+              if (next) {
+                setParts(next);
+                setCopied(true);
+              }
+            }}
+          />
+        )}
         {parts.map((part, i) => (
           <div className="source-segment" key={i}>
             <div>
@@ -80,13 +108,14 @@ export default function SourceSetRow({
                   step={0.25}
                   value={part.weight}
                   disabled={disabled || log?.completed}
-                  onChange={(e) =>
+                  onChange={(e) => {
+                    setCopied(false);
                     setParts((old) =>
                       old.map((p, j) =>
                         i === j ? { ...p, weight: Number(e.target.value) } : p,
                       ),
-                    )
-                  }
+                    );
+                  }}
                 />
               </label>
             )}

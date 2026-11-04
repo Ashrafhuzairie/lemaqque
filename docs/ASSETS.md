@@ -20,3 +20,9 @@ The user requires actual photographs only. Do not use AI-generated photo referen
 - Equipment, grip, stance or support differences from the program are shown beside the affected picture. Pictures do not change source sets, tempo, nutrition, prescribed holds or repetitions. Static reference pictures are separate from approved animation assets.
 
 Rebuild assets with `python scripts/import-exercise-images.py /path/to/free-exercise-db /path/to/Building-a-Legendary-Chest.pdf` (Pillow and PyMuPDF required). Runtime is entirely self-hosted; the PWA precaches WebP references for offline use. External source and enlargement links open a new tab. Failed images keep written cues and set logging usable.
+
+## LMQ brand assets
+
+The user supplied the red faceted feline emblem in chat and requested an icon-only treatment with new LMQ lettering. `public/brand/lmq-icon.png` is a transparent image-tool extraction/redraw from that reference; the textured background, original lettering and tagline are excluded. It is used in the shared brand component, static hero fallback, favicon and 192/512-pixel app icons. This is a brand graphic, not an exercise photograph.
+
+`public/brand/lmq-wordmark.svg` outlines the existing Barlow Condensed ExtraBold letters with a forward lean, slightly broader proportions and custom spacing. The font's SIL Open Font License is included in `public/brand/OFL-Barlow.txt`. The full product name remains LÉMAQQUE in accessible navigation and descriptive copy. No premium-performance claim or third-party endorsement is added.

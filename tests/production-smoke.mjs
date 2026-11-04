@@ -15,6 +15,12 @@ try {
   const context = await browser.newContext({ timezoneId: "Asia/Kuala_Lumpur" });
   const page = await context.newPage();
   const errors = [];
+  await page.addInitScript(() => {
+    window.__cspViolations = [];
+    document.addEventListener("securitypolicyviolation", (event) =>
+      window.__cspViolations.push(event.violatedDirective),
+    );
+  });
   page.on("pageerror", (e) => errors.push(e.message));
   const response = await page.goto(origin + "/");
   assert.equal(response.status(), 200);
@@ -56,6 +62,17 @@ try {
     await picture.evaluate((img) => img.decode());
     assert.equal(await picture.evaluate((img) => img.naturalWidth > 0), true);
   }
+  // Brand assets must remain available after a cold offline route reload.
+  for (const asset of ["/brand/lmq-icon.png", "/brand/lmq-wordmark.svg"]) {
+    const image = page
+      .locator(
+        `.mobile-header img[src="${asset}"], .sidebar img[src="${asset}"]`,
+      )
+      .first();
+    await image.evaluate((img) => img.decode());
+    assert.equal(await image.evaluate((img) => img.naturalWidth > 0), true);
+  }
+  assert.deepEqual(await page.evaluate(() => window.__cspViolations), []);
   assert.deepEqual(errors, []);
   console.log(
     "PASS: production routes, manifest/icons, persisted profile, active service worker offline local nutrition route and bundled exercise photos",

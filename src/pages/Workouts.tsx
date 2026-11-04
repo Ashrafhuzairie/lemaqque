@@ -1,5 +1,10 @@
 import ExercisePictures from "../components/ExercisePictures";
-import { useState, useEffect } from "react";
+import PreviousSet from "../components/PreviousSet";
+import {
+  previousCompletedSet,
+  type PreviousSet as History,
+} from "../lib/workout-history";
+import { useState, useEffect, useMemo } from "react";
 import { useQueryClient } from "@tanstack/react-query";
 import {
   Link,
@@ -539,7 +544,13 @@ export function Builder() {
                           }
                         />
                       </Field>
-                      <Field label="Target reps">
+                      <Field
+                        label={
+                          p.exercise_id === "plank"
+                            ? "Target seconds"
+                            : "Target reps"
+                        }
+                      >
                         <input
                           type="number"
                           min={1}
@@ -666,6 +677,26 @@ export function ActiveWorkout() {
   const currentPrescription = prescription?.find(
     (e) => e.exercise_id === exerciseId,
   );
+  const previousSets = useMemo(() => {
+    const history = new Map<number, History>();
+    if (!session || !exerciseId) return history;
+    const count =
+      currentPrescription?.source?.rows.length ??
+      currentPrescription?.sets ??
+      3;
+    for (let i = 0; i < count; i++) {
+      const previous = previousCompletedSet({
+        current: session,
+        sessions: sessions.data ?? [],
+        logs: logs.data ?? [],
+        exerciseId,
+        setNumber: i + 1,
+        sourceSet: currentPrescription?.source?.rows[i],
+      });
+      if (previous) history.set(i + 1, previous);
+    }
+    return history;
+  }, [session, exerciseId, currentPrescription, sessions.data, logs.data]);
   async function togglePause() {
     if (!session) return;
     const stamp = new Date().toISOString();
@@ -881,7 +912,7 @@ export function ActiveWorkout() {
                             {exercise.muscle} ·{" "}
                             {currentPrescription?.source
                               ? `${currentPrescription.source.rows.length} source sets · ${restLabel(currentPrescription.source)}`
-                              : `${currentPrescription?.sets || 3} sets · ${currentPrescription?.reps || 10} target reps · ${currentPrescription?.rest || 90}s rest`}
+                              : `${currentPrescription?.sets || 3} sets · ${currentPrescription?.reps || 10} target ${exerciseId === "plank" ? "seconds" : "reps"} · ${currentPrescription?.rest || 90}s rest`}
                           </p>
                         </div>
                         <Button asChild variant="ghost">
@@ -933,6 +964,8 @@ export function ActiveWorkout() {
                                   number={i + 1}
                                   source={sourceSet}
                                   log={log}
+                                  previous={previousSets.get(i + 1)}
+                                  timezone={profile?.timezone}
                                   disabled={
                                     !!session.paused_at || saveLog.isPending
                                   }
@@ -999,7 +1032,9 @@ export function ActiveWorkout() {
                           {" "}
                           <div className="set-labels">
                             <span>SET</span>
-                            <span>REPS</span>
+                            <span>
+                              {exerciseId === "plank" ? "SECONDS" : "REPS"}
+                            </span>
                             <span>KG</span>
                             <span>RPE</span>
                             <span>DONE</span>
@@ -1012,25 +1047,17 @@ export function ActiveWorkout() {
                                   l.exercise_id === exerciseId &&
                                   l.set_number === i + 1,
                               );
-                              const previous = logs.data
-                                ?.filter(
-                                  (l) =>
-                                    l.exercise_id === exerciseId &&
-                                    l.session_id !== id &&
-                                    l.completed,
-                                )
-                                .at(-1);
                               return (
                                 <SetRow
                                   key={exerciseId + i + (log?.id || "")}
                                   number={i + 1}
                                   defaultReps={currentPrescription?.reps || 10}
-                                  log={log}
-                                  previous={
-                                    previous
-                                      ? `${previous.reps} × ${previous.weight} kg`
-                                      : undefined
+                                  unit={
+                                    exerciseId === "plank" ? "seconds" : "reps"
                                   }
+                                  log={log}
+                                  previous={previousSets.get(i + 1)}
+                                  timezone={profile?.timezone}
                                   disabled={
                                     !!session.paused_at || saveLog.isPending
                                   }
@@ -1126,14 +1153,18 @@ function SetRow({
   number,
   log,
   defaultReps,
+  unit,
   previous,
+  timezone,
   disabled,
   onSave,
 }: {
   number: number;
   log?: import("../lib/types").SetLog;
   defaultReps: number;
-  previous?: string;
+  unit: "seconds" | "reps";
+  previous?: History;
+  timezone?: string;
   disabled: boolean;
   onSave: (values: {
     reps: number;
@@ -1141,6 +1172,7 @@ function SetRow({
     rpe: number;
   }) => Promise<void>;
 }) {
+  const [copied, setCopied] = useState(false);
   const [reps, setReps] = useState(log?.reps ?? defaultReps),
     [weight, setWeight] = useState(log?.weight ?? 0),
     [rpe, setRpe] = useState(log?.rpe ?? 7);
@@ -1148,7 +1180,7 @@ function SetRow({
     <div className={`set-row ${log?.completed ? "set-complete" : ""}`}>
       <span className="set-number">{number}</span>
       <input
-        aria-label={`Set ${number} reps`}
+        aria-label={`Set ${number} ${unit}`}
         type="number"
         min={0}
         max={500}
@@ -1164,7 +1196,10 @@ function SetRow({
         step={0.5}
         value={weight}
         disabled={disabled || log?.completed}
-        onChange={(e) => setWeight(Number(e.target.value))}
+        onChange={(e) => {
+          setWeight(Number(e.target.value));
+          setCopied(false);
+        }}
       />
       <input
         aria-label={`Set ${number} RPE`}
@@ -1184,7 +1219,19 @@ function SetRow({
       >
         <Check size={19} />
       </button>
-      {previous && <small>Previous: {previous}</small>}
+      {previous && (
+        <PreviousSet
+          previous={previous}
+          timezone={timezone}
+          compact
+          copied={copied}
+          disabled={disabled || !!log?.completed}
+          onReuse={() => {
+            setWeight(previous.log.weight);
+            setCopied(true);
+          }}
+        />
+      )}
     </div>
   );
 }

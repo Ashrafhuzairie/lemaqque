@@ -110,8 +110,9 @@ test("persistent daily tracking workflow, nutrition, attendance, progress and st
     .click();
   await page.getByRole("link", { name: /Dumbbell biceps curl/ }).click();
   await expect(
-    page.getByRole("heading", { name: "Static display selected." }),
+    page.getByRole("heading", { name: "Movement checkpoints" }),
   ).toBeVisible();
+  await expect(page.locator(".asset-canvas")).toHaveCount(0);
   expect(errors).toEqual([]);
 });
 test("landing renders 3D and supports narrow reduced-motion use", async ({
@@ -154,9 +155,7 @@ test("3D unavailable does not block tracking or landing", async ({ page }) => {
     } as typeof original;
   });
   await page.goto("/");
-  await expect(
-    page.getByRole("img", { name: "LMQ abstract static graphic" }),
-  ).toBeVisible();
+  await expect(page.getByRole("img", { name: "LMQ emblem" })).toBeVisible();
   await page.goto("/auth");
   await page
     .getByRole("button", { name: "Open device-local workspace" })
@@ -196,4 +195,34 @@ test("landing and local forms have no serious automated accessibility violations
       ),
     ).toEqual([]);
   }
+});
+
+test("renderer startup failure keeps the static logo without a drag affordance", async ({
+  page,
+}) => {
+  await page.addInitScript(() => {
+    const original = HTMLCanvasElement.prototype.getContext;
+    let probed = false;
+    HTMLCanvasElement.prototype.getContext = function (
+      type: string,
+      ...args: unknown[]
+    ) {
+      if (type === "webgl2") {
+        if (probed) return null;
+        probed = true;
+      } else if (type === "webgl" || type === "experimental-webgl") return null;
+      return original.apply(this, [type, ...args] as never);
+    } as typeof original;
+  });
+  await page.goto("/");
+  await expect(
+    page.getByRole("heading", { name: "Build your strongest self." }),
+  ).toBeVisible();
+  await expect(
+    page.getByRole("img", { name: "LMQ emblem", exact: true }),
+  ).toBeVisible();
+  await expect(page.locator(".scene-caption")).toHaveCount(0);
+  await expect(
+    page.getByLabel("Original interactive 3D performance sculpture"),
+  ).toHaveCount(0);
 });

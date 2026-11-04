@@ -27,7 +27,7 @@ See [source audit and ambiguities](docs/PROGRAM-SOURCE-AUDIT.md). To use these a
 
 ## Supabase setup
 
-See [deployment instructions](docs/DEPLOYMENT.md). Apply all migrations in order; the public browser key cannot apply migrations. Until then, cloud forms may report missing-table errors and cloud readiness is not established.
+See [release readiness and outstanding findings](docs/RELEASE-READINESS.md) and [deployment instructions](docs/DEPLOYMENT.md). Apply all migrations in order; the public browser key cannot apply migrations. Until then, cloud forms may report missing-table errors and cloud readiness is not established.
 
 ## Commands
 
@@ -38,6 +38,9 @@ npm run build      # dist/ and PWA service worker
 npm run preview
 npm run test:e2e   # start dev server separately first; Chromium required
 npm run test:production # run preview on port 4173 first; checks PWA/offline behavior
+npm run test:cloudflare # checks the built Pages header rules with the same browser smoke
+npm audit --omit=dev    # runtime dependency advisories
+npm audit              # includes unresolved build-tool advisories
 ```
 
 Browser tests use `/usr/bin/chromium` by default. Set `CHROMIUM_PATH` to an installed Chromium, or adapt the Playwright configuration to your CI browser. Tests deliberately use synthetic nutrition values; none are included as production food facts.

@@ -2940,7 +2940,7 @@ td {
     font-size: 14px;
     gap: 5px;
   }
-  .public-nav .brand > img {
+  .public-nav .brand > .brand-icon {
     width: 27px;
     height: 27px;
   }

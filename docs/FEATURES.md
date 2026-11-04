@@ -13,6 +13,8 @@
 - Editable adult profile: goals, height/weight, experience, equipment, preferred days, duration, restrictions, timezone and static-display preference.
 - Starter plan and seven-day schedule generation; full-body or push/pull/legs approach based on days and equipment. Restrictions are retained as notes, not medically interpreted.
 - Workout template create/edit/reorder/duplicate/delete, per-exercise sets, reps and rest.
+- Previous completed performance matched by account, exercise and set number, with explicit load reuse for compatible source segments and custom sets. Reps, effort, holds and completion remain as entered. See [REPEAT-WORKOUTS.md](REPEAT-WORKOUTS.md).
+- Friendly unavailable-schema recovery with retry and an explicit device workspace fallback; existing account/device records remain separate. See [CLOUD-READINESS.md](CLOUD-READINESS.md).
 - Resumable active sessions, per-set reps/weight/RPE, completion, previous results, pause/resume, rest timer, finish summary and explicit discard confirmation.
 - Atomic completed-session/attendance/schedule persistence, locally and through a Supabase RPC.
 - Manual check-in, rest/partial/completed statuses, calendar, scheduling and rescheduling; rest/future dates excluded from attendance denominator.
@@ -22,7 +24,7 @@
 - Exercise written cues and searchable muscle directory for eleven groups. Picture gallery for all 105 imported movement blocks and 14 starter exercises, separate superset/tri-set references, original chest PDF drawings, attributed supplemental photos, enlargement, offline caching and image-failure fallback. Two home-only exercises (wall push-up and prone W raise) remain labeled written-only; pictured variation differences are explicit.
 - Three.js hero, reviewed asset/animation viewer infrastructure, static alternative.
 - User data export/local deletion; server account-deletion implementation.
-- Schema, RLS, catalog seed, storage policies, PWA build and Cloudflare SPA routing.
+- Schema, RLS, catalog seed, storage policies, PWA build, Cloudflare SPA routing and response security headers. See [RELEASE-READINESS.md](RELEASE-READINESS.md) for remaining launch requirements.
 
 ## External validation required
 

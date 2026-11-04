@@ -76,7 +76,18 @@ export default function Landing() {
             </div>
           </div>
           <div className="hero-visual">
-            <Suspense fallback={<div className="static-sculpture">LMQ</div>}>
+            <Suspense
+              fallback={
+                <div className="static-sculpture">
+                  <img
+                    src="/brand/lmq-icon.png"
+                    alt=""
+                    width="180"
+                    height="180"
+                  />
+                </div>
+              }
+            >
               <PerformanceScene />
             </Suspense>
             <div className="hero-orbit-label">
@@ -162,7 +173,7 @@ export default function Landing() {
         <span>Train. Fuel. Evolve.</span>
         <div>
           <Link to="/privacy">Privacy</Link>
-          <Link to="/pricing">Membership</Link>
+          <Link to="/programs">Training programs</Link>
         </div>
       </footer>
     </div>

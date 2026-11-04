@@ -1,7 +1,7 @@
 import { lazy, Suspense, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { useSearchParams, Link } from "react-router-dom";
-import { ArrowRight, Box, Search } from "lucide-react";
+import { ArrowRight, Search } from "lucide-react";
 import { exercises, muscleGroups, findExercise } from "../lib/catalog";
 import { useStore, useProfile } from "../lib/store";
 import { Button } from "../components/ui/button";
@@ -66,22 +66,7 @@ export function Library() {
                 onSelect={() => {}}
               />
             </Suspense>
-          ) : (
-            <div className="asset-unavailable exercise-3d-status">
-              <Box size={34} strokeWidth={1} />
-              <h3>
-                {profile?.quality === "static"
-                  ? "Static display selected."
-                  : "No validated 3D demonstration available."}
-              </h3>
-              <p>Reviewed 3D demonstrations will appear here when approved.</p>
-            </div>
-          )}
-          {assets.error && (
-            <Notice error>
-              3D catalog unavailable. Written instructions remain available.
-            </Notice>
-          )}
+          ) : null}
           {selected.prescription ? (
             <SourcePrescription
               source={selected.prescription}
@@ -237,9 +222,11 @@ export function Muscles() {
         title="Know what you’re training."
         description="Explore muscle function and find movements for your next session."
       />
-      <div className="muscle-layout">
-        <section className="panel muscle-stage">
-          {model && profile?.quality !== "static" ? (
+      <div
+        className={`muscle-layout ${model && profile?.quality !== "static" ? "" : "muscle-directory"}`}
+      >
+        {model && profile?.quality !== "static" && (
+          <section className="panel muscle-stage">
             <Suspense fallback={<p>Loading anatomy…</p>}>
               <AssetViewer
                 asset={model}
@@ -247,25 +234,8 @@ export function Muscles() {
                 onSelect={setSelected}
               />
             </Suspense>
-          ) : (
-            <div className="anatomy-empty">
-              <Box size={52} strokeWidth={0.8} />
-              <h2>Accurate anatomy comes first.</h2>
-              <p>
-                A licensed, reviewed anatomy model has not been added yet.
-                Explore all 11 muscle groups using the accessible directory
-                alongside.
-              </p>
-              <span className="tag">NO PLACEHOLDER HUMAN MODEL</span>
-            </div>
-          )}
-          {assets.error && (
-            <Notice error>
-              The anatomy catalog could not be loaded. The muscle directory
-              remains available.
-            </Notice>
-          )}
-        </section>
+          </section>
+        )}
         <section className="panel">
           <Field label="Search muscle groups">
             <input

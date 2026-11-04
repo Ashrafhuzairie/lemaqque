@@ -152,7 +152,7 @@ function ProfileForm({ current }: { current?: Profile }) {
         if (error) throw error;
       }
       await signOut();
-      navigate("/");
+      navigate("/auth", { replace: true });
     } catch (e) {
       setError((e as Error).message);
     } finally {

@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { Component, useEffect, useRef, useState, type ReactNode } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import * as THREE from "three";
@@ -50,6 +50,7 @@ export default function PerformanceScene() {
   const host = useRef<HTMLDivElement>(null);
   const scroll = useRef({ value: 0 });
   const [visible, setVisible] = useState(true);
+  const [interactive, setInteractive] = useState(false);
   const [reduced, setReduced] = useState(
     () => matchMedia("(prefers-reduced-motion: reduce)").matches,
   );
@@ -99,60 +100,81 @@ export default function PerformanceScene() {
     };
   }, []);
   return (
-    <div
-      ref={host}
-      className="performance-scene"
-      aria-label="Original interactive 3D performance sculpture"
-    >
-      {supported ? (
-        <Canvas
-          dpr={[1, 1.5]}
-          camera={{ position: [0, 0, 7], fov: 43 }}
-          frameloop={visible && !reduced ? "always" : "demand"}
-          gl={{ antialias: true, alpha: true, powerPreference: "low-power" }}
-          fallback={<StaticSculpture />}
-        >
-          <ambientLight intensity={0.5} />
-          <directionalLight
-            position={[4, 5, 3]}
-            intensity={4}
-            color="#f6f7fb"
-          />
-          <directionalLight
-            position={[-4, -1, 1]}
-            intensity={3}
-            color="#ff4d57"
-          />
-          <spotLight
-            position={[2, -4, 2]}
-            intensity={22}
-            color="#ffcf5c"
-            angle={0.6}
-          />
-          <Sculpture reduced={reduced} scroll={scroll} />
-          <OrbitControls
-            enablePan={false}
-            enableZoom={false}
-            autoRotate={false}
-          />
-        </Canvas>
-      ) : (
-        <StaticSculpture />
-      )}
-      <span className="scene-caption">
-        FORM IN MOTION <span>Drag to explore</span>
-      </span>
+    <div ref={host} className="performance-scene">
+      <SceneBoundary>
+        {supported ? (
+          <>
+            <Canvas
+              onCreated={() => setInteractive(true)}
+              aria-label={
+                interactive
+                  ? "Original interactive 3D performance sculpture"
+                  : undefined
+              }
+              dpr={[1, 1.5]}
+              camera={{ position: [0, 0, 7], fov: 43 }}
+              frameloop={visible && !reduced ? "always" : "demand"}
+              gl={{
+                antialias: true,
+                alpha: true,
+                powerPreference: "low-power",
+              }}
+              fallback={<StaticSculpture />}
+            >
+              <ambientLight intensity={0.5} />
+              <directionalLight
+                position={[4, 5, 3]}
+                intensity={4}
+                color="#f6f7fb"
+              />
+              <directionalLight
+                position={[-4, -1, 1]}
+                intensity={3}
+                color="#ff4d57"
+              />
+              <spotLight
+                position={[2, -4, 2]}
+                intensity={22}
+                color="#ffcf5c"
+                angle={0.6}
+              />
+              <Sculpture reduced={reduced} scroll={scroll} />
+              <OrbitControls
+                enablePan={false}
+                enableZoom={false}
+                autoRotate={false}
+              />
+            </Canvas>
+            {interactive && (
+              <span className="scene-caption">
+                FORM IN MOTION <span>Drag to explore</span>
+              </span>
+            )}
+          </>
+        ) : (
+          <StaticSculpture />
+        )}
+      </SceneBoundary>
     </div>
   );
 }
 function StaticSculpture() {
   return (
-    <div
-      className="static-sculpture"
-      role="img"
-      aria-label="LMQ abstract static graphic"
-    >
-      <span>LMQ</span>
+    <div className="static-sculpture" role="img" aria-label="LMQ emblem">
+      <img src="/brand/lmq-icon.png" alt="" width="180" height="180" />
     </div>
   );
+}
+
+class SceneBoundary extends Component<
+  { children: ReactNode },
+  { failed: boolean }
+> {
+  state = { failed: false };
+  static getDerivedStateFromError() {
+    return { failed: true };
+  }
+  render() {
+    return this.state.failed ? <StaticSculpture /> : this.props.children;
+  }
 }

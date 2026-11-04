@@ -45,6 +45,11 @@ describe("tracking calculations", () => {
         set({ completed: false, weight: 100 }),
       ]),
     ).toBe(310));
+  it("excludes a timed plank from external-load repetition volume", () => {
+    expect(
+      volume([set(), set({ exercise_id: "plank", reps: 60, weight: 20 })]),
+    ).toBe(150);
+  });
   it("excludes rest and future dates from attendance denominator", () => {
     expect(
       attendanceRate(

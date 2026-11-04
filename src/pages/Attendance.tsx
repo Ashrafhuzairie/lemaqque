@@ -176,26 +176,26 @@ export default function Attendance() {
                 const planned = schedule.data?.some(
                   (s) => s.day === date && s.status === "planned",
                 );
+                const indicator =
+                  record?.status === "completed"
+                    ? "Trained"
+                    : record?.status === "rest"
+                      ? "Rest"
+                      : record?.status === "partial"
+                        ? "Partial"
+                        : planned
+                          ? "Planned"
+                          : "";
                 return (
                   <button
                     key={date}
                     className={`${date === today ? "calendar-today" : ""} ${date === day ? "calendar-selected" : ""} calendar-${record?.status || ""}`}
-                    aria-label={`${i + 1} ${month}, ${record?.status === "completed" ? "Trained" : record?.status === "rest" ? "Rest" : record?.status === "partial" ? "Partial" : planned ? "Planned" : "Not logged"}`}
+                    aria-label={`${i + 1} ${indicator || "Not logged"}, ${month}`}
                     aria-pressed={day === date}
                     onClick={() => setDay(date)}
                   >
-                    <span>{i + 1}</span>
-                    <span className="calendar-indicator">
-                      {record?.status === "completed"
-                        ? "Trained"
-                        : record?.status === "rest"
-                          ? "Rest"
-                          : record?.status === "partial"
-                            ? "Partial"
-                            : planned
-                              ? "Planned"
-                              : ""}
-                    </span>
+                    <span>{i + 1}</span>{" "}
+                    <span className="calendar-indicator">{indicator}</span>
                   </button>
                 );
               })}

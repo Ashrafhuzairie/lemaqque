@@ -29,9 +29,6 @@ const Library = lazy(() =>
   Privacy = lazy(() =>
     import("./pages/Public").then((m) => ({ default: m.Privacy })),
   ),
-  Pricing = lazy(() =>
-    import("./pages/Public").then((m) => ({ default: m.Pricing })),
-  ),
   PublicPrograms = lazy(() =>
     import("./pages/Public").then((m) => ({ default: m.PublicPrograms })),
   );
@@ -69,7 +66,7 @@ export default function App() {
           <Route path="/features" element={<Landing />} />
           <Route path="/programs" element={<PublicPrograms />} />
           <Route path="/privacy" element={<Privacy />} />
-          <Route path="/pricing" element={<Pricing />} />
+          <Route path="/pricing" element={<Navigate to="/" replace />} />
           <Route path="/app" element={<Shell />}>
             <Route index element={<Dashboard />} />
             <Route path="settings" element={<Settings />} />

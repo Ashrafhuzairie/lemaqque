@@ -11,7 +11,8 @@
     "test:e2e": "playwright test",
     "typecheck": "tsc -b",
     "test:production": "node tests/production-smoke.mjs",
-    "format": "prettier --write src tests docs *.md *.ts *.json"
+    "format": "prettier --write src tests docs *.md *.ts *.json",
+    "test:cloudflare": "node tests/cloudflare-smoke.mjs"
   },
   "dependencies": {
     "@fontsource-variable/manrope": "^5.2.8",

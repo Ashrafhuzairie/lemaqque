@@ -19,7 +19,7 @@ export default function Auth() {
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");
   const [busy, setBusy] = useState(false);
-  const { enterLocal, userId, local } = useStore();
+  const { enterLocal, enterCloud, userId, local } = useStore();
   const navigate = useNavigate();
   useEffect(() => {
     if (userId && !local && mode !== "update") navigate("/app");
@@ -64,8 +64,10 @@ export default function Auth() {
           options: { emailRedirectTo: location.origin + "/app" },
         });
         if (error) throw error;
-        if (data.session) navigate("/app/settings");
-        else
+        if (data.session) {
+          enterCloud();
+          navigate("/app/settings");
+        } else
           setMessage("Check your email to confirm your account, then sign in.");
       } else {
         const { error } = await supabase.auth.signInWithPassword({
@@ -73,6 +75,7 @@ export default function Auth() {
           password,
         });
         if (error) throw error;
+        enterCloud();
         navigate("/app");
       }
     } catch (e) {

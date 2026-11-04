@@ -27,8 +27,8 @@ export function Privacy() {
       <main className="prose">
         <h1>Your data belongs to you.</h1>
         <p>
-          LÉMAQQUE is an early-stage fitness tracking application. This page
-          describes the implementation, not a claim of legal certification.
+          LÉMAQQUE keeps your training, nutrition and progress records in your
+          chosen workspace. Here is how storage, backups and deletion work.
         </p>
         <h2>Device-local workspace</h2>
         <p>
@@ -41,18 +41,17 @@ export function Privacy() {
         <p>
           When Supabase is configured and you sign in, profile, training,
           nutrition and measurement records are stored in the connected Supabase
-          project. The database migration restricts records to the authenticated
-          owner. Email and authentication are handled by Supabase. Connection
-          security and deployed policies must be verified by the operator before
-          production use.
+          project. Email and authentication are handled by Supabase. Local and
+          account records stay separate. If a connection or save fails, the app
+          shows an error; cloud writes are not queued for an offline upload.
         </p>
         <h2>Export and deletion</h2>
         <p>
           Settings exports your tracking records as JSON. Local deletion clears
           this workspace. Cloud deletion calls a server function that deletes
-          your private files and account. This requires the function to be
-          deployed correctly. Contact details and the legal operating entity
-          must be supplied before launch.
+          your private files and account. If deletion fails, the app shows an
+          error so you can retry. Export a backup before deleting records you
+          want to keep.
         </p>
         <h2>No invented health measurements</h2>
         <p>
@@ -69,26 +68,6 @@ export function Privacy() {
         </p>
         <Button asChild>
           <Link to="/app/settings">Manage my data</Link>
-        </Button>
-      </main>
-    </div>
-  );
-}
-export function Pricing() {
-  return (
-    <div className="public-document">
-      <nav>
-        <Brand />
-        <Link to="/">Home</Link>
-      </nav>
-      <main className="prose">
-        <h1>Focus on the practice.</h1>
-        <p>
-          Membership plans and billing have not launched. No price,
-          subscription, or payment collection is active.
-        </p>
-        <Button asChild>
-          <Link to="/auth">Open your workspace</Link>
         </Button>
       </main>
     </div>

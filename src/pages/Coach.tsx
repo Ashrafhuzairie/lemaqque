@@ -107,7 +107,6 @@ export default function Coach() {
         <Notice>
           General fitness guidance, not medical advice. The coach cannot
           diagnose injuries, assess recovery clinically, or prescribe a diet.
-          Optional conversational AI is not enabled.
         </Notice>
       </DataGate>
     </>
