@@ -27,6 +27,12 @@ try {
   await page
     .getByRole("heading", { name: "Build your strongest self." })
     .waitFor();
+  await page.waitForFunction(
+    async () =>
+      Boolean((await navigator.serviceWorker.getRegistration())?.active),
+    null,
+    { timeout: 30000 },
+  );
   await page.evaluate(() => navigator.serviceWorker.ready);
   const manifest = await (
     await context.request.get(origin + "/manifest.webmanifest")

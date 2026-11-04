@@ -21,17 +21,24 @@
 
 The publishable key cannot run migrations, administer users, or deploy functions. No project migration or deployment is claimed without verification.
 
-## Cloudflare Pages
+## Cloudflare Workers with static assets
 
-Current readiness and unresolved findings: [RELEASE-READINESS.md](RELEASE-READINESS.md).
+The reported deployment uses Workers (`/workers/scripts/lemaqque/versions`). Use the repository's `wrangler.jsonc` from the project root:
 
-- Connect the GitHub repository through Cloudflare Pages.
+- Connect this GitHub repository and choose `main` in the existing Workers project.
 - Build command: `npm ci && npm run build`
-- Output directory: `dist`
-- Node: 24 (22.12+ supported).
-- Set `VITE_SUPABASE_URL` and `VITE_SUPABASE_ANON_KEY` for each deployment environment. They are public browser configuration. Changing them requires rebuilding.
-- `public/_redirects` provides SPA routing. The installable manifest and generated service worker cache the application shell, not Supabase API responses. Use HTTPS.
-- `public/_headers` ships security headers, including CSP restricted to the current Supabase host. Update its HTTPS/WebSocket origins when changing project configuration, and explicitly review any future approved external model hosts. Run `npm run test:cloudflare` against the built preview to check the actual header rules before deploying.
+- Deploy command: `npm run deploy` (the existing `npx wrangler deploy` also uses the pinned local Wrangler).
+- Node: 24. The asset directory is `dist`, configured in `wrangler.jsonc`; keep the build/deploy working directory at the repository root.
+- Set `VITE_SUPABASE_URL` and `VITE_SUPABASE_ANON_KEY` as **build** variables. They are public browser configuration; setting only runtime Worker variables does not rebuild the browser bundle. Never expose a service-role key.
+- Run `npm run deploy:check` after building for a non-publishing Wrangler validation.
+- `assets.not_found_handling: "single-page-application"` serves the app shell for direct navigation such as `/app/workouts`. `assets.html_handling: "none"` serves `/index.html` directly so the PWA can precache its shell without an HTML canonicalization redirect.
+- Do not restore `/* /index.html 200` in `_redirects`: Workers rejects that rule as an infinite redirect loop. The legacy file has been removed. A fresh Vite build clears it from `dist`.
+- `public/_headers` ships security headers, including CSP restricted to the current Supabase host. Update its HTTPS/WebSocket origins when changing backend configuration and review any future external model hosts.
+- `npm run test:cloudflare` starts Wrangler's actual local Workers runtime, checks canonical/deep URLs and headers, then drives the production/offline browser smoke. No standalone Vite preview or Cloudflare authentication is required for this local check.
+
+If choosing Cloudflare Pages instead, use the same build command and output directory `dist`, with no Wrangler deploy command. Pages supplies its native SPA fallback when there is no top-level `404.html`; the removed wildcard rule is unnecessary there too.
+
+Current cloud-account/security limitations remain in [RELEASE-READINESS.md](RELEASE-READINESS.md). A successful frontend upload does not apply Supabase migrations or verify cloud saving.
 
 ## Offline and browser storage
 

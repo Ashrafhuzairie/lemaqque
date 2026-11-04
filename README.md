@@ -38,7 +38,9 @@ npm run build      # dist/ and PWA service worker
 npm run preview
 npm run test:e2e   # start dev server separately first; Chromium required
 npm run test:production # run preview on port 4173 first; checks PWA/offline behavior
-npm run test:cloudflare # checks the built Pages header rules with the same browser smoke
+npm run test:cloudflare # starts local Workers runtime; checks routing, headers and offline behavior
+npm run deploy:check   # validate the built Workers deployment without publishing
+npm run deploy         # publish to the configured Cloudflare Workers project
 npm audit --omit=dev    # runtime dependency advisories
 npm audit              # includes unresolved build-tool advisories
 ```

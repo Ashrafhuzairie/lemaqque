@@ -1,6 +1,6 @@
 # Cloudflare release readiness — 4 November 2026
 
-The frontend build can be deployed to Cloudflare Pages. A complete cloud-account launch is **not cleared**: the configured Supabase data API reports unavailable tables, authenticated saving/isolation has not been verified against that project, and the full dependency audit retains build-tool advisories. Publishing frontend files does not resolve those items.
+The frontend build supports Cloudflare Workers static assets through `wrangler.jsonc`, with native SPA fallback. A complete cloud-account launch is **not cleared**: the configured Supabase data API reports unavailable tables, authenticated saving/isolation has not been verified against that project, and the full dependency audit retains build-tool advisories. Publishing frontend files does not resolve those items.
 
 ## Verification result
 
@@ -14,7 +14,7 @@ The final run passed **64 unit/database tests and all 15 browser scenarios**. Ty
 - Device-workspace selection survives cloud-session restoration and reload. Signing in explicitly selects the cloud workspace. Switching storage does not copy records between accounts and devices.
 - Calendar accessible names include their visible date/status text. Desktop/mobile route checks, serious/critical accessibility scans and workout lifecycle checks are automated in `tests/e2e/readiness.spec.ts`.
 - `public/_headers` supplies CSP, anti-framing, MIME protection, referrer policy, restricted browser capabilities, HTTPS transport policy, immutable hashed assets and fresh service-worker/manifest checks. CSP allows only this configured Supabase project's HTTPS/WebSocket origin; review it when changing backend or approving external model assets. Inline styles remain permitted for React/charts; inline scripts are not permitted.
-- `npm run test:cloudflare` applies the actual built Pages header rules to preview responses and drives the production/offline smoke. This is a local deployment simulation, not evidence of live Cloudflare headers.
+- `npm run test:cloudflare` now uses Wrangler’s actual local Workers runtime to verify native routing, response headers and production/offline behavior. This is local runtime evidence, not evidence of a completed live deployment.
 
 ## Security evidence and limits
 
@@ -28,10 +28,10 @@ The deployed privacy page also needs the operator's real identity/contact inform
 
 ## Deploy from GitHub
 
-1. In Cloudflare Pages, connect this repository and choose the intended production branch.
-2. Use build command `npm ci && npm run build`, output directory `dist`, and Node 24.
+1. In the existing Cloudflare Workers project, connect this repository and choose the intended production branch.
+2. Use build command `npm ci && npm run build`, deploy command `npm run deploy`, Node 24, and the repository root. `wrangler.jsonc` points to `dist`; do not deploy an old build containing the removed `_redirects` file.
 3. Add the intended project's public `VITE_SUPABASE_URL` and `VITE_SUPABASE_ANON_KEY` as build variables. Never add a service-role/admin key to a frontend variable.
 4. Complete the Supabase checks in [DEPLOYMENT.md](DEPLOYMENT.md), using only unapplied migrations and the actual deployed HTTPS origin for Auth redirects and Edge Function CORS.
-5. After a Pages preview exists, verify `/app/workouts` direct navigation, response security headers, sign-up/confirmation/recovery, separate-account saving, export/deletion, and offline device tracking on that origin. The repository's SPA redirect and PWA assets are included in `dist`.
+5. After a Workers deployment exists, verify `/app/workouts` direct navigation, response security headers, sign-up/confirmation/recovery, separate-account saving, export/deletion, and offline device tracking on that origin. Native SPA handling is configured in `wrangler.jsonc`; PWA assets and security headers are included in `dist`.
 
-A GitHub push, environment publication and Cloudflare deployment are separate actions. No Cloudflare credentials/project binding are available in this workspace.
+A GitHub push, environment publication and Cloudflare deployment are separate actions. Cloudflare credentials are not available in this workspace; the configured Worker name comes from the supplied deployment log.

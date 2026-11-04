@@ -12,7 +12,9 @@
     "typecheck": "tsc -b",
     "test:production": "node tests/production-smoke.mjs",
     "format": "prettier --write src tests docs *.md *.ts *.json",
-    "test:cloudflare": "node tests/cloudflare-smoke.mjs"
+    "test:cloudflare": "node tests/cloudflare-smoke.mjs",
+    "deploy": "wrangler deploy",
+    "deploy:check": "wrangler deploy --dry-run"
   },
   "dependencies": {
     "@fontsource-variable/manrope": "^5.2.8",
@@ -53,6 +55,7 @@
     "typescript": "~5.9.3",
     "vite": "^7.2.2",
     "vite-plugin-pwa": "^1.1.0",
-    "vitest": "^4.0.8"
+    "vitest": "^4.0.8",
+    "wrangler": "4.157.0"
   }
 }
